@@ -1,6 +1,6 @@
 {
   "name": "@ijsto/flyui",
-  "version": "0.0.2",
+  "version": "0.0.22",
   "private": false,
   "author": {
     "name": "Scott Agirs Neminskis",
@@ -26,27 +26,13 @@
     "compile": "yarn clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,stories.js"
   },
   "dependencies": {
+    "color": "^4.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.1",
     "styled-system": "^5.1.5",
     "web-vitals": "^1.0.1"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
   },
   "browserslist": {
     "production": [
@@ -64,13 +50,15 @@
     "@babel/cli": "^7.15.7",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
+    "@ijsto/eslint-config": "4.1.6",
     "@storybook/addon-actions": "^6.3.8",
     "@storybook/addon-essentials": "^6.3.8",
     "@storybook/addon-links": "^6.3.8",
     "@storybook/node-logger": "^6.3.8",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.8",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "eslint": "^7.25.0"
   },
   "peerDependencies": {
     "react": "^17.0.2",
