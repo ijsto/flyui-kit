@@ -1,16 +1,12 @@
 {
-  "name": "flyui",
-  "version": "0.0.1",
+  "name": "@ijsto/flyui",
+  "version": "0.0.2",
+  "private": false,
   "author": {
     "name": "Scott Agirs Neminskis",
     "email": "scott@ijs.to",
     "url": "https://ijs.to"
-  },
-  "dependencies": {
-    "web-vitals": "^1.0.1"
-  },
-  "main": "dist/index.js",
-  "private": false,
+  },"main": "dist/index.js",
   "files": [ "dist", "README.md" ],
   "repository": {
       "type": "git",
@@ -24,6 +20,12 @@
     "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
     "compile": "yarn clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,stories.js"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
   },
   "eslintConfig": {
     "extends": [
@@ -66,7 +68,6 @@
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react-dom": "^17.0.2"
   }
 }
