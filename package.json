@@ -1,9 +1,20 @@
 {
   "name": "flyui",
   "version": "0.1.0",
-  "private": true,
+  "author": {
+    "name": "Scott Agirs Neminskis",
+    "email": "scott@ijs.to",
+    "url": "https://ijs.to"
+  },
   "dependencies": {
     "web-vitals": "^1.0.1"
+  },
+  "main": "dist/index.js",
+  "private": false,
+  "files": [ "dist", "README.md" ],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/ijsto/flyui"
   },
   "scripts": {
     "start": "react-scripts start",
