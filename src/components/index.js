@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from './data-entry/Button';
 
 export { 
     Button
