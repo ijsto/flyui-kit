@@ -1,24 +1,11 @@
 import { css } from 'styled-components';
 
-// Core Stacks
-export const monoFontStack = 'Courier New, sans-serif';
-export const sansSerifFontStack = 'Avant Garde, sans-serif';
-export const fancyFontStack = 'Brush Script MT, sans-serif';
-export const serifFontStack = 'Cambria, serif';
-export const boldSerifFontStack = 'Cambria, serif';
-
-// Global UI Stacks
-export const buttonFontStack = sansSerifFontStack;
-export const captionTextFontStack = sansSerifFontStack;
-export const headingFontStack = serifFontStack;
-export const inputFontStack = sansSerifFontStack;
-
-export const serifStyles = () => css`
-  font-family: ${serifFontStack};
+export const serifStyles = ({ theme }) => css`
+  font-family: var(--font-serif, ${theme.fonts.serif});
 `;
-export const sansSerifStyles = () => css`
-  font-family: ${sansSerifFontStack};
+export const sansSerifStyles = ({ theme }) => css`
+  font-family: var(--font-sans-serif, ${theme.fonts.sansSerif});
 `;
-export const monoStyles = () => css`
-  font-family: ${monoFontStack};
+export const monoStyles = ({ theme }) => css`
+  font-family: var(--font-mono, ${theme.fonts.mono});
 `;

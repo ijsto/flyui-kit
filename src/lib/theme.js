@@ -1,13 +1,11 @@
 import { colors } from './colors';
-import { breakpointsPxArray } from './constants';
-
 import {
-  buttonFontStack,
+  breakpointsPxArray,
   fancyFontStack,
   serifFontStack,
   sansSerifFontStack,
   monoFontStack,
-} from './mixins/typographyMixins';
+} from './constants';
 
 // @TODO: Refactor Theme:
 
@@ -59,7 +57,7 @@ const commonProperties = {
   ],
   fontWeights: [100, 300, 500, 700, 900],
   fonts: {
-    button: buttonFontStack,
+    button: sansSerifFontStack,
     fancy: fancyFontStack,
     mono: monoFontStack,
     sansSerif: sansSerifFontStack,
