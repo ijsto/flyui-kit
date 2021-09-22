@@ -49,8 +49,8 @@ DefaultLink.args = {
   label: 'Default Button',
 };
 
-export const MultipleInRow = Template.bind({});
-MultipleInRow.decorators = [
+export const ButtonGroup = Template.bind({});
+ButtonGroup.decorators = [
   story => (
     <Stack direction="row">
       {story()}
@@ -59,7 +59,7 @@ MultipleInRow.decorators = [
     </Stack>
   ),
 ];
-MultipleInRow.args = {
+ButtonGroup.args = {
   href: '#clicked-Default',
   label: 'Default Button',
 };

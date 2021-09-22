@@ -13,34 +13,14 @@ import {
   buttonVariantStyles,
 } from '../../lib/mixins/buttonMixins';
 
-export const ButtonHeadingTag = styled.button`
-  appearance: none;
-  background: transparent;
-  border: 0;
-  display: block;
-  outline: none;
-  ${({ active }) => active && `color: ${({ theme }) => theme.colors.primary};`}
-  // {transition}
-  cursor: pointer;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    text-decoration: underline;
-    margin: 0.5em;
-  }
-
-  &:focus,
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    // {transition};
-  }
-`;
-
 export const StyledButtonLink = styled.a`
   ${buttonSizeStyles};
   ${buttonShapeStyles};
+
+  &:focus,
+  &:hover {
+    /* @TODO:  */
+  }
 `;
 
 const StyledButton = styled.button`
@@ -49,6 +29,11 @@ const StyledButton = styled.button`
   ${buttonShapeStyles};
 
   ${({ unstyled }) => !unstyled && buttonVariantStyles};
+
+  &:focus,
+  &:hover {
+    /* @TODO:  */
+  }
 `;
 
 export const StyledButtonWrapper = styled.div`

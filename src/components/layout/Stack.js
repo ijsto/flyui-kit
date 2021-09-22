@@ -8,7 +8,6 @@ export const StyledSlack = styled(Box)`
   display: flex;
   /* @TODO: Review wrapping. */
   flex-wrap: wrap;
-  padding: 0.25rem 0;
   ${systemSpace};
 `;
 
