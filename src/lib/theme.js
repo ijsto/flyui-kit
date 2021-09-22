@@ -83,7 +83,7 @@ const commonProperties = {
   },
 
   maxWidths: [16, 32, 64, 128, 256, 468, 512, 600, 768, 960, 1024, 1224, 1536],
-  radii: [0, 2, 4, 16, 9999, '100%'],
+  radii: [0, 2, 4, 8, 16, 32, 64, 9999],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   trans125: 'transition: all 0.125s cubic-bezier(0.645, 0.045, 0.355, 1);',
   trans25: 'transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);',
