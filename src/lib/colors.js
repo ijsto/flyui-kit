@@ -57,7 +57,7 @@ const warningDarkCol = '#F17B0D';
 const warningLightCol = '#F17B0D';
 
 // // Derived colors
-// const borderCol = primaryCol;
+const borderCol = primaryCol;
 // const inactiveCol = '#A3A1A8';
 // const linkTextCol = primaryCol;
 // const svgFillCol = '#333644';
@@ -72,6 +72,7 @@ export const colors = {
   background: backgroundCol,
   backgroundDark: backgroundDarkCol,
   backgroundLight: backgroundLightCol,
+  border: borderCol,
   error: errorCol,
   errorDark: errorDarkCol,
   errorLight: errorLightCol,
@@ -84,10 +85,10 @@ export const colors = {
   secondary: secondaryCol,
   secondaryDark: secondaryDarkCol,
   secondaryLight: secondaryLightCol,
-  success: surfaceCol,
+  success: successCol,
   successDark: successDarkCol,
   successLight: successLightCol,
-  surface: successCol,
+  surface: surfaceCol,
   surfaceDark: surfaceDarkCol,
   surfaceLight: surfaceLightCol,
   text: textCol,
