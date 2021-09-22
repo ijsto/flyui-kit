@@ -1,33 +1,47 @@
+import React from 'react';
+
 import Button from './Button';
 
 export default {
   argTypes: {
     endIcon: {
-      table: {
-        disable: true,
-      },
+      control: { type: 'select' },
+      options: ['edit', 'cancel', 'save'],
+    },
+    shape: {
+      control: { type: 'radio' },
+      options: ['squared', 'regular', 'rounded', 'round'],
+    },
+    size: {
+      control: { type: 'radio' },
+      options: ['sm', 'md', 'lg'],
     },
     startIcon: {
-      table: {
-        disable: true,
-      },
+      control: { type: 'select' },
+      options: ['edit', 'cancel', 'save'],
+    },
+    unstyled: {
+      control: { type: 'boolean' },
+    },
+    variant: {
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'outline'],
     },
   },
   component: Button,
-  title: 'Design system/dataEntry/Button',
+  title: 'Data Entry/Button',
 };
 
-const Template = args => {
-  return <Button {...args}>{args.label}</Button>;
+const Template = args => <Button {...args}>{args.label}</Button>;
+
+export const Default = Template.bind({});
+Default.args = {
+  label: 'Default Button',
+  onClick: () => alert('Clicked!'),
 };
 
-export const Basic = Template.bind({});
-Basic.args = {
-  center: true,
-  label: 'Basic Button',
-};
-
-export const Loading = Basic.bind({});
-Loading.args = {
-  loading: true,
+export const DefaultLink = Template.bind({});
+DefaultLink.args = {
+  href: '#clicked-Default',
+  label: 'Default Button',
 };
