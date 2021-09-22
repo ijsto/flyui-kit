@@ -21,6 +21,10 @@ export default {
       control: { type: 'select' },
       options: ['edit', 'cancel', 'save'],
     },
+    typography: {
+      control: { type: 'radio' },
+      options: ['serif', 'sans-serif', 'mono'],
+    },
     unstyled: {
       control: { type: 'boolean' },
       defaultValue: false,
