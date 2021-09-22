@@ -1,8 +1,10 @@
 import FlyThemeProvider from "../src/components/FlyThemeProvider";
+import Box from "../src/components/layout/Box";
 import theme from "../src/lib/theme";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
+  layout: "fullscreen",
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -14,7 +16,9 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <FlyThemeProvider theme={theme}>
-      <Story />
+      <Box p={3} bg="background">
+        <Story />
+      </Box>
     </FlyThemeProvider>
   )
 ];
