@@ -10,12 +10,14 @@ import Text from '../typography/Text';
 import {
   buttonShapeStyles,
   buttonSizeStyles,
+  buttonTypographyStyles,
   buttonVariantStyles,
 } from '../../lib/mixins/buttonMixins';
 
 export const StyledButtonLink = styled.a`
   ${buttonSizeStyles};
   ${buttonShapeStyles};
+  ${buttonTypographyStyles};
 
   &:focus,
   &:hover {
@@ -27,6 +29,7 @@ const StyledButton = styled.button`
   ${({ inline }) => (inline ? 'display: inline;' : 'display: block;')};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
+  ${buttonTypographyStyles};
 
   ${({ unstyled }) => !unstyled && buttonVariantStyles};
 
@@ -176,5 +179,4 @@ const Button = ({
     </ButtonChildrenContainer>
   </StyledButton>
 );
-
 export default Button;
