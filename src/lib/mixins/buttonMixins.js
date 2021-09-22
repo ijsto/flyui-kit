@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { serifStyles, sansSerifStyles, monoStyles } from './typographyMixins';
 
 // iJS
 
@@ -228,6 +229,23 @@ export const buttonSizeStyles = ({ size }) => {
     }
     default: {
       return mediumButtonStyles;
+    }
+  }
+};
+
+export const buttonTypographyStyles = ({ typography }) => {
+  switch (typography) {
+    case 'serif': {
+      return serifStyles;
+    }
+    case 'sans-serif': {
+      return sansSerifStyles;
+    }
+    case 'mono': {
+      return monoStyles;
+    }
+    default: {
+      return sansSerifStyles;
     }
   }
 };
