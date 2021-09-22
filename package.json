@@ -7,7 +7,9 @@
     "email": "scott@ijs.to",
     "url": "https://ijs.to"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "source": "src/kit/index.js",
   "files": [
     "dist",
     "README.md"
@@ -18,12 +20,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-rollup": "yarn clean && rollup -c",
     "clean": "rimraf dist",
-    "compile": "yarn clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,stories.js"
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "color": "^4.0.1",
