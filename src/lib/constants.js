@@ -18,6 +18,7 @@ export const breakpoints = {
 };
 
 // Add px suffix
+// eslint-disable-next-line node/no-unsupported-features/es-builtins
 export const breakpointsPx = Object.fromEntries(
   // convert to array, map, and then fromEntries gives back the object
   Object.entries(breakpoints).map(([key, value]) => [key, `${value}px`])
@@ -31,6 +32,7 @@ export const breakpointsPxArray = Object.values(breakpointsPx);
 
 // These queries are for mobile first designs
 // @TODO: (Scott) Add documentation
+// eslint-disable-next-line node/no-unsupported-features/es-builtins
 export const breakpointQueries = Object.fromEntries(
   Object.entries(breakpointsPx).map(([key, value]) => [
     key,
