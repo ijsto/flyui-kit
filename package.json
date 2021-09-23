@@ -19,6 +19,7 @@
     "url": "https://github.com/ijsto/flyui"
   },
   "scripts": {
+    "chromatic": "chromatic --exit-zero-on-changes",
     "start": "react-scripts start",
     "build-rollup": "yarn clean && rollup -c",
     "clean": "rimraf dist",
@@ -60,6 +61,7 @@
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.8",
     "@svgr/rollup": "^5.5.0",
+    "chromatic": "^5.10.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.25.0",
     "rollup": "^2.57.0",
