@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Text from './Text';
 import Box from '../layout/Box';
 import Stack from '../layout/Stack';
 
@@ -42,7 +43,7 @@ export default {
   title: 'Data Entry/Avatar',
 };
 
-const Template = args => <Avatar {...args}>{args.label}</Avatar>;
+const Template = args => <Avatar {...args}>{args.children}</Avatar>;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -51,7 +52,7 @@ Default.args = {
 
 export const Initials = Template.bind({});
 Initials.args = {
-  initials: 'Agi Smith',
+  children: <Text>AS</Text>,
 };
 
 export const AvatarGroup = Template.bind({});
@@ -73,6 +74,7 @@ AvatarGroup.args = {
   src: 'https://source.unsplash.com/92x92/?portrait',
 };
 
+// @TODO: Move out to its own component AvatarGroup />
 export const AvatarGroupExtra = Template.bind({});
 AvatarGroupExtra.decorators = [
   story => {
