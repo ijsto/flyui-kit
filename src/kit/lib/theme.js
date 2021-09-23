@@ -5,6 +5,12 @@ import {
   serifFontStack,
   sansSerifFontStack,
   monoFontStack,
+  inputFontStack,
+  headingFontStack,
+  eyebrowFontStack,
+  captionFontStack,
+  buttonFontStack,
+  bodyFontStack,
 } from './constants';
 
 // @TODO: Refactor Theme:
@@ -33,7 +39,6 @@ const commonProperties = {
   // Radiuses
   // CARD
   breakpoints: breakpointsPxArray,
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   cardRadius: '0.75em',
   cardRadiusLG: '1.25em',
   cardRadiusSM: '8px',
@@ -57,11 +62,17 @@ const commonProperties = {
   ],
   fontWeights: [100, 300, 500, 700, 900],
   fonts: {
-    button: sansSerifFontStack,
     fancy: fancyFontStack,
     mono: monoFontStack,
     sansSerif: sansSerifFontStack,
     serif: serifFontStack,
+    // eslint-disable-next-line sort-keys
+    body: bodyFontStack,
+    button: buttonFontStack,
+    captionText: captionFontStack,
+    eyebrow: eyebrowFontStack,
+    heading: headingFontStack,
+    input: inputFontStack,
   },
   heights: [16, 32, 64, 128, 256],
   inputRadius: '0.25em',
@@ -87,6 +98,25 @@ const commonProperties = {
   trans25: 'transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);',
   width: [16, 32, 64, 128, 256],
 };
+
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.body = commonProperties.fontSizes[4];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h1 = commonProperties.fontSizes[9];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h2 = commonProperties.fontSizes[8];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h3 = commonProperties.fontSizes[7];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h4 = commonProperties.fontSizes[5];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h5 = commonProperties.fontSizes[4];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h6 = commonProperties.fontSizes[3];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.caption = commonProperties.fontSizes[2];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.eyebrow = commonProperties.fontSizes[3];
 
 const theme = {
   ...commonProperties,
