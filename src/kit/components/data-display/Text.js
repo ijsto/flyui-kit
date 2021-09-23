@@ -12,24 +12,18 @@ const StyledText = styled(Box)`
   ${layout};
   ${space};
   ${typography};
-  ${({ clickable }) =>
-    clickable &&
-    css`
-      cursor: pointer;
-    `}
+
   ${({ transform }) =>
     css`
       text-transform: ${transform};
     `}
 `;
 
-const Text = ({ children, my = 0, onClick, ...rest }) => (
+const Text = ({ children, inline, onClick, ...rest }) => (
   <StyledText
-    my={my}
     tabIndex={onClick || rest.variant === 'link' ? 0 : null}
-    // @TODO: Add keydown and a11y handlers
-    // onKeyDown={e => a11yClick(e, onClick)}
     onClick={onClick}
+    display={inline ? 'inline' : rest.display}
     clickable={Boolean(onClick)}
     {...rest}
   >
