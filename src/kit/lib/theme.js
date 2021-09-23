@@ -39,7 +39,6 @@ const commonProperties = {
   // Radiuses
   // CARD
   breakpoints: breakpointsPxArray,
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   cardRadius: '0.75em',
   cardRadiusLG: '1.25em',
   cardRadiusSM: '8px',

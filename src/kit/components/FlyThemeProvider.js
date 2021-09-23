@@ -3,10 +3,9 @@ import { ThemeProvider } from 'styled-components';
 
 import theme from '../lib/theme';
 
-const FlyThemeProvider = ({ children, theme: providedTheme }) => (
-  <ThemeProvider theme={{ ...theme, ...providedTheme }}>
-    {children}
-  </ThemeProvider>
-);
+const FlyThemeProvider = ({ children, theme: providedTheme }) => {
+  const mergedTheme = { ...theme, ...providedTheme };
+  return <ThemeProvider theme={mergedTheme}>{children}</ThemeProvider>;
+};
 
 export default FlyThemeProvider;

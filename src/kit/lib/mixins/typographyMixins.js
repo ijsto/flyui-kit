@@ -16,9 +16,9 @@ export const baseTextStyles = ({ gradient }) => {
 };
 
 export const headingStyles = ({ theme }) => css`
+  ${baseTextStyles};
   font-family: ${headingFontStack};
   color: ${theme.colors.heading || 'inherit'};
-  ${baseTextStyles};
 `;
 
 export const h1Styles = ({ margin, theme }) => css`
