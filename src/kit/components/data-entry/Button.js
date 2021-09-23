@@ -5,7 +5,7 @@ import { space, layout } from 'styled-system';
 import SVG from '../data-display/SVG';
 import LoadingIcon from '../../icons/circle-notch.svg';
 import Box from '../layout/Box';
-import Text from '../typography/Text';
+import Text from '../data-display/Text';
 
 import {
   buttonShapeStyles,
