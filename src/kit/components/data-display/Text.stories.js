@@ -27,12 +27,17 @@ Default.args = {
 };
 
 export const Themed = Template.bind({});
+Themed.argTypes = {
+  theme: {
+    control: { type: 'object' },
+    defaultValue: { fonts: { body: 'Times New Roman' } },
+  },
+};
 Themed.decorators = [
-  story => (
-    <FlyThemeProvider theme={{ fonts: { body: 'Times New Roman' } }}>
-      {story()}
-    </FlyThemeProvider>
-  ),
+  story => {
+    const { theme } = story();
+    return <FlyThemeProvider theme={theme}>{story()}</FlyThemeProvider>;
+  },
 ];
 Themed.args = {
   children: "I'm a Themed text!",
