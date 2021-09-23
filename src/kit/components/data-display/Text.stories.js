@@ -59,6 +59,15 @@ Themed.args = {
           <code>{`theme {}`}</code>
         </Text>
       </Text>
+
+      <Text gradient pt={2}>
+        PS. All text inside a<code>{`<Text />`}</code> tag can be gradient 😏
+      </Text>
+
+      <Text>
+        Except emojis 😅 Those will turn into a shape filled with the gradient
+        colour.
+      </Text>
     </>
   ),
 };
