@@ -69,7 +69,7 @@ const commonProperties = {
     // eslint-disable-next-line sort-keys
     body: bodyFontStack,
     button: buttonFontStack,
-    captionText: captionFontStack,
+    caption: captionFontStack,
     eyebrow: eyebrowFontStack,
     heading: headingFontStack,
     input: inputFontStack,
