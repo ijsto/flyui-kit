@@ -48,8 +48,25 @@ const normalizeSize = size => {
   }
 };
 
+const switchShapeRadius = shape => {
+  switch (shape) {
+    case 'round':
+      return '99999rem';
+    case 'rounded':
+      return 4;
+    case 'regular':
+      return 3;
+    case 'squared':
+      return 2;
+    case 'square':
+      return 0;
+
+    default:
+      return 0;
+  }
+};
+
 const Avatar = ({
-  initials,
   children,
   outline,
   outlineColor,
@@ -57,33 +74,14 @@ const Avatar = ({
   shape,
   ...rest
 }) => {
+  const normalizedSize = defaultSizes.includes(rest.size)
+    ? normalizeSize(rest.size)
+    : rest.size;
+
   if (shape) {
     // @TODO: Calculate borderRadius based on size
-    switch (shape) {
-      case 'round':
-        // eslint-disable-next-line no-param-reassign
-        rest.borderRadius = '99999rem';
-        break;
-      case 'rounded':
-        // eslint-disable-next-line no-param-reassign
-        rest.borderRadius = 4;
-        break;
-      case 'regular':
-        // eslint-disable-next-line no-param-reassign
-        rest.borderRadius = 3;
-        break;
-      case 'squared':
-        // eslint-disable-next-line no-param-reassign
-        rest.borderRadius = 2;
-        break;
-      case 'square':
-        // eslint-disable-next-line no-param-reassign
-        rest.borderRadius = 0;
-        break;
-
-      default:
-        break;
-    }
+    // eslint-disable-next-line no-param-reassign
+    rest.borderRadius = switchShapeRadius(shape);
   }
 
   if (outline) {
@@ -96,35 +94,14 @@ const Avatar = ({
   }
 
   if (children) {
-    if (defaultSizes.includes(rest.size))
-      return (
-        <StyledContentAvatar {...rest} size={normalizeSize(rest.size)}>
-          {children}
-        </StyledContentAvatar>
-      );
-
-    return <StyledContentAvatar {...rest}>{children}</StyledContentAvatar>;
-  }
-
-  if (initials && !rest.src) {
-    const normalizedInitials = initials;
-
-    if (defaultSizes.includes(rest.size))
-      return (
-        <StyledContentAvatar {...rest} size={normalizeSize(rest.size)}>
-          {normalizedInitials}
-        </StyledContentAvatar>
-      );
-
     return (
-      <StyledContentAvatar {...rest}>{normalizedInitials}</StyledContentAvatar>
+      <StyledContentAvatar {...rest} size={normalizedSize}>
+        {children}
+      </StyledContentAvatar>
     );
   }
 
-  if (defaultSizes.includes(rest.size))
-    return <StyledAvatar {...rest} size={normalizeSize(rest.size)} />;
-
-  return <StyledAvatar {...rest} />;
+  return <StyledAvatar {...rest} size={normalizedSize} />;
 };
 
 Avatar.defaultProps = {
