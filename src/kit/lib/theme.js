@@ -88,6 +88,25 @@ const commonProperties = {
   width: [16, 32, 64, 128, 256],
 };
 
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.body = commonProperties.fontSizes[4];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h1 = commonProperties.fontSizes[9];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h2 = commonProperties.fontSizes[8];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h3 = commonProperties.fontSizes[7];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h4 = commonProperties.fontSizes[5];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h5 = commonProperties.fontSizes[4];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.h6 = commonProperties.fontSizes[3];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.caption = commonProperties.fontSizes[2];
+// eslint-disable-next-line prefer-destructuring
+commonProperties.fontSizes.eyebrow = commonProperties.fontSizes[3];
+
 const theme = {
   ...commonProperties,
   ...borderProperties,

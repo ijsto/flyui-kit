@@ -73,8 +73,10 @@ export const serifFontStack = 'Cambria, serif';
 export const boldSerifFontStack = 'Cambria, serif';
 
 // Global UI Stacks
+export const bodyFontStack = sansSerifFontStack;
 export const buttonFontStack = sansSerifFontStack;
 export const captionTextFontStack = sansSerifFontStack;
+export const eyebrowFontStack = sansSerifFontStack;
 export const headingFontStack = serifFontStack;
 export const inputFontStack = sansSerifFontStack;
 
