@@ -1,5 +1,4 @@
-import React, { forwardRef } from 'react';
-
+import React from 'react';
 import styled from 'styled-components';
 import {
   border,
@@ -25,10 +24,8 @@ const StyledBox = styled.div`
   ${typography};
 `;
 
-const Box = forwardRef(({ children, ...rest }, ref) => (
-  <StyledBox ref={ref} {...rest}>
-    {children}
-  </StyledBox>
-));
+const Box = ({ children, ...rest }) => (
+  <StyledBox {...rest}>{children}</StyledBox>
+);
 
 export default Box;
