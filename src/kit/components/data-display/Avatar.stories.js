@@ -25,7 +25,7 @@ export default {
     },
     shape: {
       control: { type: 'radio' },
-      defaultValue: 'rounded',
+      defaultValue: 'round',
       options: ['square', 'squared', 'regular', 'rounded', 'round'],
     },
     size: {
