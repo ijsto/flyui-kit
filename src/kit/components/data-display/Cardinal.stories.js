@@ -16,7 +16,7 @@ export default {
     },
   },
   component: Cardinal,
-  title: 'Data Entry/Cardinal',
+  title: 'Data Display/Cardinal',
 };
 
 const Template = args => <Cardinal {...args}>{args.children}</Cardinal>;
