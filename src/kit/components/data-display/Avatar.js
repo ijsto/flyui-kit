@@ -106,6 +106,7 @@ const Avatar = ({
 
 Avatar.defaultProps = {
   radius: '50%',
+  shape: 'round',
   size: '48px',
   src: '',
 };
