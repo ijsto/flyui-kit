@@ -5,6 +5,12 @@ import {
   serifFontStack,
   sansSerifFontStack,
   monoFontStack,
+  inputFontStack,
+  headingFontStack,
+  eyebrowFontStack,
+  captionFontStack,
+  buttonFontStack,
+  bodyFontStack,
 } from './constants';
 
 // @TODO: Refactor Theme:
@@ -57,11 +63,17 @@ const commonProperties = {
   ],
   fontWeights: [100, 300, 500, 700, 900],
   fonts: {
-    button: sansSerifFontStack,
     fancy: fancyFontStack,
     mono: monoFontStack,
     sansSerif: sansSerifFontStack,
     serif: serifFontStack,
+    // eslint-disable-next-line sort-keys
+    body: bodyFontStack,
+    button: buttonFontStack,
+    captionText: captionFontStack,
+    eyebrow: eyebrowFontStack,
+    heading: headingFontStack,
+    input: inputFontStack,
   },
   heights: [16, 32, 64, 128, 256],
   inputRadius: '0.25em',

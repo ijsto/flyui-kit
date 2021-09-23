@@ -1,10 +1,5 @@
 import { css } from 'styled-components';
-import {
-  bodyFontStack,
-  captionTextFontStack,
-  eyebrowFontStack,
-  headingFontStack,
-} from '../constants';
+import { headingFontStack } from '../constants';
 
 import { primaryGradientText } from './gradientMixins';
 
@@ -76,26 +71,26 @@ export const h6Styles = ({ margin, theme }) => css`
 `;
 
 export const captionTextStyles = ({ theme }) => css`
-  font-family: ${captionTextFontStack};
+  ${baseTextStyles};
+  font-family: ${theme.fonts.caption};
   font-weight: 100;
   font-size: ${theme.fontSizes.caption};
   line-height: 1rem;
   letter-spacing: 0.1px;
-  ${baseTextStyles};
 `;
 
 export const eyebrowStyles = ({ theme }) => css`
-  font-family: ${eyebrowFontStack};
+  ${baseTextStyles};
+  font-family: ${theme.fonts.eyebrow};
   font-weight: bold;
   text-transform: uppercase;
   font-size: ${theme.fontSizes.eyebrow};
   letter-spacing: 0.1px;
-  ${baseTextStyles};
 `;
 
-export const defaultTextStyles = () => css`
-  font-family: ${bodyFontStack};
+export const defaultTextStyles = ({ theme }) => css`
   ${baseTextStyles};
+  font-family: ${theme.fonts.body};
 `;
 
 export const textVariantStyles = ({ variant }) => css`
@@ -116,14 +111,4 @@ export const textVariantStyles = ({ variant }) => css`
     : variant === 'h6'
     ? h6Styles
     : defaultTextStyles}
-`;
-
-export const serifStyles = ({ theme }) => css`
-  font-family: var(--font-serif, ${theme.fonts.serif});
-`;
-export const sansSerifStyles = ({ theme }) => css`
-  font-family: var(--font-sans-serif, ${theme.fonts.sansSerif});
-`;
-export const monoStyles = ({ theme }) => css`
-  font-family: var(--font-mono, ${theme.fonts.mono});
 `;
