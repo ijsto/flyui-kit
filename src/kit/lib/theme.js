@@ -46,11 +46,11 @@ const commonProperties = {
   cardRadiusXXS: '3px',
 
   fontSizes: [
-    '0.25rem',
-    '0.5rem',
-    '0.75rem',
-    '0.85rem',
-    '1rem',
+    '0.6rem',
+    '0.7rem',
+    '0.8rem',
+    '0.9rem',
+    '1rem', // [4]
     '1.125rem',
     '1.25rem',
     '1.5rem',
