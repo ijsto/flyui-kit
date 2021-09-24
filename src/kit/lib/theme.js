@@ -37,11 +37,6 @@ const borderProperties = {
 const commonProperties = {
   // @TODO: factor-out all the constants from theme
   breakpoints: breakpointsPxArray,
-  cardRadius: '0.75em',
-  cardRadiusLG: '1.25em',
-  cardRadiusSM: '8px',
-  cardRadiusXS: '4px',
-  cardRadiusXXS: '3px',
 
   fontSizes: [
     '0.6rem',
@@ -103,6 +98,16 @@ const commonProperties = {
   width: [16, 32, 64, 128, 256],
 };
 
+const radiusProperties = {
+  radius: {
+    card: {
+      lg: '4px',
+      md: '8px',
+      sm: '1.25em',
+    },
+  },
+};
+
 // eslint-disable-next-line prefer-destructuring
 commonProperties.radii.max = commonProperties.radii[7];
 // eslint-disable-next-line prefer-destructuring
@@ -127,6 +132,7 @@ commonProperties.fontSizes.eyebrow = commonProperties.fontSizes[3];
 const theme = {
   ...commonProperties,
   ...borderProperties,
+  ...radiusProperties,
   colors,
   skeletonColor: colors.fadedPrimary,
   skeletonShineColor: colors.secondary,
