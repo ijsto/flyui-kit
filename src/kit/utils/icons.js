@@ -14,6 +14,7 @@ import { ReactComponent as ChevronUpIcon } from '../icons/chevron-up.svg';
 import { ReactComponent as CircleNotchIcon } from '../icons/circle-notch.svg';
 import { ReactComponent as RestoreIcon } from '../icons/clock-rotate-left.svg';
 import { ReactComponent as EditIcon } from '../icons/edit.svg';
+import { ReactComponent as EmailIcon } from '../icons/envelope.svg';
 import { ReactComponent as EyeIcon } from '../icons/eye.svg';
 import { ReactComponent as FacebookIcon } from '../icons/facebook-f.svg';
 import { ReactComponent as GitHubIcon } from '../icons/github.svg';
@@ -23,11 +24,14 @@ import { ReactComponent as LinkedInIcon } from '../icons/linkedin-in.svg';
 import { ReactComponent as PlusIcon } from '../icons/plus.svg';
 import { ReactComponent as ReplyIcon } from '../icons/reply.svg';
 import { ReactComponent as SaveIcon } from '../icons/save.svg';
+import { ReactComponent as SearchIcon } from '../icons/search.svg';
 import { ReactComponent as ShareIcon } from '../icons/share.svg';
 import { ReactComponent as ExternalIcon } from '../icons/square-up-right.svg';
 import { ReactComponent as CloseIcon } from '../icons/times.svg';
 import { ReactComponent as TrashIcon } from '../icons/trash.svg';
 import { ReactComponent as TwitterIcon } from '../icons/twitter.svg';
+import { ReactComponent as PasswordIcon } from '../icons/unlock-keyhole.svg';
+import { ReactComponent as UserIcon } from '../icons/user.svg';
 import { ReactComponent as YoutubeIcon } from '../icons/youtube.svg';
 
 export const renderIcon = icon => {
@@ -56,6 +60,8 @@ export const renderIcon = icon => {
       return <ChevronDownIcon />;
     case 'edit':
       return <EditIcon />;
+    case 'email':
+      return <EmailIcon />;
     case 'external':
       return <ExternalIcon />;
     case 'fb':
@@ -84,6 +90,8 @@ export const renderIcon = icon => {
       return <NumberHighestFirstIcon />;
     case 'ok':
       return <CheckIcon />;
+    case 'password':
+      return <PasswordIcon />;
     case 'preview':
       return <EyeIcon />;
     case 'reply':
@@ -94,6 +102,8 @@ export const renderIcon = icon => {
       return <ChevronRightIcon />;
     case 'save':
       return <SaveIcon />;
+    case 'search':
+      return <SearchIcon />;
     case 'share':
       return <ShareIcon />;
     case 'trash':
@@ -102,6 +112,8 @@ export const renderIcon = icon => {
       return <TwitterIcon />;
     case 'up':
       return <ChevronUpIcon />;
+    case 'user':
+      return <UserIcon />;
     case 'youtube':
       return <YoutubeIcon />;
     case 'yt':

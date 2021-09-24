@@ -98,16 +98,6 @@ const commonProperties = {
   width: [16, 32, 64, 128, 256],
 };
 
-const radiusProperties = {
-  radius: {
-    card: {
-      lg: '4px',
-      md: '8px',
-      sm: '1.25em',
-    },
-  },
-};
-
 // eslint-disable-next-line prefer-destructuring
 commonProperties.radii.max = commonProperties.radii[7];
 // eslint-disable-next-line prefer-destructuring
@@ -128,6 +118,15 @@ commonProperties.fontSizes.h6 = commonProperties.fontSizes[3];
 commonProperties.fontSizes.caption = commonProperties.fontSizes[2];
 // eslint-disable-next-line prefer-destructuring
 commonProperties.fontSizes.eyebrow = commonProperties.fontSizes[3];
+
+const radiusProperties = {
+  radius: {
+    circle: commonProperties.radii.max,
+    lg: commonProperties.radii[4],
+    md: commonProperties.radii[3],
+    sm: commonProperties.radii[1],
+  },
+};
 
 const theme = {
   ...commonProperties,
