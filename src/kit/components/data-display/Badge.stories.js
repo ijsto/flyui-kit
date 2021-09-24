@@ -7,16 +7,13 @@ export default {
   argTypes: {
     align: {
       control: { type: 'check' },
-      defaultValue: true,
       options: ['left', 'bottom', 'right', 'top'],
     },
     color: {
       control: { type: 'text' },
-      defaultValue: 'info',
     },
     isVisible: {
       control: { type: 'boolean' },
-      defaultValue: true,
     },
     variant: {
       control: { type: 'select' },

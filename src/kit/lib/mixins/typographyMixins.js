@@ -74,7 +74,7 @@ export const captionTextStyles = ({ theme }) => css`
   ${baseTextStyles};
   font-family: ${theme.fonts.caption};
   font-weight: 100;
-  font-size: ${theme.fontSizes.caption};
+  font-size: ${theme.fontSizes.caption || '0.6rem'};
   line-height: 1rem;
   letter-spacing: 0.1px;
 `;

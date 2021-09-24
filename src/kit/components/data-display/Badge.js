@@ -72,4 +72,10 @@ const Badge = ({
   );
 };
 
+Badge.defaultProps = {
+  align: 'top',
+  color: 'error',
+  isVisible: true,
+};
+
 export default Badge;
