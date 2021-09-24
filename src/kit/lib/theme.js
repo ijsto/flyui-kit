@@ -36,8 +36,6 @@ const borderProperties = {
 
 const commonProperties = {
   // @TODO: factor-out all the constants from theme
-  // Radiuses
-  // CARD
   breakpoints: breakpointsPxArray,
   cardRadius: '0.75em',
   cardRadiusLG: '1.25em',
@@ -105,6 +103,8 @@ const commonProperties = {
   width: [16, 32, 64, 128, 256],
 };
 
+// eslint-disable-next-line prefer-destructuring
+commonProperties.radii.max = commonProperties.radii[7];
 // eslint-disable-next-line prefer-destructuring
 commonProperties.fontSizes.body = commonProperties.fontSizes[4];
 // eslint-disable-next-line prefer-destructuring
