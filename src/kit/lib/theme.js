@@ -36,8 +36,6 @@ const borderProperties = {
 
 const commonProperties = {
   // @TODO: factor-out all the constants from theme
-  // Radiuses
-  // CARD
   breakpoints: breakpointsPxArray,
   cardRadius: '0.75em',
   cardRadiusLG: '1.25em',
@@ -46,11 +44,11 @@ const commonProperties = {
   cardRadiusXXS: '3px',
 
   fontSizes: [
-    '0.25rem',
-    '0.5rem',
-    '0.75rem',
-    '0.85rem',
-    '1rem',
+    '0.6rem',
+    '0.7rem',
+    '0.8rem',
+    '0.9rem',
+    '1rem', // [4]
     '1.125rem',
     '1.25rem',
     '1.5rem',
@@ -69,7 +67,7 @@ const commonProperties = {
     // eslint-disable-next-line sort-keys
     body: bodyFontStack,
     button: buttonFontStack,
-    captionText: captionFontStack,
+    caption: captionFontStack,
     eyebrow: eyebrowFontStack,
     heading: headingFontStack,
     input: inputFontStack,
@@ -94,11 +92,19 @@ const commonProperties = {
   maxWidths: [16, 32, 64, 128, 256, 468, 512, 600, 768, 960, 1024, 1224, 1536],
   radii: [0, 2, 4, 8, 16, 32, 64, 9999],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  trans125: 'transition: all 0.125s cubic-bezier(0.645, 0.045, 0.355, 1);',
-  trans25: 'transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);',
+  transition: {
+    animation: 'cubic-bezier(0.28, 0.47, 0.83, 1.01)',
+    speed: {
+      fast: '0.075s',
+      medium: '0.25s',
+      slow: '0.5s',
+    },
+  },
   width: [16, 32, 64, 128, 256],
 };
 
+// eslint-disable-next-line prefer-destructuring
+commonProperties.radii.max = commonProperties.radii[7];
 // eslint-disable-next-line prefer-destructuring
 commonProperties.fontSizes.body = commonProperties.fontSizes[4];
 // eslint-disable-next-line prefer-destructuring

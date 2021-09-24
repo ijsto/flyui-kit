@@ -31,7 +31,7 @@ export default {
     size: {
       control: { type: 'select' },
       defaultValue: 'xl',
-      options: ['ty', 'sm', 'md', 'lg', 'xl'],
+      options: ['ty', 'sm', 'md', 'lg', 'xl', '100%'],
     },
     spacing: {
       control: { type: 'text' },
@@ -40,7 +40,7 @@ export default {
     src: 'https://source.unsplash.com/92x92/?portrait',
   },
   component: Avatar,
-  title: 'Data Entry/Avatar',
+  title: 'Data Display/Avatar',
 };
 
 const Template = args => <Avatar {...args}>{args.children}</Avatar>;

@@ -17,7 +17,7 @@ export default {
     },
   },
   component: Text,
-  title: 'Data Entry/Text',
+  title: 'Data Display/Text',
 };
 
 const Template = args => <Text {...args}>{args.children}</Text>;
