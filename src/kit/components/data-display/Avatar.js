@@ -3,21 +3,53 @@ import styled, { css } from 'styled-components';
 
 import Box from '../layout/Box';
 
+const switchShapeRadius = shape => {
+  switch (shape) {
+    case 'round':
+      return 'max';
+    case 'rounded':
+      return 4;
+    case 'regular':
+      return 3;
+    case 'squared':
+      return 2;
+    case 'square':
+      return 0;
+
+    default:
+      return 0;
+  }
+};
+
 const avatarBaseStyles = css`
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
   height: ${({ size, height }) => height || size};
   min-height: ${({ size, height }) => height || size};
   width: ${({ size, width }) => width || size};
   min-width: ${({ size, width }) => width || size};
+  overflow: hidden;
   position: relative;
 `;
 
 const StyledAvatar = styled(Box)`
+  aspect-ratio: 1/1;
   background-color: ${({ theme }) => theme.colors.background};
   background-image: url('${({ src }) => src}');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   ${avatarBaseStyles};
+
+  img {
+    border-radius: ${({ shape, theme }) =>
+      theme.radii[switchShapeRadius(shape)]}px;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+  }
 `;
 
 const StyledContentAvatar = styled(Box)`
@@ -48,40 +80,15 @@ const normalizeSize = size => {
   }
 };
 
-const switchShapeRadius = shape => {
-  switch (shape) {
-    case 'round':
-      return '99999rem';
-    case 'rounded':
-      return 4;
-    case 'regular':
-      return 3;
-    case 'squared':
-      return 2;
-    case 'square':
-      return 0;
-
-    default:
-      return 0;
-  }
-};
-
-const Avatar = ({
-  children,
-  outline,
-  outlineColor,
-  outlineWidth,
-  shape,
-  ...rest
-}) => {
+const Avatar = ({ children, outline, outlineColor, outlineWidth, ...rest }) => {
   const normalizedSize = defaultSizes.includes(rest.size)
     ? normalizeSize(rest.size)
     : rest.size;
 
-  if (shape) {
+  if (rest.shape) {
     // @TODO: Calculate borderRadius based on size
     // eslint-disable-next-line no-param-reassign
-    rest.borderRadius = switchShapeRadius(shape);
+    rest.borderRadius = switchShapeRadius(rest.shape);
   }
 
   if (outline) {
@@ -101,13 +108,17 @@ const Avatar = ({
     );
   }
 
-  return <StyledAvatar {...rest} size={normalizedSize} />;
+  return (
+    <StyledAvatar {...rest} size={normalizedSize}>
+      <img src={rest.src} alt="" />
+    </StyledAvatar>
+  );
 };
 
 Avatar.defaultProps = {
   radius: '50%',
   shape: 'round',
-  size: '48px',
+  size: '28px',
   src: '',
 };
 

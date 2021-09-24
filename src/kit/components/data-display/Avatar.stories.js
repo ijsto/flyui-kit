@@ -31,7 +31,7 @@ export default {
     size: {
       control: { type: 'select' },
       defaultValue: 'xl',
-      options: ['ty', 'sm', 'md', 'lg', 'xl'],
+      options: ['ty', 'sm', 'md', 'lg', 'xl', '100%'],
     },
     spacing: {
       control: { type: 'text' },
