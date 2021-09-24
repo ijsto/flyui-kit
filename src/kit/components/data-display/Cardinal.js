@@ -1,14 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { space, layout } from 'styled-system';
 
 import Text from './Text';
 import Box from '../layout/Box';
 
 const StyledCardinal = styled(Box)`
-  ${layout};
-  ${space};
-
   ${({ transform }) =>
     css`
       text-transform: ${transform};
