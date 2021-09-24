@@ -7,8 +7,8 @@ export const StyledCard = styled(Box)`
   border-radius: var(--card-radius, ${({ theme }) => theme.radius.card.md});
 `;
 
-const Card = ({ bg, children, ...rest }) => (
-  <StyledCard bg={bg || 'surface'} {...rest}>
+const Card = ({ bg, children, toolbar, ...rest }) => (
+  <StyledCard overflow="hidden" bg={bg || 'surface'} {...rest}>
     {children}
   </StyledCard>
 );
