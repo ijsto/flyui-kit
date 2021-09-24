@@ -37,11 +37,10 @@ const inputContainerSizePaddingStyles = ({ textSize }) => css`
 
 export const inputContainerStyles = ({ invalid, theme }) => css`
   appearance: textfield;
-  background: none;
-  background: ${theme.colors.trueWhite};
+  background: var(--input-radius, none);
   border: 1px solid;
   border-color: ${theme.colors.inactive};
-  border-radius: ${theme.radius.md}px;
+  border-radius: ${`var(--input-radius, ${theme.radius.md}px)`};
   max-width: 100%;
   outline: none;
   width: ${({ width }) => width || '100%'};
