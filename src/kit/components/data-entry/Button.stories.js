@@ -9,6 +9,10 @@ export default {
       control: { type: 'select' },
       options: ['edit', 'cancel', 'save'],
     },
+    hoverAnimation: {
+      control: { type: 'select' },
+      options: ['lift-low', 'lift', 'lift-high'],
+    },
     shape: {
       control: { type: 'radio' },
       options: ['squared', 'regular', 'rounded', 'round'],

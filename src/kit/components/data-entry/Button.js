@@ -8,6 +8,9 @@ import Box from '../layout/Box';
 import Text from '../data-display/Text';
 
 import {
+  buttonBaseStyles,
+  buttonHoverAnimationStyles,
+  buttonHoverColorStyles,
   buttonShapeStyles,
   buttonSizeStyles,
   buttonTypographyStyles,
@@ -15,17 +18,23 @@ import {
 } from '../../lib/mixins/buttonMixins';
 
 export const StyledButtonLink = styled.a`
+  ${buttonBaseStyles};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
   ${buttonTypographyStyles};
 
-  &:focus,
+  &:focus {
+    /* @TODO: */
+  }
+
   &:hover {
-    /* @TODO:  */
+    ${buttonHoverAnimationStyles};
+    ${buttonHoverColorStyles};
   }
 `;
 
 const StyledButton = styled.button`
+  ${buttonBaseStyles};
   ${({ inline }) => (inline ? 'display: inline;' : 'display: block;')};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
@@ -33,9 +42,13 @@ const StyledButton = styled.button`
 
   ${({ unstyled }) => !unstyled && buttonVariantStyles};
 
-  &:focus,
+  &:focus {
+    /* @TODO: */
+  }
+
   &:hover {
-    /* @TODO:  */
+    ${buttonHoverAnimationStyles};
+    ${buttonHoverColorStyles};
   }
 `;
 
