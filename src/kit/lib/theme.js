@@ -86,6 +86,22 @@ const commonProperties = {
 
   maxWidths: [16, 32, 64, 128, 256, 468, 512, 600, 768, 960, 1024, 1224, 1536],
   radii: [0, 2, 4, 8, 16, 32, 64, 9999],
+  shadows: {
+    large: `0 15px 25px -4px var(--color-shadow-shadowColorRGB, rgba(0,0,0,0.25)),
+        inset 0 -3px 4px -1px var(--color-shadow-shadowColorRGB, rgba(255,255,255,0.125)),
+        0 -10px 15px -1px var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125)),
+        inset 0 3px 4px -1px var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125)),
+        inset 0 0 5px 1px var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125)),
+        inset 0 20px 30px 0 var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125))`,
+    medium: `0 15px 25px -2px var(--color-shadow-shadowColorRGB, rgba(0,0,0,0.25)),
+        inset 0 -1px 1px -1px var(--color-shadow-shadowColorRGB, rgba(0,0,0,0.25)),
+        inset 0 20px 30px 0 var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125))`,
+    small: `0 15px 25px -4px var(--color-shadow-shadowColorRGB, rgba(0,0,0,0.25)),
+        inset 0 -1px 3px -1px var(--color-shadow-shadowColorRGB, rgba(0,0,0,0.25)),
+        inset 0 3px 4px -1px var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125)),
+        inset 0 0 5px 1px var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125)),
+        inset 0 20px 30px 0 var(--color-shadow-innerShineColorRGB, rgba(255,255,255,0.125))`,
+  },
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   transition: {
     animation: 'cubic-bezier(0.28, 0.47, 0.83, 1.01)',
