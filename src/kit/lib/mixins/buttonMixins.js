@@ -10,7 +10,17 @@ export const liftMedium = () => css`
   transform: translateY(-5%);
 `;
 export const liftLow = () => css`
-  transform: translateY(-1%);
+  transform: translateY(-3%);
+`;
+
+export const shadowLargeStyles = () => css`
+  box-shadow: ${({ theme }) => theme.shadows.large};
+`;
+export const shadowMediumStyles = () => css`
+  box-shadow: ${({ theme }) => theme.shadows.medium};
+`;
+export const shadowSmallStyles = () => css`
+  box-shadow: ${({ theme }) => theme.shadows.small};
 `;
 
 /**
@@ -18,19 +28,25 @@ export const liftLow = () => css`
  *
  */
 
-export const buttonHoverAnimationStyles = ({ hoverAnimation }) =>
-  hoverAnimation === 'lift'
-    ? css`
-        ${liftMedium};
-      `
-    : hoverAnimation === 'lift-high'
-    ? css`
-        ${liftHigh};
-      `
-    : hoverAnimation === 'lift-low' &&
-      css`
-        ${liftLow};
-      `;
+export const buttonHoverEffectsStyles = ({ hoverEffects }) => css`
+  ${hoverEffects &&
+  (hoverEffects.includes('lift-medium')
+    ? liftMedium
+    : hoverEffects.includes('lift-high')
+    ? liftHigh
+    : hoverEffects.includes('lift-low')
+    ? liftLow
+    : hoverEffects.includes('lift') && liftMedium)}
+
+  ${hoverEffects &&
+  (hoverEffects.includes('shadow-large')
+    ? shadowLargeStyles
+    : hoverEffects.includes('shadow-medium')
+    ? shadowMediumStyles
+    : hoverEffects.includes('shadow-small')
+    ? shadowSmallStyles
+    : hoverEffects.includes('shadow') && shadowMediumStyles)}
+`;
 /**
  * END Hover Animation Mixins
  *
