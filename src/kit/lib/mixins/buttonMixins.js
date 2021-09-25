@@ -170,16 +170,16 @@ export const buttonVariantStyles = ({ variant }) => {
 };
 
 export const squaredButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[1]}px;
+  border-radius: ${`var(--button-squared-radius, ${theme.radii[1]}px)`};
 `;
 export const regularButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[2]}px;
+  border-radius: ${`var(--button-radius, ${theme.radii[2]}px)`};
 `;
 export const roundedButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[3]}px;
+  border-radius: ${`var(--button-rounded-radius, ${theme.radii[3]}px)`};
 `;
 export const roundButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[theme.radii.length - 1]}px;
+  border-radius: ${`var(--button-round-radius, ${theme.radii.max})`};
 `;
 
 export const buttonShapeStyles = ({ shape }) => {
