@@ -1,6 +1,104 @@
 import { css } from 'styled-components';
+import { inputFocusStyles } from './inputMixins';
 
 // iJS
+
+export const liftHigh = () => css`
+  transform: translateY(-9%);
+`;
+export const liftMedium = () => css`
+  transform: translateY(-5%);
+`;
+export const liftLow = () => css`
+  transform: translateY(-1%);
+`;
+
+/**
+ * Hover Animation Mixins
+ *
+ */
+
+export const buttonHoverAnimationStyles = ({ hoverAnimation }) =>
+  hoverAnimation === 'lift'
+    ? css`
+        ${liftMedium};
+      `
+    : hoverAnimation === 'lift-high'
+    ? css`
+        ${liftHigh};
+      `
+    : hoverAnimation === 'lift-low' &&
+      css`
+        ${liftLow};
+      `;
+/**
+ * END Hover Animation Mixins
+ *
+ */
+
+/**
+ * Hover Mixins
+ *
+ */
+
+export const buttonHoverColorStyles = ({ theme, variant }) =>
+  variant === 'error'
+    ? css`
+        background: var(--colors-error-hover, ${theme.colors.errorHover});
+        color: var(--colors-text-on-error, ${theme.colors.textOnError});
+      `
+    : variant === 'primary'
+    ? css`
+        background: var(--colors-primary-hover, ${theme.colors.primaryHover});
+        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+      `
+    : variant === 'secondary'
+    ? css`
+        background: var(
+          --colors-secondary-hover,
+          ${theme.colors.secondaryHover}
+        );
+        color: var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
+      `
+    : css`
+        background: var(--colors-primary-hover, ${theme.colors.primaryHover});
+        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+      `;
+/**
+ * END State Mixins
+ *
+ */
+
+/**
+ * Transition Mixins
+ *
+ */
+
+export const buttonTransitionStyles = ({ theme }) =>
+  css`
+    transition: all
+      ${`${theme.transition?.speed?.medium} ${theme.transition?.animation}`};
+  `;
+/**
+ * END Transition Mixins
+ *
+ */
+
+export const buttonBaseStyles = () => css`
+  cursor: pointer;
+  font-weight: var(--button-text-weight, bold);
+
+  ${buttonTransitionStyles}
+
+  &:focus {
+    ${inputFocusStyles}
+  }
+`;
+
+/**
+ * Variant Mixins
+ *
+ */
 
 export const getButtonVariantBgColor = ({ theme, variant }) =>
   variant === 'error'
@@ -67,24 +165,6 @@ export const getButtonVariantSVGColor = ({ theme, variant }) =>
         fill: var(--colors-svg-on-primary, ${theme.colors.textOnPrimary});
       `;
 
-// @TODO: Implement Hover styles
-// export const getButtonVariantTextColorHover = ({ theme, variant }) =>
-//   variant === 'error'
-//     ? css`
-//         color: var(--colors-text-on-error, ${theme.colors.textOnError});
-//       `
-//     : variant === 'primary'
-//     ? css`
-//         color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
-//       `
-//     : variant === 'secondary'
-//     ? css`
-//         color: var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
-//       `
-//     : css`
-//         color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
-//       `;
-
 export const primaryButtonStyles = ({ theme }) => css`
   ${getButtonVariantBgColor};
   ${getButtonVariantTextColor};
@@ -97,12 +177,6 @@ export const primaryButtonStyles = ({ theme }) => css`
     svg {
       fill: var(--colors-text-on-primary, ${theme.colors.textOnPrimaryDark});
     }
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px white,
-      0 0 0 4px var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
-    outline: none;
   }
 `;
 
@@ -169,6 +243,15 @@ export const buttonVariantStyles = ({ variant }) => {
   }
 };
 
+/**
+ * END Variant Mixins
+ *
+ */
+
+/**
+ * Shape Mixins
+ *
+ */
 export const squaredButtonStyles = ({ theme }) => css`
   border-radius: ${`var(--button-squared-radius, ${theme.radii[1]}px)`};
 `;
@@ -202,6 +285,16 @@ export const buttonShapeStyles = ({ shape }) => {
   }
 };
 
+/**
+ * END Shape Mixins
+ *
+ */
+
+/**
+ * Size Mixins
+ *
+ */
+
 export const smallButtonStyles = () => css`
   height: 32px;
   padding: 0 0.5rem;
@@ -231,6 +324,11 @@ export const buttonSizeStyles = ({ size }) => {
     }
   }
 };
+
+/**
+ * END Size Mixins
+ *
+ */
 
 export const buttonTypographyStyles = ({ typography, theme }) => css`
   font-family: ${theme.fonts[typography]};

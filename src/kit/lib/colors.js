@@ -122,3 +122,8 @@ export const colors = {
   warningDark: warningDarkCol,
   warningLight: warningLightCol,
 };
+
+colors.primaryHover = colors.primaryDark;
+colors.secondaryHover = colors.secondaryDark;
+colors.successHover = colors.successDark;
+colors.warningHover = colors.warningDark;
