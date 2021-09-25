@@ -10,9 +10,19 @@ export default {
       description: 'Adds an icon to end',
       options: ['edit', 'cancel', 'save'],
     },
-    hoverAnimation: {
-      control: { type: 'select' },
-      options: ['lift-low', 'lift', 'lift-high'],
+    hoverEffects: {
+      control: { type: 'multi-select' },
+      description:
+        'A string of the type of effects you want to add to the button hover action. For example, "lift-high shadow-large" or "lift-low shadow-low".',
+      options: [
+        'lift-low',
+        'lift',
+        'lift-high',
+        'shadow',
+        'shadow-large',
+        'shadow-low',
+      ],
+      table: { defaultValue: { summary: 'lift shadow' } },
     },
     labelDisplay: {
       control: { type: 'object' },
@@ -22,7 +32,7 @@ export default {
     },
     loading: {
       control: { type: 'boolean' },
-      defaultValue: false,
+
       description:
         'When `true`, replaces the label and the icons with the loading icon and `loadingLabel`, if provided.',
     },
@@ -44,7 +54,6 @@ export default {
     },
     unstyled: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     variant: {
       control: { type: 'inline-radio' },

@@ -9,7 +9,7 @@ import Text from '../data-display/Text';
 
 import {
   buttonBaseStyles,
-  buttonHoverAnimationStyles,
+  buttonHoverEffectsStyles,
   buttonHoverColorStyles,
   buttonShapeStyles,
   buttonSizeStyles,
@@ -28,7 +28,7 @@ export const StyledButtonLink = styled.a`
   }
 
   &:hover {
-    ${buttonHoverAnimationStyles};
+    ${buttonHoverEffectsStyles};
     ${buttonHoverColorStyles};
   }
 `;
@@ -47,7 +47,7 @@ const StyledButton = styled.button`
   }
 
   &:hover {
-    ${buttonHoverAnimationStyles};
+    ${buttonHoverEffectsStyles};
     ${buttonHoverColorStyles};
   }
 `;
@@ -193,14 +193,14 @@ const Button = ({
 );
 
 Button.defaultProps = {
-  endIcon: '',
-  iconVariant: '',
-  iconsSize: '',
+  endIcon: null,
+  iconVariant: null,
+  iconsSize: null,
   // Control label display ("block", "none"), useful, for example, if want to hide on mobile: "".
-  labelDisplay: '',
-  loading: false,
-  loadingLabel: '',
-  startIcon: '',
+  labelDisplay: null,
+  loading: null,
+  loadingLabel: null,
+  startIcon: null,
 };
 
 export default Button;
