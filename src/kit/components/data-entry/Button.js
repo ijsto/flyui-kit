@@ -171,7 +171,6 @@ const Button = ({
   endIcon,
   iconsSize,
   iconVariant,
-  // Control label display ("block", "none"), useful, for example, if want to hide on mobile.
   labelDisplay,
   loading,
   loadingLabel,
@@ -192,4 +191,16 @@ const Button = ({
     </ButtonChildrenContainer>
   </StyledButton>
 );
+
+Button.defaultProps = {
+  endIcon: '',
+  iconVariant: '',
+  iconsSize: '',
+  // Control label display ("block", "none"), useful, for example, if want to hide on mobile: "".
+  labelDisplay: '',
+  loading: false,
+  loadingLabel: '',
+  startIcon: '',
+};
+
 export default Button;
