@@ -27,22 +27,34 @@ export const getTagVariantBgColor = ({ theme, variant }) =>
 export const getTagVariantTextColor = ({ theme, variant }) =>
   variant === 'error'
     ? css`
-        color: var(--colors-text-on-error, ${theme.colors.textOnError});
+        color: var(
+          --colors-text-on-error,
+          ${theme.colors.textOnError || '#fff'}
+        );
       `
     : variant === 'primary'
     ? css`
-        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+        color: var(
+          --colors-text-on-primary,
+          ${theme.colors.textOnPrimary || '#fff'}
+        );
       `
     : variant === 'secondary'
     ? css`
-        color: var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
+        color: var(
+          --colors-text-on-secondary,
+          ${theme.colors.textOnSecondary || '#fff'}
+        );
       `
     : variant === 'outline'
     ? css`
-        color: var(--colors-text-on-outline, ${theme.colors.text});
+        color: var(--colors-text-on-outline, ${theme.colors.text || '#333644'});
       `
     : css`
-        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+        color: var(
+          --colors-text-on-primary,
+          ${theme.colors.textOnPrimary || '#fff'}
+        );
       `;
 
 export const getTagVariantSVGColor = ({ theme, variant }) =>
