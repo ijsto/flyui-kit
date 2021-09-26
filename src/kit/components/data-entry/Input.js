@@ -31,18 +31,18 @@ const StyledInputWithIcon = styled(Box)`
   }
 `;
 
-const InputWithIcon = ({ icon, size, ...rest }) => (
+const InputWithIcon = ({ startIcon, size, ...rest }) => (
   <StyledInputWithIcon size={size}>
     <StyledInputWithIcon className="icon" ml={size === 'sm' ? 1 : 2}>
-      <SVG icon={icon} />
+      <SVG icon={startIcon} />
     </StyledInputWithIcon>
-    <StyledInput size={size} icon={Boolean(icon)} {...rest} mt={1} />
+    <StyledInput size={size} icon={Boolean(startIcon)} {...rest} mt={1} />
   </StyledInputWithIcon>
 );
 
 export const InputField = props => {
   const {
-    icon,
+    startIcon,
     inputMode,
     methods,
     nativeValidate,
@@ -52,7 +52,7 @@ export const InputField = props => {
   } = props;
 
   // @TODO: Improve the icon handling.
-  return <InputWithIcon icon={icon || rest.type} {...props} />;
+  return <InputWithIcon startIcon={startIcon || rest.type} {...props} />;
 };
 
 const Input = ({ block, description, error, label, labelVariant, ...rest }) => (

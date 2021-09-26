@@ -4,9 +4,6 @@ import Input from './Input';
 
 export default {
   argTypes: {
-    icon: {
-      control: { type: 'select' },
-    },
     shape: {
       control: { type: 'inline-radio' },
       options: ['squared', 'regular', 'rounded', 'round'],
@@ -14,6 +11,12 @@ export default {
     size: {
       control: { type: 'inline-radio' },
       options: ['sm', 'md', 'lg'],
+    },
+    startIcon: {
+      control: { type: 'text' },
+      description:
+        'By default it accepts name of a [FontAwesome Icon `V6`](https://fontawesome.com/v6.0/icons). We currently do not support all icons, only a small subset. This may change in the future. If have a suggestion/request, [please open a feature request](https://github.com/ijsto/flyui-kit/issues/new).',
+      table: { defaultValue: { summary: 'null' } },
     },
   },
   component: Input,
