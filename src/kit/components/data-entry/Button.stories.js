@@ -90,6 +90,9 @@ ButtonGroup.decorators = [
     </Stack>
   ),
 ];
+ButtonGroup.args = {
+  label: 'Default Button',
+};
 
 export const WithInput = Template.bind({});
 WithInput.decorators = [

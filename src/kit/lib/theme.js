@@ -139,6 +139,7 @@ const radiusProperties = {
   radius: {
     circle: commonProperties.radii.max,
     lg: commonProperties.radii[4],
+    max: commonProperties.radii.max,
     md: commonProperties.radii[3],
     sm: commonProperties.radii[1],
     square: commonProperties.radii[0],

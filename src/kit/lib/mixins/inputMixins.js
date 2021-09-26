@@ -74,7 +74,7 @@ export const inputShapeStyles = ({ shape, theme }) => {
     }
     default: {
       return css`
-        border-radius: ${`var(--input-radius, ${theme.radius.input.max}px)`};
+        border-radius: ${`var(--input-radius, ${theme.radius.input.regular}px)`};
       `;
     }
   }
