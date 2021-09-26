@@ -126,7 +126,7 @@ fontProps.fontSizes.eyebrow = fontProps.fontSizes[3];
 // eslint-disable-next-line prefer-destructuring
 spaceProps.radii.max = spaceProps.radii[7];
 
-export const inputProps = {
+const inputProps = {
   input: {
     radius: {
       square: spaceProps.radii[0],
@@ -155,6 +155,7 @@ const theme = {
   ...borderProps,
   ...effectProps,
   ...fontProps,
+  ...inputProps,
   ...radiusProps,
   ...spaceProps,
   colors,
