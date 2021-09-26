@@ -127,7 +127,7 @@ const Tag = ({
         alignItems="center"
         display="inline-flex"
         className="loading-label"
-        variant={(size === 'sm' || size === 'md') && 'caption'}
+        variant={size !== 'lg' && 'caption'}
       >
         {loading && loadingLabel}
         {!loading && children}
