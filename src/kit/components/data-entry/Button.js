@@ -8,6 +8,9 @@ import Box from '../layout/Box';
 import Text from '../data-display/Text';
 
 import {
+  buttonBaseStyles,
+  buttonHoverEffectsStyles,
+  buttonHoverColorStyles,
   buttonShapeStyles,
   buttonSizeStyles,
   buttonTypographyStyles,
@@ -15,17 +18,23 @@ import {
 } from '../../lib/mixins/buttonMixins';
 
 export const StyledButtonLink = styled.a`
+  ${buttonBaseStyles};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
   ${buttonTypographyStyles};
 
-  &:focus,
+  &:focus {
+    /* @TODO: */
+  }
+
   &:hover {
-    /* @TODO:  */
+    ${buttonHoverEffectsStyles};
+    ${buttonHoverColorStyles};
   }
 `;
 
 const StyledButton = styled.button`
+  ${buttonBaseStyles};
   ${({ inline }) => (inline ? 'display: inline;' : 'display: block;')};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
@@ -33,9 +42,13 @@ const StyledButton = styled.button`
 
   ${({ unstyled }) => !unstyled && buttonVariantStyles};
 
-  &:focus,
+  &:focus {
+    /* @TODO: */
+  }
+
   &:hover {
-    /* @TODO:  */
+    ${buttonHoverEffectsStyles};
+    ${buttonHoverColorStyles};
   }
 `;
 
@@ -158,7 +171,6 @@ const Button = ({
   endIcon,
   iconsSize,
   iconVariant,
-  // Control label display ("block", "none"), useful, for example, if want to hide on mobile.
   labelDisplay,
   loading,
   loadingLabel,
@@ -179,4 +191,16 @@ const Button = ({
     </ButtonChildrenContainer>
   </StyledButton>
 );
+
+Button.defaultProps = {
+  endIcon: null,
+  iconVariant: null,
+  iconsSize: null,
+  // Control label display ("block", "none"), useful, for example, if want to hide on mobile: "".
+  labelDisplay: null,
+  loading: null,
+  loadingLabel: null,
+  startIcon: null,
+};
+
 export default Button;

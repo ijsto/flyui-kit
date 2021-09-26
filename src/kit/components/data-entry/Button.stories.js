@@ -7,14 +7,41 @@ export default {
   argTypes: {
     endIcon: {
       control: { type: 'select' },
+      description: 'Adds an icon to end',
       options: ['edit', 'cancel', 'save'],
     },
+    hoverEffects: {
+      control: { type: 'multi-select' },
+      description:
+        'A string of the type of effects you want to add to the button hover action. For example, "lift-high shadow-large" or "lift-low shadow-low".',
+      options: [
+        'lift-low',
+        'lift',
+        'lift-high',
+        'shadow',
+        'shadow-large',
+        'shadow-low',
+      ],
+      table: { defaultValue: { summary: 'lift shadow' } },
+    },
+    labelDisplay: {
+      control: { type: 'object' },
+      defaultValue: 'block',
+      description:
+        'This can be either a string (`block`, `none`, `inline` etc) or an array that will apply the display value to the label based on the breakpoint. This is useful to hide the button label on certain screen sizes. Example: `["none", "block"]` will hide the label on mobile.',
+    },
+    loading: {
+      control: { type: 'boolean' },
+
+      description:
+        'When `true`, replaces the label and the icons with the loading icon and `loadingLabel`, if provided.',
+    },
     shape: {
-      control: { type: 'radio' },
+      control: { type: 'inline-radio' },
       options: ['squared', 'regular', 'rounded', 'round'],
     },
     size: {
-      control: { type: 'radio' },
+      control: { type: 'inline-radio' },
       options: ['sm', 'md', 'lg'],
     },
     startIcon: {
@@ -22,15 +49,14 @@ export default {
       options: ['edit', 'cancel', 'save'],
     },
     typography: {
-      control: { type: 'radio' },
+      control: { type: 'inline-inline-radio' },
       options: ['serif', 'sans-serif', 'mono'],
     },
     unstyled: {
       control: { type: 'boolean' },
-      defaultValue: false,
     },
     variant: {
-      control: { type: 'radio' },
+      control: { type: 'inline-radio' },
       options: ['primary', 'secondary', 'outline'],
     },
   },

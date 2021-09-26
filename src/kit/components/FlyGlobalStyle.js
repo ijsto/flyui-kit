@@ -15,6 +15,12 @@ const FlyGlobalStyle = createGlobalStyle`
       box-shadow: 0 0 0px 1000px ${({ theme }) => theme.colors.white} inset;
     }
 
+    :root {
+        --shadow-opacity: 0.25;
+        --color-shadow-shadowColorRGB: rgba(255,0,0, var(--shadow-opacity));
+        --color-shadow-innerShineColorRGB: rgba(56,184,240, var(--shadow-opacity));
+    }
+
     .spin {
       @keyframes spin {
           to {

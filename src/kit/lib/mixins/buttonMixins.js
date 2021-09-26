@@ -1,6 +1,120 @@
 import { css } from 'styled-components';
+import { inputFocusStyles } from './inputMixins';
 
 // iJS
+
+export const liftHigh = () => css`
+  transform: translateY(-9%);
+`;
+export const liftMedium = () => css`
+  transform: translateY(-5%);
+`;
+export const liftLow = () => css`
+  transform: translateY(-3%);
+`;
+
+export const shadowLargeStyles = () => css`
+  box-shadow: ${({ theme }) => theme.shadows.large};
+`;
+export const shadowMediumStyles = () => css`
+  box-shadow: ${({ theme }) => theme.shadows.medium};
+`;
+export const shadowSmallStyles = () => css`
+  box-shadow: ${({ theme }) => theme.shadows.small};
+`;
+
+/**
+ * Hover Animation Mixins
+ *
+ */
+
+export const buttonHoverEffectsStyles = ({ hoverEffects }) => css`
+  ${hoverEffects &&
+  (hoverEffects.includes('lift-medium')
+    ? liftMedium
+    : hoverEffects.includes('lift-high')
+    ? liftHigh
+    : hoverEffects.includes('lift-low')
+    ? liftLow
+    : hoverEffects.includes('lift') && liftMedium)}
+
+  ${hoverEffects &&
+  (hoverEffects.includes('shadow-large')
+    ? shadowLargeStyles
+    : hoverEffects.includes('shadow-medium')
+    ? shadowMediumStyles
+    : hoverEffects.includes('shadow-small')
+    ? shadowSmallStyles
+    : hoverEffects.includes('shadow') && shadowMediumStyles)}
+`;
+/**
+ * END Hover Animation Mixins
+ *
+ */
+
+/**
+ * Hover Mixins
+ *
+ */
+
+export const buttonHoverColorStyles = ({ theme, variant }) =>
+  variant === 'error'
+    ? css`
+        background: var(--colors-error-hover, ${theme.colors.errorHover});
+        color: var(--colors-text-on-error, ${theme.colors.textOnError});
+      `
+    : variant === 'primary'
+    ? css`
+        background: var(--colors-primary-hover, ${theme.colors.primaryHover});
+        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+      `
+    : variant === 'secondary'
+    ? css`
+        background: var(
+          --colors-secondary-hover,
+          ${theme.colors.secondaryHover}
+        );
+        color: var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
+      `
+    : css`
+        background: var(--colors-primary-hover, ${theme.colors.primaryHover});
+        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+      `;
+/**
+ * END State Mixins
+ *
+ */
+
+/**
+ * Transition Mixins
+ *
+ */
+
+export const buttonTransitionStyles = ({ theme }) =>
+  css`
+    transition: all
+      ${`${theme.transition?.speed?.medium} ${theme.transition?.animation}`};
+  `;
+/**
+ * END Transition Mixins
+ *
+ */
+
+export const buttonBaseStyles = () => css`
+  cursor: pointer;
+  font-weight: var(--button-text-weight, bold);
+
+  ${buttonTransitionStyles}
+
+  &:focus {
+    ${inputFocusStyles}
+  }
+`;
+
+/**
+ * Variant Mixins
+ *
+ */
 
 export const getButtonVariantBgColor = ({ theme, variant }) =>
   variant === 'error'
@@ -67,24 +181,6 @@ export const getButtonVariantSVGColor = ({ theme, variant }) =>
         fill: var(--colors-svg-on-primary, ${theme.colors.textOnPrimary});
       `;
 
-// @TODO: Implement Hover styles
-// export const getButtonVariantTextColorHover = ({ theme, variant }) =>
-//   variant === 'error'
-//     ? css`
-//         color: var(--colors-text-on-error, ${theme.colors.textOnError});
-//       `
-//     : variant === 'primary'
-//     ? css`
-//         color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
-//       `
-//     : variant === 'secondary'
-//     ? css`
-//         color: var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
-//       `
-//     : css`
-//         color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
-//       `;
-
 export const primaryButtonStyles = ({ theme }) => css`
   ${getButtonVariantBgColor};
   ${getButtonVariantTextColor};
@@ -97,12 +193,6 @@ export const primaryButtonStyles = ({ theme }) => css`
     svg {
       fill: var(--colors-text-on-primary, ${theme.colors.textOnPrimaryDark});
     }
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px white,
-      0 0 0 4px var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
-    outline: none;
   }
 `;
 
@@ -169,17 +259,26 @@ export const buttonVariantStyles = ({ variant }) => {
   }
 };
 
+/**
+ * END Variant Mixins
+ *
+ */
+
+/**
+ * Shape Mixins
+ *
+ */
 export const squaredButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[1]}px;
+  border-radius: ${`var(--button-squared-radius, ${theme.radii[1]}px)`};
 `;
 export const regularButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[2]}px;
+  border-radius: ${`var(--button-radius, ${theme.radii[2]}px)`};
 `;
 export const roundedButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[3]}px;
+  border-radius: ${`var(--button-rounded-radius, ${theme.radii[3]}px)`};
 `;
 export const roundButtonStyles = ({ theme }) => css`
-  border-radius: ${theme.radii[theme.radii.length - 1]}px;
+  border-radius: ${`var(--button-round-radius, ${theme.radii.max})`};
 `;
 
 export const buttonShapeStyles = ({ shape }) => {
@@ -201,6 +300,16 @@ export const buttonShapeStyles = ({ shape }) => {
     }
   }
 };
+
+/**
+ * END Shape Mixins
+ *
+ */
+
+/**
+ * Size Mixins
+ *
+ */
 
 export const smallButtonStyles = () => css`
   height: 32px;
@@ -231,6 +340,11 @@ export const buttonSizeStyles = ({ size }) => {
     }
   }
 };
+
+/**
+ * END Size Mixins
+ *
+ */
 
 export const buttonTypographyStyles = ({ typography, theme }) => css`
   font-family: ${theme.fonts[typography]};

@@ -1,6 +1,6 @@
 {
   "name": "flyui-kit",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "private": false,
   "author": {
     "name": "Scott Agirs Neminskis",
@@ -19,7 +19,6 @@
     "url": "https://github.com/ijsto/flyui"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build-rollup": "yarn clean && rollup -c",
     "clean": "rimraf dist",
     "storybook": "start-storybook -p 6006",
@@ -28,12 +27,8 @@
   },
   "dependencies": {
     "color": "^4.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
     "styled-components": "^5.3.1",
-    "styled-system": "^5.1.5",
-    "web-vitals": "^1.0.1"
+    "styled-system": "^5.1.5"
   },
   "browserslist": {
     "production": [
@@ -65,10 +60,14 @@
     "chromatic": "^5.10.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.25.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
     "rollup": "^2.57.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "storybook-addon-pseudo-states": "^1.0.0"
+    "storybook-addon-pseudo-states": "^1.0.0",
+    "web-vitals": "^1.0.1"
   },
   "peerDependencies": {
     "react": "^17.0.2",
