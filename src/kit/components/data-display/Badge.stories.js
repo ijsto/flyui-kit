@@ -31,7 +31,10 @@ Default.args = {
   align: 'right-top',
   body: '2',
   children: (
-    <Avatar shape="rounded" src="https://source.unsplash.com/92x92/?portrait" />
+    <Avatar
+      shape="rounded"
+      src="https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1326&q=80"
+    />
   ),
   size: 'md',
 };

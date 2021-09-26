@@ -71,6 +71,7 @@ export const StyledTag = styled(Box)`
 `;
 
 const Tag = ({
+  avatar,
   children,
   color,
   disabled,
@@ -95,17 +96,20 @@ const Tag = ({
       role={hasInteraction ? 'button' : undefined}
       onKeyDown={hasInteraction ? e => a11yClick(e, onClick) : undefined}
       tabIndex={hasInteraction ? '0' : undefined}
-      onClick={() => !disabled && onClick && onClick()}
+      onClick={!disabled && onClick ? () => onClick() : null}
       size={size}
       {...rest}
     >
-      <Box className="avatar" my="2px">
-        <Avatar
-          size="100%"
-          shape="rounded"
-          src="https://source.unsplash.com/92x92/?portrait"
-        />
-      </Box>
+      {avatar && (
+        <Box display="flex" className="avatar" py="2px">
+          <Avatar
+            alt={avatar.alt || 'Avatar'}
+            size="100%"
+            shape={avatar.shape || 'rounded'}
+            src={avatar.src || avatar}
+          />
+        </Box>
+      )}
 
       {startIcon && (
         <SVG fill={color} icon={renderIcon(startIcon)} variant={color} />
@@ -136,6 +140,20 @@ const Tag = ({
   );
 };
 
-Tag.defaultProps = {};
+Tag.defaultProps = {
+  avatar: null,
+  children: null,
+  color: null,
+  disableFocus: null,
+  disableHover: null,
+  disabled: null,
+  endIcon: null,
+  href: null,
+  loading: null,
+  loadingLabel: null,
+  onClick: null,
+  size: 'md',
+  startIcon: null,
+};
 
 export default Tag;
