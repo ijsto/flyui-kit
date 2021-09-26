@@ -340,21 +340,25 @@ export const buttonShapeStyles = ({ shape, theme }) => {
  *
  */
 
-export const buttonSizeStyles = ({ size }) => {
+export const buttonSizeStyles = ({ size, theme }) => {
   switch (size) {
     case 'sm':
       return css`
-        height: 24px;
+        height: ${`var(--button-height-sm, ${
+          theme.input?.heights?.sm || 24
+        }px)`};
         padding: 2px;
       `;
     case 'md':
       return css`
-        height: 32px;
+        height: ${`var(--button-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px;
       `;
     case 'lg':
       return css`
-        height: 42px;
+        height: ${`var(--button-height-lg, ${
+          theme.input?.heights?.lg || 42
+        }px)`};
         padding: 8px;
       `;
     case 'xl':
@@ -365,7 +369,7 @@ export const buttonSizeStyles = ({ size }) => {
 
     default:
       return css`
-        height: 32px;
+        height: ${`var(--button-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 2px;
       `;
   }
