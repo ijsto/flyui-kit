@@ -3,10 +3,17 @@ import styled from 'styled-components';
 
 import Box from '../layout/Box';
 import { renderIcon } from '../../utils/icons';
+import { fontProps } from '../../lib/theme';
 
 const StyledSVGContainer = styled(Box)`
   align-items: center;
   display: inline-flex;
+
+  svg {
+    fill: ${({ color, theme }) => theme.colors[color] || color};
+    height: ${({ size }) => size};
+    width: ${({ size }) => size};
+  }
 `;
 
 const SVG = ({ icon, ...rest }) => {
@@ -15,7 +22,8 @@ const SVG = ({ icon, ...rest }) => {
 };
 
 SVG.defaultProps = {
-  resetFill: true,
+  color: null,
+  size: fontProps.fontSizes.body || '14px',
 };
 
 export default SVG;

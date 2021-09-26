@@ -20,9 +20,6 @@ const CardToolbar = ({ bg, icon, iconColor, startIcon, title, ...rest }) => (
       <SVG
         fill={iconColor}
         icon={renderIcon(icon || startIcon)}
-        noHover
-        hoverable
-        resetFill
         variant={iconColor}
         size="16px"
       />

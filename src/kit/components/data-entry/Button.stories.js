@@ -25,6 +25,11 @@ export default {
       ],
       table: { defaultValue: { summary: 'lift shadow' } },
     },
+    iconsSize: {
+      control: { type: 'text' },
+      description: '',
+      table: { defaultValue: { summary: '14px' } },
+    },
     labelDisplay: {
       control: { type: 'object' },
       defaultValue: 'block',

@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import { space, layout } from 'styled-system';
 
 import SVG from '../data-display/SVG';
 import LoadingIcon from '../../icons/circle-notch.svg';
@@ -17,7 +16,7 @@ import {
   buttonVariantStyles,
 } from '../../lib/mixins/buttonMixins';
 
-export const StyledButtonLink = styled.a`
+const StyledButtonLink = styled.a`
   ${buttonBaseStyles};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
@@ -52,7 +51,7 @@ const StyledButton = styled.button`
   }
 `;
 
-export const StyledButtonWrapper = styled.div`
+const StyledButtonWrapper = styled(Box)`
   align-items: center;
   display: flex;
   height: 100%;
@@ -62,35 +61,12 @@ export const StyledButtonWrapper = styled.div`
   }
 `;
 
-const StyledButtonContent = styled.span`
-  ${layout};
-  ${space};
-`;
-export const StyledButtonIcon = styled.span`
-  ${space};
-  display: flex;
-  align-items: center;
-`;
-
-export const ButtonIcon = ({ icon, fill, size, variant, ...rest }) =>
+const ButtonIcon = ({ icon, fill, size, variant, ...rest }) =>
   icon ? (
-    <StyledButtonIcon {...rest}>
-      <SVG
-        fill={fill}
-        icon={icon}
-        noHover
-        hoverable
-        resetFill
-        size={size}
-        variant={variant}
-      />
-    </StyledButtonIcon>
+    <Box display="flex" alignItems="center" {...rest}>
+      <SVG fill={fill} icon={icon} size={size} variant={variant} />
+    </Box>
   ) : null;
-
-ButtonIcon.defaultProps = {
-  size: '16px',
-  variant: null,
-};
 
 const ButtonChildrenContainer = ({
   children,
@@ -102,7 +78,7 @@ const ButtonChildrenContainer = ({
   loadingLabel,
   startIcon,
 }) => (
-  <StyledButtonWrapper>
+  <StyledButtonWrapper px={3}>
     {!loading && (
       <ButtonIcon
         variant={iconVariant}
@@ -116,14 +92,14 @@ const ButtonChildrenContainer = ({
     {loading ? (
       // We have `mr` here to improve layout appearance when there's only icon and no label.
       <Box display="flex" alignItems="center" mr={children && 1}>
-        <ButtonIcon icon={<LoadingIcon className="spin" />} size={16} />
+        <ButtonIcon icon={<LoadingIcon className="spin" />} size={iconsSize} />
         {loadingLabel && <Text pl={2}>{loadingLabel}</Text>}
       </Box>
     ) : (
       children && (
-        <StyledButtonContent display={labelDisplay} mx={1} px={3}>
+        <Box as="span" display={labelDisplay} mx={1}>
           {children}
-        </StyledButtonContent>
+        </Box>
       )
     )}
 
@@ -195,7 +171,7 @@ const Button = ({
 Button.defaultProps = {
   endIcon: null,
   iconVariant: null,
-  iconsSize: null,
+  iconsSize: '14px',
   // Control label display ("block", "none"), useful, for example, if want to hide on mobile: "".
   labelDisplay: null,
   loading: null,

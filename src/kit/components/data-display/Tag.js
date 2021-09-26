@@ -108,22 +108,12 @@ const Tag = ({
       </Box>
 
       {startIcon && (
-        <SVG
-          fill={color}
-          icon={renderIcon(startIcon)}
-          noHover
-          hoverable
-          resetFill
-          variant={color}
-        />
+        <SVG fill={color} icon={renderIcon(startIcon)} variant={color} />
       )}
       {loading && (
         <SVG
           fill={color}
           icon={<LoadingSpinner size="12px" mr={1} />}
-          noHover
-          hoverable
-          resetFill
           size={size}
           variant={color}
         />
@@ -140,14 +130,7 @@ const Tag = ({
       </Text>
 
       {endIcon && (
-        <SVG
-          fill={color}
-          icon={renderIcon(endIcon)}
-          noHover
-          hoverable
-          resetFill
-          variant={color}
-        />
+        <SVG fill={color} icon={renderIcon(endIcon)} variant={color} />
       )}
     </StyledTag>
   );
