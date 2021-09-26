@@ -12,6 +12,7 @@ import ButtonLink from './components/data-entry/ButtonLink';
 import Input from './components/data-entry/Input';
 
 import Box from './components/layout/Box';
+import Stack from './components/layout/Stack';
 
 export {
   Avatar,
@@ -23,6 +24,7 @@ export {
   FlyThemeProvider,
   Input,
   SVG,
+  Stack,
   Tag,
   Text,
 };
