@@ -100,9 +100,14 @@ export const buttonTransitionStyles = ({ theme }) =>
  *
  */
 
-export const buttonBaseStyles = () => css`
+export const buttonBaseStyles = ({ typography, theme }) => css`
   cursor: pointer;
   font-weight: var(--button-text-weight, bold);
+
+  font-family: var(
+    --button-font-stack,
+    ${theme.fonts[typography || 'button'] || 'inherit'}
+  );
 
   ${buttonTransitionStyles}
 
@@ -141,44 +146,65 @@ export const getButtonVariantBgColor = ({ theme, variant }) =>
 export const getButtonVariantTextColor = ({ theme, variant }) =>
   variant === 'error'
     ? css`
-        color: var(--colors-text-on-error, ${theme.colors.textOnError});
+        color: var(
+          --colors-text-on-error,
+          ${theme.colors.textOnError || '#FFF'}
+        );
       `
     : variant === 'primary'
     ? css`
-        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+        color: var(
+          --colors-text-on-primary,
+          ${theme.colors.textOnPrimary || '#FFF'}
+        );
       `
     : variant === 'secondary'
     ? css`
-        color: var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
+        color: var(
+          --colors-text-on-secondary,
+          ${theme.colors.textOnSecondary || '#FFF'}
+        );
       `
     : variant === 'outline'
     ? css`
-        color: var(--colors-text-on-outline, ${theme.colors.text});
+        color: var(--colors-text-on-outline, ${theme.colors.text || '#333666'});
       `
     : css`
-        color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+        color: var(
+          --colors-text-on-primary,
+          ${theme.colors.textOnPrimary || '#FFF'}
+        );
       `;
 
 export const getButtonVariantSVGColor = ({ theme, variant }) =>
   variant === 'error'
     ? css`
-        fill: var(--colors-svg-on-error, ${theme.colors.textOnError});
+        fill: var(--colors-svg-on-error, ${theme.colors.textOnError || '#FFF'});
       `
     : variant === 'primary'
     ? css`
-        fill: var(--colors-svg-on-primary, ${theme.colors.textOnPrimary});
+        fill: var(
+          --colors-svg-on-primary,
+          ${theme.colors.textOnPrimary || '#FFF'}
+        );
       `
     : variant === 'secondary'
     ? css`
-        fill: var(--colors-svg-on-secondary, ${theme.colors.textOnSecondary});
+        fill: var(
+          --colors-svg-on-secondary,
+          ${theme.colors.textOnSecondary || '#FFF'}
+        );
       `
     : variant === 'outline'
     ? css`
-        fill: var(--colors-svg-on-outline, ${theme.colors.text});
+        fill: var(--colors-svg-on-outline, ${theme.colors.text || '#333666'});
       `
     : // Default
       css`
-        fill: var(--colors-svg-on-primary, ${theme.colors.textOnPrimary});
+        fill: var(
+          --colors-svg-on-primary,
+          ${theme.colors.textOnPrimary || '#FFF'}
+        );
       `;
 
 export const primaryButtonStyles = ({ theme }) => css`
@@ -191,7 +217,10 @@ export const primaryButtonStyles = ({ theme }) => css`
   }
   &:hover {
     svg {
-      fill: var(--colors-text-on-primary, ${theme.colors.textOnPrimaryDark});
+      fill: var(
+        --colors-text-on-primary,
+        ${theme.colors.textOnPrimaryDark || '#FFF'}
+      );
     }
   }
 `;
@@ -211,12 +240,6 @@ export const secondaryButtonStyles = ({ theme }) => css`
         ${theme.colors.textOnSecondaryDark}
       );
     }
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px white,
-      0 0 0 4px var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
-    outline: none;
   }
 `;
 
@@ -339,7 +362,3 @@ export const buttonSizeStyles = ({ size }) => {
  * END Size Mixins
  *
  */
-
-export const buttonTypographyStyles = ({ typography, theme }) => css`
-  font-family: ${theme.fonts[typography]};
-`;

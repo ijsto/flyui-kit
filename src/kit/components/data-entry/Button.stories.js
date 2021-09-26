@@ -79,6 +79,35 @@ Default.args = {
   onClick: () => alert('Clicked!'),
 };
 
+export const Primary = Template.bind({});
+Primary.args = {
+  label: 'Primary Button',
+  // eslint-disable-next-line no-alert
+  onClick: () => alert('Clicked!'),
+  variant: 'primary',
+};
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: 'Secondary Button',
+  // eslint-disable-next-line no-alert
+  onClick: () => alert('Clicked!'),
+  variant: 'secondary',
+};
+export const Outline = Template.bind({});
+Outline.args = {
+  label: 'Outline Button',
+  // eslint-disable-next-line no-alert
+  onClick: () => alert('Clicked!'),
+  variant: 'outline',
+};
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  label: 'Disabled Button',
+  // eslint-disable-next-line no-alert
+  onClick: () => alert('Clicked!'),
+};
+
 export const DefaultLink = Template.bind({});
 DefaultLink.args = {
   href: '#clicked-Default',

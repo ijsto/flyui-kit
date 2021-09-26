@@ -12,15 +12,14 @@ import {
   buttonHoverColorStyles,
   buttonShapeStyles,
   buttonSizeStyles,
-  buttonTypographyStyles,
   buttonVariantStyles,
 } from '../../lib/mixins/buttonMixins';
+import { inputDisabledStyles } from '../../lib/mixins/inputMixins';
 
 const StyledButtonLink = styled.a`
   ${buttonBaseStyles};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
-  ${buttonTypographyStyles};
 
   &:focus {
     /* @TODO: */
@@ -29,17 +28,18 @@ const StyledButtonLink = styled.a`
   &:hover {
     ${buttonHoverEffectsStyles};
     ${buttonHoverColorStyles};
+  }
+
+  &:disabled,
+  &[disabled] {
+    ${inputDisabledStyles};
   }
 `;
 
 const StyledButton = styled.button`
   ${buttonBaseStyles};
-  ${({ inline }) => (inline ? 'display: inline;' : 'display: block;')};
   ${buttonSizeStyles};
   ${buttonShapeStyles};
-  ${buttonTypographyStyles};
-
-  ${({ unstyled }) => !unstyled && buttonVariantStyles};
 
   &:focus {
     /* @TODO: */
@@ -49,6 +49,13 @@ const StyledButton = styled.button`
     ${buttonHoverEffectsStyles};
     ${buttonHoverColorStyles};
   }
+
+  &:disabled,
+  &[disabled] {
+    ${inputDisabledStyles};
+  }
+
+  ${({ unstyled }) => !unstyled && buttonVariantStyles};
 `;
 
 const StyledButtonWrapper = styled(Box)`

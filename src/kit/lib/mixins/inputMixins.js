@@ -4,21 +4,28 @@ export const inputActiveStyles = ({ theme }) => css`
   border-color: ${theme.colors.text};
 `;
 export const inputDisabledStyles = ({ theme }) => css`
-  border: ${theme.colors.neutral} solid 2px !important;
-  background-color: ${theme.colors.neutral} !important;
+  border-color: ${theme.colors.disabled || 'rgba(77, 77, 77, 0.7)'};
+  background-color: ${theme.colors.disabled ||
+  'rgba(255,255,255,0.5)'} !important;
+  color: ${theme.colors.disabled || 'rgba(77, 77, 77, 0.7)'};
   cursor: not-allowed !important;
-  opacity: 0.35 !important;
+
+  svg {
+    fill: ${theme.colors.disabled || 'rgba(77, 77, 77, 0.7)'};
+  }
 `;
 export const inputErrorStyles = ({ theme }) => css`
   border-color: ${theme.colors.error};
   color: ${theme.colors.error};
 `;
+
 export const inputFocusStyles = ({ theme }) => css`
   transition: box—shadow 0.2s ease !important;
   box-shadow: 0 0 0 2px ${theme.colors.background},
     0 0 0 4px ${theme.colors.text};
   outline: none;
 `;
+
 export const inputHoverStyles = ({ theme }) => css`
   border-color: ${theme.colors.primary};
 `;
@@ -111,11 +118,12 @@ const inputSizeStyles = ({ size }) => {
   }
 };
 
-export const inputContainerStyles = ({ invalid, theme }) => css`
+export const inputContainerStyles = ({ invalid, disabled, theme }) => css`
   appearance: textfield;
   background: var(--input-background, none);
-  border: 1px solid;
-  border-color: ${theme.colors.inactive};
+  border-style: var(--border-input-style, solid);
+  border-color: var(--border-input-color, ${theme.colors.border || '#333666'});
+  border-width: var(--border-input-width, 2px);
   box-sizing: border-box;
   max-width: 100%;
   outline: none;
@@ -142,7 +150,7 @@ export const inputContainerStyles = ({ invalid, theme }) => css`
   }
 
   &:hover {
-    ${!invalid && inputHoverStyles};
+    ${!invalid && !disabled && inputHoverStyles};
   }
 `;
 

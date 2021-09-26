@@ -32,6 +32,14 @@ Default.args = {
   label: 'Default Input',
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  description: 'Is not editable',
+  disabled: true,
+  error: '',
+  label: 'Disabled Input',
+};
+
 export const WithStartIcon = Template.bind({});
 WithStartIcon.args = {
   description: 'Input with a start icon',
