@@ -36,24 +36,10 @@ const InputWithIcon = ({ startIcon, size, ...rest }) => (
     <StyledInputWithIcon className="icon" ml={size === 'sm' ? 1 : 2}>
       <SVG icon={startIcon} />
     </StyledInputWithIcon>
+
     <StyledInput size={size} icon={Boolean(startIcon)} {...rest} mt={1} />
   </StyledInputWithIcon>
 );
-
-export const InputField = props => {
-  const {
-    startIcon,
-    inputMode,
-    methods,
-    nativeValidate,
-    required,
-    validate,
-    ...rest
-  } = props;
-
-  // @TODO: Improve the icon handling.
-  return <InputWithIcon startIcon={startIcon || rest.type} {...props} />;
-};
 
 const Input = ({ block, description, error, label, labelVariant, ...rest }) => (
   <Box
@@ -63,7 +49,7 @@ const Input = ({ block, description, error, label, labelVariant, ...rest }) => (
   >
     <Text as="label" htmlFor={rest.name} variant={labelVariant || 'caption'}>
       {label}
-      <InputField invalid={Boolean(error)} {...rest} />
+      <InputWithIcon invalid={Boolean(error)} {...rest} />
     </Text>
 
     {(error || description) && (
