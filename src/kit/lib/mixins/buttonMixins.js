@@ -297,29 +297,34 @@ export const buttonVariantStyles = ({ variant }) => {
 
 export const buttonShapeStyles = ({ shape, theme }) => {
   switch (shape) {
+    case 'square': {
+      return css`
+        border-radius: ${`var(--button-radius-square, ${theme.input.radius.square}px)`};
+      `;
+    }
     case 'squared': {
       return css`
-        border-radius: ${`var(--button-squared-radius, ${theme.radius.input.squared}px)`};
+        border-radius: ${`var(--button-radius-sm, ${theme.input.radius.sm}px)`};
       `;
     }
     case 'regular': {
       return css`
-        border-radius: ${`var(--button-radius, ${theme.radius.input.regular}px)`};
+        border-radius: ${`var(--button-radius, ${theme.input.radius.md}px)`};
       `;
     }
     case 'rounded': {
       return css`
-        border-radius: ${`var(--button-rounded-radius, ${theme.radius.input.rounded}px)`};
+        border-radius: ${`var(--button-radius-lg, ${theme.input.radius.lg}px)`};
       `;
     }
     case 'round': {
       return css`
-        border-radius: ${`var(--button-round-radius, ${theme.radius.input.round}px)`};
+        border-radius: ${`var(--button-radius-round, ${theme.input.radius.round}px)`};
       `;
     }
     default: {
       return css`
-        border-radius: ${`var(--button-radius, ${theme.radius.input.regular}px)`};
+        border-radius: ${`var(--button-radius, ${theme.input.radius.md}px)`};
       `;
     }
   }
@@ -351,6 +356,11 @@ export const buttonSizeStyles = ({ size }) => {
       return css`
         height: 42px;
         padding: 8px;
+      `;
+    case 'xl':
+      return css`
+        height: 48px;
+        padding: 12px;
       `;
 
     default:
