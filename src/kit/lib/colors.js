@@ -7,6 +7,9 @@
 const backgroundCol = '#F7F7F7';
 const backgroundDarkCol = '#F7F7F7';
 const backgroundLightCol = '#F7F7F7';
+const borderCol = '#9ab2f4';
+const borderDarkCol = '#333644';
+const borderLightCol = '#a1b3ea';
 const errorCol = '#F21368';
 const errorDarkCol = '#F21368';
 const errorLightCol = '#F21368';
@@ -57,7 +60,6 @@ const warningDarkCol = '#F17B0D';
 const warningLightCol = '#F17B0D';
 
 // // Derived colors
-const borderCol = primaryCol;
 // const inactiveCol = '#A3A1A8';
 // const linkTextCol = primaryCol;
 // const svgFillCol = '#333644';
@@ -73,6 +75,8 @@ export const colors = {
   backgroundDark: backgroundDarkCol,
   backgroundLight: backgroundLightCol,
   border: borderCol,
+  borderDark: borderDarkCol,
+  borderLight: borderLightCol,
   error: errorCol,
   errorDark: errorDarkCol,
   errorLight: errorLightCol,
