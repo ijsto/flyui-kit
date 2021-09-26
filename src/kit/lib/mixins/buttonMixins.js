@@ -268,35 +268,33 @@ export const buttonVariantStyles = ({ variant }) => {
  * Shape Mixins
  *
  */
-export const squaredButtonStyles = ({ theme }) => css`
-  border-radius: ${`var(--button-squared-radius, ${theme.radii[1]}px)`};
-`;
-export const regularButtonStyles = ({ theme }) => css`
-  border-radius: ${`var(--button-radius, ${theme.radii[2]}px)`};
-`;
-export const roundedButtonStyles = ({ theme }) => css`
-  border-radius: ${`var(--button-rounded-radius, ${theme.radii[3]}px)`};
-`;
-export const roundButtonStyles = ({ theme }) => css`
-  border-radius: ${`var(--button-round-radius, ${theme.radii.max})`};
-`;
 
-export const buttonShapeStyles = ({ shape }) => {
+export const buttonShapeStyles = ({ shape, theme }) => {
   switch (shape) {
     case 'squared': {
-      return squaredButtonStyles;
+      return css`
+        border-radius: ${`var(--button-squared-radius, ${theme.radius.input.squared}px)`};
+      `;
     }
     case 'regular': {
-      return regularButtonStyles;
+      return css`
+        border-radius: ${`var(--button-radius, ${theme.radius.input.regular}px)`};
+      `;
     }
     case 'rounded': {
-      return roundedButtonStyles;
+      return css`
+        border-radius: ${`var(--button-rounded-radius, ${theme.radius.input.rounded}px)`};
+      `;
     }
     case 'round': {
-      return roundButtonStyles;
+      return css`
+        border-radius: ${`var(--button-round-radius, ${theme.radius.input.round}px)`};
+      `;
     }
     default: {
-      return regularButtonStyles;
+      return css`
+        border-radius: ${`var(--button-radius, ${theme.radius.input.regular}px)`};
+      `;
     }
   }
 };
@@ -311,33 +309,29 @@ export const buttonShapeStyles = ({ shape }) => {
  *
  */
 
-export const smallButtonStyles = () => css`
-  height: 32px;
-  padding: 0 0.5rem;
-`;
-export const mediumButtonStyles = () => css`
-  height: 40px;
-  padding: 0.5rem 1.2rem;
-`;
-export const largeButtonStyles = () => css`
-  height: 48px;
-  padding: 0.5rem 1.2rem;
-`;
-
 export const buttonSizeStyles = ({ size }) => {
   switch (size) {
-    case 'sm': {
-      return smallButtonStyles;
-    }
-    case 'md': {
-      return mediumButtonStyles;
-    }
-    case 'lg': {
-      return largeButtonStyles;
-    }
-    default: {
-      return mediumButtonStyles;
-    }
+    case 'sm':
+      return css`
+        height: 24px;
+        padding: 2px;
+      `;
+    case 'md':
+      return css`
+        height: 32px;
+        padding: 4px;
+      `;
+    case 'lg':
+      return css`
+        height: 42px;
+        padding: 8px;
+      `;
+
+    default:
+      return css`
+        height: 32px;
+        padding: 2px;
+      `;
   }
 };
 

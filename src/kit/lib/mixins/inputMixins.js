@@ -27,20 +27,96 @@ export const inputTextStyles = ({ theme }) => css`
   color: ${theme.colors.text};
 `;
 
-export const inputIconPadding = ({ icon, textSize }) => css`
-  padding-left: calc(${icon && textSize} * 2);
-`;
+export const inputIconPadding = ({ icon, size }) => {
+  const textSize =
+    size === 'sm'
+      ? '12px'
+      : size === 'md'
+      ? '16px'
+      : size === 'lg'
+      ? '24px'
+      : '16px';
 
-const inputContainerSizePaddingStyles = ({ textSize }) => css`
-  padding: calc(${textSize} / 2);
-`;
+  return css`
+    ${icon &&
+    css`
+      padding-left: calc(${textSize} * 2);
+    `}
+  `;
+};
+
+/**
+ * Shape Mixins
+ *
+ */
+
+export const inputShapeStyles = ({ shape, theme }) => {
+  switch (shape) {
+    case 'squared': {
+      return css`
+        border-radius: ${`var(--input-squared-radius, ${theme.radius.input.squared}px)`};
+      `;
+    }
+    case 'regular': {
+      return css`
+        border-radius: ${`var(--input-radius, ${theme.radius.input.regular}px)`};
+      `;
+    }
+    case 'rounded': {
+      return css`
+        border-radius: ${`var(--input-rounded-radius, ${theme.radius.input.rounded}px)`};
+      `;
+    }
+    case 'round': {
+      return css`
+        border-radius: ${`var(--input-round-radius, ${theme.radius.input.round}px)`};
+      `;
+    }
+    default: {
+      return css`
+        border-radius: ${`var(--input-radius, ${theme.radius.input.regular}px)`};
+      `;
+    }
+  }
+};
+
+/**
+ * END Shape Mixins
+ *
+ */
+
+const inputSizeStyles = ({ size }) => {
+  switch (size) {
+    case 'sm':
+      return css`
+        height: 24px;
+        padding: 2px 4px;
+      `;
+    case 'md':
+      return css`
+        height: 32px;
+        padding: 4px 6px;
+      `;
+    case 'lg':
+      return css`
+        height: 42px;
+        padding: 4px 8px;
+      `;
+
+    default:
+      return css`
+        height: 32px;
+        padding: 4px 6px;
+      `;
+  }
+};
 
 export const inputContainerStyles = ({ invalid, theme }) => css`
   appearance: textfield;
-  background: var(--input-radius, none);
+  background: var(--input-background, none);
   border: 1px solid;
   border-color: ${theme.colors.inactive};
-  border-radius: ${`var(--input-radius, ${theme.radius.md}px)`};
+  box-sizing: border-box;
   max-width: 100%;
   outline: none;
   width: ${({ width }) => width || '100%'};
@@ -48,8 +124,9 @@ export const inputContainerStyles = ({ invalid, theme }) => css`
     ${({ theme: { transition } }) =>
       `${transition.speed.fast} ${transition.animation}`};
 
+  ${inputShapeStyles};
   ${inputTextStyles};
-  ${inputContainerSizePaddingStyles};
+  ${inputSizeStyles};
   ${inputIconPadding};
 
   ${invalid && inputErrorStyles};

@@ -121,7 +121,7 @@ const ButtonChildrenContainer = ({
       </Box>
     ) : (
       children && (
-        <StyledButtonContent display={labelDisplay} mx={1}>
+        <StyledButtonContent display={labelDisplay} mx={1} px={3}>
           {children}
         </StyledButtonContent>
       )
