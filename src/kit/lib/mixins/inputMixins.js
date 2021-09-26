@@ -101,23 +101,27 @@ const inputSizeStyles = ({ size, theme }) => {
   switch (size) {
     case 'sm':
       return css`
-        height: ${`var(--input-radius, ${theme.input?.heights?.sm || 24}px)`};
+        height: ${`var(--input-height-sm, ${
+          theme.input?.heights?.sm || 24
+        }px)`};
         padding: 2px 4px;
       `;
     case 'md':
       return css`
-        height: ${`var(--input-radius, ${theme.input?.heights?.md || 32}px)`};
+        height: ${`var(--input-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px 6px;
       `;
     case 'lg':
       return css`
-        height: ${`var(--input-radius, ${theme.input?.heights?.lg || 42}px)`};
+        height: ${`var(--input-height-lg, ${
+          theme.input?.heights?.lg || 42
+        }px)`};
         padding: 4px 8px;
       `;
 
     default:
       return css`
-        height: 32px;
+        height: ${`var(--input-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px 6px;
       `;
   }
