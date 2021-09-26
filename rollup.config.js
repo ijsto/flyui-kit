@@ -15,6 +15,10 @@ export default {
     { file: pkg.module, format: 'esm' },
   ],
   plugins: [
+    babel({
+      exclude: 'node_modules/**',
+      babelHelpers: 'bundled',
+    }),
     replace({
       include: ['./src/kit/utils/icons.js'],
       preventAssignment: true,
@@ -23,10 +27,6 @@ export default {
     }),
     svgr(),
     external(),
-    babel({
-      exclude: 'node_modules/**',
-      babelHelpers: 'bundled',
-    }),
     del({ targets: ['dist/*'] }),
   ],
   external: Object.keys(pkg.peerDependencies || {}),
