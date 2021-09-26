@@ -145,7 +145,7 @@ export const radiusProps = {
   },
 };
 
-export const theme = {
+const theme = {
   ...borderProps,
   ...effectProps,
   ...fontProps,
