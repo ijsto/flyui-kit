@@ -8,6 +8,7 @@ import Text from './components/data-display/Text';
 import Tag from './components/data-display/Tag';
 
 import Button from './components/data-entry/Button';
+import ButtonLink from './components/data-entry/ButtonLink';
 import Input from './components/data-entry/Input';
 
 import Box from './components/layout/Box';
@@ -17,6 +18,7 @@ export {
   Badge,
   Box,
   Button,
+  ButtonLink,
   FlyGlobalStyle,
   FlyThemeProvider,
   Input,
