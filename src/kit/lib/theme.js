@@ -126,6 +126,20 @@ fontProps.fontSizes.eyebrow = fontProps.fontSizes[3];
 // eslint-disable-next-line prefer-destructuring
 spaceProps.radii.max = spaceProps.radii[7];
 
+export const inputProps = {
+  input: {
+    radius: {
+      square: spaceProps.radii[0],
+      // eslint-disable-next-line sort-keys
+      sm: spaceProps.radii[1],
+      // eslint-disable-next-line sort-keys
+      md: spaceProps.radii[2],
+      // eslint-disable-next-line sort-keys
+      lg: spaceProps.radii[3],
+      round: spaceProps.radii.max,
+    },
+  },
+};
 export const radiusProps = {
   radius: {
     circle: spaceProps.radii.max,
@@ -134,14 +148,6 @@ export const radiusProps = {
     md: spaceProps.radii[3],
     sm: spaceProps.radii[1],
     square: spaceProps.radii[0],
-    // eslint-disable-next-line sort-keys
-    input: {
-      regular: spaceProps.radii[2],
-      round: spaceProps.radii.max,
-      rounded: spaceProps.radii[3],
-      square: spaceProps.radii[0],
-      squared: spaceProps.radii[1],
-    },
   },
 };
 
