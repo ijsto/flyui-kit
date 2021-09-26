@@ -33,7 +33,7 @@ const StyledInputWithIcon = styled(Box)`
 
 const InputWithIcon = ({ icon, size, ...rest }) => (
   <StyledInputWithIcon size={size}>
-    <StyledInputWithIcon className="icon">
+    <StyledInputWithIcon className="icon" ml={size === 'sm' ? 1 : 2}>
       <SVG icon={icon} />
     </StyledInputWithIcon>
     <StyledInput size={size} icon={Boolean(icon)} {...rest} mt={1} />

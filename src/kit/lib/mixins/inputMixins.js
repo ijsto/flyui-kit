@@ -34,7 +34,7 @@ export const inputIconPadding = ({ icon, size }) => {
       : size === 'md'
       ? '16px'
       : size === 'lg'
-      ? '24px'
+      ? '16px'
       : '16px';
 
   return css`

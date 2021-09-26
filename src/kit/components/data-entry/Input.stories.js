@@ -6,7 +6,6 @@ export default {
   argTypes: {
     icon: {
       control: { type: 'select' },
-      options: ['edit', 'cancel', 'save'],
     },
     shape: {
       control: { type: 'inline-radio' },
@@ -28,4 +27,12 @@ Default.args = {
   description: 'This input will show you!',
   error: '',
   label: 'Default Input',
+};
+
+export const WithStartIcon = Template.bind({});
+WithStartIcon.args = {
+  description: 'Input with a start icon',
+  error: '',
+  placeholder: 'Nifty bit',
+  startIcon: 'user',
 };
