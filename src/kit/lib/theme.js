@@ -141,6 +141,15 @@ const radiusProperties = {
     lg: commonProperties.radii[4],
     md: commonProperties.radii[3],
     sm: commonProperties.radii[1],
+    square: commonProperties.radii[0],
+    // eslint-disable-next-line sort-keys
+    input: {
+      regular: commonProperties.radii[2],
+      round: commonProperties.radii.max,
+      rounded: commonProperties.radii[3],
+      square: commonProperties.radii[0],
+      squared: commonProperties.radii[1],
+    },
   },
 };
 
