@@ -58,7 +58,7 @@ const StyledButton = styled.button`
   ${({ unstyled }) => !unstyled && buttonVariantStyles};
 `;
 
-const StyledButtonWrapper = styled(Box)`
+const StyledButtonChildrenContainer = styled(Box)`
   align-items: center;
   display: flex;
   height: 100%;
@@ -85,7 +85,7 @@ const ButtonChildrenContainer = ({
   loadingLabel,
   startIcon,
 }) => (
-  <StyledButtonWrapper px={3}>
+  <StyledButtonChildrenContainer px={3}>
     {!loading && (
       <ButtonIcon
         variant={iconVariant}
@@ -111,7 +111,7 @@ const ButtonChildrenContainer = ({
     )}
 
     {!loading && <ButtonIcon icon={endIcon} size={iconsSize} />}
-  </StyledButtonWrapper>
+  </StyledButtonChildrenContainer>
 );
 
 /**
@@ -150,17 +150,25 @@ export const ButtonLink = forwardRef(
 );
 
 const Button = ({
+  block,
   children,
   endIcon,
   iconsSize,
   iconVariant,
+  height,
   labelDisplay,
   loading,
   loadingLabel,
   startIcon,
+  width,
   ...rest
 }) => (
-  <StyledButton type={rest.type || 'submit'} {...rest}>
+  <StyledButton
+    type={rest.type || 'submit'}
+    {...rest}
+    width={block ? '100%' : width}
+    height={height}
+  >
     <ButtonChildrenContainer
       endIcon={endIcon}
       iconsSize={iconsSize}

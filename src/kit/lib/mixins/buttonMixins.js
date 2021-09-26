@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { space, layout } from 'styled-system';
 import { inputFocusStyles } from './inputMixins';
 
 // iJS
@@ -101,6 +102,8 @@ export const buttonTransitionStyles = ({ theme }) =>
  */
 
 export const buttonBaseStyles = ({ typography, theme }) => css`
+  ${layout};
+  ${space};
   cursor: pointer;
   font-weight: var(--button-text-weight, bold);
 
