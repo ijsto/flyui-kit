@@ -59,29 +59,34 @@ export const inputIconPadding = ({ icon, size }) => {
 
 export const inputShapeStyles = ({ shape, theme }) => {
   switch (shape) {
+    case 'square': {
+      return css`
+        border-radius: ${`var(--input-radius-square, ${theme.input.radius.square}px)`};
+      `;
+    }
     case 'squared': {
       return css`
-        border-radius: ${`var(--input-squared-radius, ${theme.radius.input.squared}px)`};
+        border-radius: ${`var(--input-radius-sm, ${theme.input.radius.sm}px)`};
       `;
     }
     case 'regular': {
       return css`
-        border-radius: ${`var(--input-radius, ${theme.radius.input.regular}px)`};
+        border-radius: ${`var(--input-radius, ${theme.input.radius.md}px)`};
       `;
     }
     case 'rounded': {
       return css`
-        border-radius: ${`var(--input-rounded-radius, ${theme.radius.input.rounded}px)`};
+        border-radius: ${`var(--input-radius-lg, ${theme.input.radius.lg}px)`};
       `;
     }
     case 'round': {
       return css`
-        border-radius: ${`var(--input-round-radius, ${theme.radius.input.round}px)`};
+        border-radius: ${`var(--input-radius-round, ${theme.input.radius.round}px)`};
       `;
     }
     default: {
       return css`
-        border-radius: ${`var(--input-radius, ${theme.radius.input.regular}px)`};
+        border-radius: ${`var(--input-radius, ${theme.input.radius.md}px)`};
       `;
     }
   }
@@ -92,21 +97,21 @@ export const inputShapeStyles = ({ shape, theme }) => {
  *
  */
 
-const inputSizeStyles = ({ size }) => {
+const inputSizeStyles = ({ size, theme }) => {
   switch (size) {
     case 'sm':
       return css`
-        height: 24px;
+        height: ${`var(--input-radius, ${theme.input?.heights?.sm || 24}px)`};
         padding: 2px 4px;
       `;
     case 'md':
       return css`
-        height: 32px;
+        height: ${`var(--input-radius, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px 6px;
       `;
     case 'lg':
       return css`
-        height: 42px;
+        height: ${`var(--input-radius, ${theme.input?.heights?.lg || 42}px)`};
         padding: 4px 8px;
       `;
 
