@@ -4,15 +4,15 @@ import { space as systemSpace } from 'styled-system';
 
 import Box from './Box';
 
-export const StyledSlack = styled(Box)`
+export const StyledStack = styled(Box)`
   display: flex;
   /* @TODO: Review wrapping. */
   flex-wrap: wrap;
   ${systemSpace};
 `;
 
-const Slack = ({ children, center = false, space, ...rest }) => (
-  <StyledSlack
+const Stack = ({ children, center = false, space, ...rest }) => (
+  <StyledStack
     alignItems={rest.direction || (center && 'center')}
     justifyContent={rest.direction || (center && 'center')}
     flexDirection={rest.direction}
@@ -20,10 +20,10 @@ const Slack = ({ children, center = false, space, ...rest }) => (
     {...rest}
   >
     {children}
-  </StyledSlack>
+  </StyledStack>
 );
 
-Slack.defaultProps = {
+Stack.defaultProps = {
   // Short hand to center elements within the stack
   center: false,
   direction: 'column',
@@ -35,4 +35,4 @@ Slack.defaultProps = {
   width: null,
 };
 
-export default Slack;
+export default Stack;
