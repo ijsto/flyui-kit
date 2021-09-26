@@ -8,8 +8,12 @@ export default {
       control: { type: 'select' },
       options: ['edit', 'cancel', 'save'],
     },
+    shape: {
+      control: { type: 'inline-radio' },
+      options: ['squared', 'regular', 'rounded', 'round'],
+    },
     size: {
-      control: { type: 'radio' },
+      control: { type: 'inline-radio' },
       options: ['sm', 'md', 'lg'],
     },
   },

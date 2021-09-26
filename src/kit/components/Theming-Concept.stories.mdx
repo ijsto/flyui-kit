@@ -1,0 +1,29 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+import { colors } from '../lib/colors';
+
+<Meta title="Docs/Theming/Concept" />
+
+# Concept
+
+Theming allows you to easily adjust the component visual appearance to suit your app.
+Typically the inheritance and style defaults are as follows (in the order of importance):
+
+1. CSS Variable - this will be used as the principal style value
+2. `theme.*` value - a value from the `theme` object that will be used as the fallback style value, if there is not CSS variable
+
+
+## `FlyGlobalStyle />`
+
+To set the defaults for the FlyUI components, import `FlyGlobalStyle />` (ideally) on the rool level of your app.
+This component will:
+- set the root CSS Custom Properties, that you can later override in a specific component
+- provide you with FlyUI basic animations such as `spin` which is used for the `LoadingSpinner />`
+
+## `FlyThemeProvider />`
+
+To get access to the default theme, import `FlyThemeProvider />` (ideally) on the rool level of your app.
+
+## Custom CSS Properties (CSS variables)
+
+FlyUI exposes CSS Variables that are used as defaults to style the components. If you don't define the variables, the values will fallback to the `FlyTheme` or your own theme for `styled-components`.

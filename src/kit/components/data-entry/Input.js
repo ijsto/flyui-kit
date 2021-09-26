@@ -31,25 +31,14 @@ const StyledInputWithIcon = styled(Box)`
   }
 `;
 
-const InputWithIcon = ({ icon, size, ...rest }) => {
-  const textSize =
-    size === 'sm'
-      ? '12px'
-      : size === 'md'
-      ? '16px'
-      : size === 'lg'
-      ? '24px'
-      : '16px';
-
-  return (
-    <StyledInputWithIcon textSize={textSize}>
-      <StyledInputWithIcon className="icon">
-        <SVG icon={icon} />
-      </StyledInputWithIcon>
-      <StyledInput textSize={textSize} icon={Boolean(icon)} {...rest} mt={1} />
+const InputWithIcon = ({ icon, size, ...rest }) => (
+  <StyledInputWithIcon size={size}>
+    <StyledInputWithIcon className="icon">
+      <SVG icon={icon} />
     </StyledInputWithIcon>
-  );
-};
+    <StyledInput size={size} icon={Boolean(icon)} {...rest} mt={1} />
+  </StyledInputWithIcon>
+);
 
 export const InputField = props => {
   const {
@@ -66,9 +55,13 @@ export const InputField = props => {
   return <InputWithIcon icon={icon || rest.type} {...props} />;
 };
 
-const Input = ({ block, description, error, label, ...rest }) => (
-  <Box flex={block ? 1 : rest.flex} flexBasis={rest.flexBasis}>
-    <Text as="label" htmlFor={rest.name}>
+const Input = ({ block, description, error, label, labelVariant, ...rest }) => (
+  <Box
+    alignSelf={rest.alignSelf || 'flex-start'}
+    flex={block ? 1 : rest.flex}
+    flexBasis={rest.flexBasis}
+  >
+    <Text as="label" htmlFor={rest.name} variant={labelVariant || 'caption'}>
       {label}
       <InputField invalid={Boolean(error)} {...rest} />
     </Text>

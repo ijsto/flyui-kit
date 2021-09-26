@@ -24,7 +24,7 @@ export default {
       defaultValue: '50%',
     },
     shape: {
-      control: { type: 'radio' },
+      control: { type: 'inline-radio' },
       defaultValue: 'round',
       options: ['square', 'squared', 'regular', 'rounded', 'round'],
     },
@@ -37,7 +37,10 @@ export default {
       control: { type: 'text' },
       defaultValue: '-8px',
     },
-    src: 'https://source.unsplash.com/92x92/?portrait',
+    src: {
+      defaultValue:
+        'https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1760&q=80',
+    },
   },
   component: Avatar,
   title: 'Data Display/Avatar',
@@ -47,7 +50,7 @@ const Template = args => <Avatar {...args}>{args.children}</Avatar>;
 
 export const Default = Template.bind({});
 Default.args = {
-  src: 'https://source.unsplash.com/92x92/?portrait',
+  // src: 'https://source.unsplash.com/92x92/?portrait',
 };
 
 export const Initials = Template.bind({});
@@ -71,7 +74,7 @@ AvatarGroup.decorators = [
   },
 ];
 AvatarGroup.args = {
-  src: 'https://source.unsplash.com/92x92/?portrait',
+  src: 'https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1326&q=80',
 };
 
 // @TODO: Move out to its own component AvatarGroup />
@@ -94,5 +97,5 @@ AvatarGroupExtra.decorators = [
   },
 ];
 AvatarGroupExtra.args = {
-  src: 'https://source.unsplash.com/92x92/?portrait',
+  // src: 'https://source.unsplash.com/92x92/?portrait',
 };
