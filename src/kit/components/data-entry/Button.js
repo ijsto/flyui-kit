@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import SVG from '../data-display/SVG';
@@ -15,26 +15,6 @@ import {
   buttonVariantStyles,
 } from '../../lib/mixins/buttonMixins';
 import { inputDisabledStyles } from '../../lib/mixins/inputMixins';
-
-const StyledButtonLink = styled.a`
-  ${buttonBaseStyles};
-  ${buttonSizeStyles};
-  ${buttonShapeStyles};
-
-  &:focus {
-    /* @TODO: */
-  }
-
-  &:hover {
-    ${buttonHoverEffectsStyles};
-    ${buttonHoverColorStyles};
-  }
-
-  &:disabled,
-  &[disabled] {
-    ${inputDisabledStyles};
-  }
-`;
 
 const StyledButton = styled.button`
   ${buttonBaseStyles};
@@ -112,41 +92,6 @@ const ButtonChildrenContainer = ({
 
     {!loading && <ButtonIcon icon={endIcon} size={iconsSize} />}
   </StyledButtonChildrenContainer>
-);
-
-/**
- * @param {React Component} SVGIcon Imported SVG React Component from path (example "@/icons/paper-plane.svg")
- */
-export const ButtonLink = forwardRef(
-  (
-    {
-      children,
-      endIcon,
-      iconsSize,
-      fill,
-      labelDisplay,
-      loading,
-      loadingLabel,
-      startIcon,
-      target,
-      ...rest
-    },
-    ref
-  ) => (
-    <StyledButtonLink tabIndex="0" target={target} ref={ref} {...rest}>
-      <ButtonChildrenContainer
-        endIcon={endIcon}
-        iconsSize={iconsSize}
-        fill={fill}
-        labelDisplay={labelDisplay}
-        loading={loading}
-        loadingLabel={loadingLabel}
-        startIcon={startIcon}
-      >
-        {children}
-      </ButtonChildrenContainer>
-    </StyledButtonLink>
-  )
 );
 
 const Button = ({

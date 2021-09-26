@@ -108,12 +108,6 @@ Disabled.args = {
   onClick: () => alert('Clicked!'),
 };
 
-export const DefaultLink = Template.bind({});
-DefaultLink.args = {
-  href: '#clicked-Default',
-  label: 'Default Button',
-};
-
 export const ButtonGroup = Template.bind({});
 ButtonGroup.decorators = [
   story => (
