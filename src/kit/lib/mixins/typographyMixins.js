@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { headingFontStack } from '../constants';
 
 import { primaryGradientText } from './gradientMixins';
 
@@ -17,7 +16,7 @@ export const baseTextStyles = ({ gradient }) => {
 
 export const headingStyles = ({ theme }) => css`
   ${baseTextStyles};
-  font-family: ${headingFontStack};
+  font-family: ${theme.fonts.heading};
   color: ${theme.colors.heading || 'inherit'};
 `;
 
