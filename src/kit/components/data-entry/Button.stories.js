@@ -2,6 +2,7 @@ import React from 'react';
 
 import Stack from '../layout/Stack';
 import Button from './Button';
+import Input from './Input';
 
 export default {
   argTypes: {
@@ -89,7 +90,31 @@ ButtonGroup.decorators = [
     </Stack>
   ),
 ];
-ButtonGroup.args = {
+
+export const WithInput = Template.bind({});
+WithInput.decorators = [
+  story => {
+    const { shape, size } = story().props;
+    return (
+      <Stack alignItems="center" direction="row">
+        <Input
+          description="Info text"
+          label="Input label"
+          size={size}
+          shape={shape}
+        />
+        <Input
+          placeholder="Another Input"
+          label="Another Input label"
+          size={size}
+          shape={shape}
+        />
+        {story()}
+      </Stack>
+    );
+  },
+];
+WithInput.args = {
   href: '#clicked-Default',
   label: 'Default Button',
 };
