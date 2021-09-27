@@ -346,7 +346,7 @@ export const buttonSizeStyles = ({ size, theme }) => {
     case 'sm':
       return css`
         * {
-          font-size: ${`var(--button-text-size-sm, ${theme.fontSizes.caption})`};
+          font-size: ${`var(--button-text-size-sm, ${theme.fontSizes.caption}px)`};
         }
         height: ${`var(--button-height-sm, ${
           theme.input?.heights?.sm || 24
@@ -356,7 +356,7 @@ export const buttonSizeStyles = ({ size, theme }) => {
     case 'md':
       return css`
         * {
-          font-size: ${`var(--button-text-size-md, ${theme.fontSizes.button})`};
+          font-size: ${`var(--button-text-size-md, ${theme.fontSizes.button}px)`};
         }
         height: ${`var(--button-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px;
@@ -364,7 +364,7 @@ export const buttonSizeStyles = ({ size, theme }) => {
     case 'lg':
       return css`
         * {
-          font-size: ${`var(--button-text-size-lg, ${theme.fontSizes.h4})`};
+          font-size: ${`var(--button-text-size-lg, ${theme.fontSizes.button}px)`};
         }
         height: ${`var(--button-height-lg, ${
           theme.input?.heights?.lg || 42
@@ -374,7 +374,7 @@ export const buttonSizeStyles = ({ size, theme }) => {
     case 'xl':
       return css`
         * {
-          font-size: ${`var(--button-text-size-xl, ${theme.fontSizes.h3})`};
+          font-size: ${`var(--button-text-size-xl, ${theme.fontSizes.h3}px)`};
         }
         height: 48px;
         padding: 12px;
@@ -382,7 +382,7 @@ export const buttonSizeStyles = ({ size, theme }) => {
 
     default:
       return css`
-        font-size: ${`var(--button-text-size-md, ${theme.fontSizes.button})`};
+        font-size: ${`var(--button-text-size-md, ${theme.fontSizes.button}px)`};
         height: ${`var(--button-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 2px;
       `;
