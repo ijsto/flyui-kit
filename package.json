@@ -1,6 +1,6 @@
 {
   "name": "flyui-kit",
-  "version": "0.0.930",
+  "version": "0.0.931",
   "private": false,
   "author": {
     "name": "Scott Agirs Neminskis",
@@ -26,6 +26,7 @@
     "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
+    "@craco/craco": "^6.3.0",
     "color": "^4.0.1",
     "styled-components": "^5.3.1",
     "styled-system": "^5.1.5"
@@ -68,6 +69,7 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook-addon-pseudo-states": "^1.0.0",
+    "storybook-preset-craco": "^0.0.6",
     "web-vitals": "^1.0.1"
   },
   "peerDependencies": {
