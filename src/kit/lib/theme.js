@@ -26,21 +26,7 @@ export const borderProps = {
 };
 
 export const fontProps = {
-  fontSizes: [
-    '0.6rem',
-    '0.7rem',
-    '0.8rem',
-    '0.9rem',
-    '1rem', // [4]
-    '1.125rem',
-    '1.25rem',
-    '1.5rem',
-    '1.75rem',
-    '2rem',
-    '2.5rem',
-    '4rem',
-    '8vw',
-  ],
+  fontSizes: [8, 10, 12, 14, 16, 20, 24, 32, 64],
   fontWeights: [100, 300, 500, 700, 900],
   fonts: {
     fancy: fancyFontStack,
