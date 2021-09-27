@@ -3,6 +3,10 @@ import ButtonLink from './ButtonLink';
 
 export default {
   argTypes: {
+    block: {
+      control: { type: 'boolean' },
+      description: 'Makes the button full-width',
+    },
     endIcon: {
       control: { type: 'select' },
       description: 'Adds an icon to end',
@@ -87,4 +91,11 @@ Outline.args = {
   href: '#clicked-a-link',
   label: 'Outline ButtonLink',
   variant: 'outline',
+};
+
+export const CustomWidth = Template.bind({});
+CustomWidth.args = {
+  label: 'Outline Button',
+  variant: 'outline',
+  width: '100%',
 };

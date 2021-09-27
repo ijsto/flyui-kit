@@ -104,13 +104,14 @@ export const buttonTransitionStyles = ({ theme }) =>
 export const buttonBaseStyles = ({ typography, theme }) => css`
   ${layout};
   ${space};
+  box-sizing: border-box;
   cursor: pointer;
   font-weight: var(--button-text-weight, bold);
-
   font-family: var(
     --button-font-stack,
     ${theme.fonts[typography || 'button'] || 'inherit'}
   );
+  text-decoration: none;
 
   ${buttonTransitionStyles}
 
@@ -344,6 +345,9 @@ export const buttonSizeStyles = ({ size, theme }) => {
   switch (size) {
     case 'sm':
       return css`
+        * {
+          font-size: ${`var(--button-text-size-sm, ${theme.fontSizes.caption})`};
+        }
         height: ${`var(--button-height-sm, ${
           theme.input?.heights?.sm || 24
         }px)`};
@@ -351,11 +355,17 @@ export const buttonSizeStyles = ({ size, theme }) => {
       `;
     case 'md':
       return css`
+        * {
+          font-size: ${`var(--button-text-size-md, ${theme.fontSizes.button})`};
+        }
         height: ${`var(--button-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px;
       `;
     case 'lg':
       return css`
+        * {
+          font-size: ${`var(--button-text-size-lg, ${theme.fontSizes.h4})`};
+        }
         height: ${`var(--button-height-lg, ${
           theme.input?.heights?.lg || 42
         }px)`};
@@ -363,12 +373,16 @@ export const buttonSizeStyles = ({ size, theme }) => {
       `;
     case 'xl':
       return css`
+        * {
+          font-size: ${`var(--button-text-size-xl, ${theme.fontSizes.h3})`};
+        }
         height: 48px;
         padding: 12px;
       `;
 
     default:
       return css`
+        font-size: ${`var(--button-text-size-md, ${theme.fontSizes.button})`};
         height: ${`var(--button-height, ${theme.input?.heights?.md || 32}px)`};
         padding: 2px;
       `;

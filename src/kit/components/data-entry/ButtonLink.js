@@ -67,7 +67,7 @@ const ButtonChildrenContainer = ({
   loadingLabel,
   startIcon,
 }) => (
-  <StyledButtonChildrenContainer px={3}>
+  <StyledButtonChildrenContainer px={3} width="100%">
     {!loading && (
       <ButtonIcon
         variant={iconVariant}
@@ -97,6 +97,7 @@ const ButtonChildrenContainer = ({
 );
 
 const ButtonLink = ({
+  block,
   children,
   endIcon,
   iconsSize,
@@ -108,7 +109,12 @@ const ButtonLink = ({
   target,
   ...rest
 }) => (
-  <StyledButtonLink tabIndex="0" target={target} {...rest}>
+  <StyledButtonLink
+    {...rest}
+    tabIndex="0"
+    target={target}
+    width={block ? '100%' : rest.width}
+  >
     <ButtonChildrenContainer
       endIcon={endIcon}
       iconsSize={iconsSize}

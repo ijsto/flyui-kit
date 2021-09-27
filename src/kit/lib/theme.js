@@ -107,6 +107,8 @@ export const spaceProps = {
 // eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.body = fontProps.fontSizes[4];
 // eslint-disable-next-line prefer-destructuring
+fontProps.fontSizes.button = fontProps.fontSizes[4];
+// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h1 = fontProps.fontSizes[9];
 // eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h2 = fontProps.fontSizes[8];

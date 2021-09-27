@@ -6,6 +6,10 @@ import Input from './Input';
 
 export default {
   argTypes: {
+    block: {
+      control: { type: 'boolean' },
+      description: 'Makes the button full-width',
+    },
     endIcon: {
       control: { type: 'select' },
       description: 'Adds an icon to end',
@@ -106,6 +110,13 @@ Disabled.args = {
   label: 'Disabled Button',
   // eslint-disable-next-line no-alert
   onClick: () => alert('Clicked!'),
+};
+
+export const CustomWidth = Template.bind({});
+CustomWidth.args = {
+  label: 'Outline Button',
+  variant: 'outline',
+  width: '100%',
 };
 
 export const ButtonGroup = Template.bind({});

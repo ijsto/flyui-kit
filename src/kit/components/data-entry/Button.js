@@ -109,8 +109,8 @@ const Button = ({
   ...rest
 }) => (
   <StyledButton
-    type={rest.type || 'submit'}
     {...rest}
+    type={rest.type || 'submit'}
     width={block ? '100%' : width}
     height={height}
   >
