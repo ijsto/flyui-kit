@@ -3,6 +3,7 @@ import babel from '@rollup/plugin-babel';
 import external from 'rollup-plugin-peer-deps-external';
 import del from 'rollup-plugin-delete';
 import replace from '@rollup/plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
 
 import pkg from './package.json';
 
@@ -18,6 +19,31 @@ export default {
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'bundled',
+    }),
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        'node_modules/react/index.js': [
+          'Component',
+          'PureComponent',
+          'forwardRef',
+          'Fragment',
+          'Children',
+          'createElement',
+          'useContext',
+          'useEffect',
+          'useLayoutEffect',
+          'useMemo',
+          'useReducer',
+          'useRef',
+          'useState',
+        ],
+        'node_modules/react-dom/index.js': ['unstable_batchedUpdates'],
+        'node_modules/react-is/index.js': [
+          'isContextConsumer',
+          'isValidElementType',
+        ],
+      },
     }),
     replace({
       include: ['./src/kit/utils/icons.js'],
