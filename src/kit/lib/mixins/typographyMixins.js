@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { headingFontStack } from '../constants';
 
 import { primaryGradientText } from './gradientMixins';
 
@@ -16,14 +17,16 @@ export const baseTextStyles = ({ gradient }) => {
 
 export const headingStyles = ({ theme }) => css`
   ${baseTextStyles};
-  font-family: ${theme.fonts.heading};
   color: ${theme.colors.heading || 'inherit'};
+  font-family: ${`var(--fonts-heading, ${
+    theme.fonts.heading || headingFontStack
+  })`};
 `;
 
 export const h1Styles = ({ margin, theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${theme.fontSizes.h1};
+  font-size: ${`var(--fonts-size-h1, ${theme.fontSizes.h1 || 64}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
   margin-bottom: ${margin || '1.5rem'};
@@ -31,7 +34,7 @@ export const h1Styles = ({ margin, theme }) => css`
 export const h2Styles = ({ margin, theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${theme.fontSizes.h2};
+  font-size: ${`var(--fonts-size-h2, ${theme.fontSizes.h2 || 40}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
   margin-bottom: ${margin || '1.5rem'};
@@ -39,7 +42,7 @@ export const h2Styles = ({ margin, theme }) => css`
 export const h3Styles = ({ margin, theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${theme.fontSizes.h3};
+  font-size: ${`var(--fonts-size-h3, ${theme.fontSizes.h3 || 32}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
   margin-bottom: ${margin || '1.5rem'};
@@ -47,7 +50,7 @@ export const h3Styles = ({ margin, theme }) => css`
 export const h4Styles = ({ margin, theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${theme.fontSizes.h4};
+  font-size: ${`var(--fonts-size-h4, ${theme.fontSizes.h4 || 24}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
   margin-bottom: ${margin || '1.5rem'};
@@ -55,7 +58,7 @@ export const h4Styles = ({ margin, theme }) => css`
 export const h5Styles = ({ margin, theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${theme.fontSizes.h5};
+  font-size: ${`var(--fonts-size-h5, ${theme.fontSizes.h5 || 16}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
   margin-bottom: ${margin || '1.5rem'};
@@ -63,7 +66,7 @@ export const h5Styles = ({ margin, theme }) => css`
 export const h6Styles = ({ margin, theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${theme.fontSizes.h6};
+  font-size: ${`var(--fonts-size-h6, ${theme.fontSizes.h6 || 12}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
   margin-bottom: ${margin || '1.5rem'};
@@ -73,7 +76,7 @@ export const captionTextStyles = ({ theme }) => css`
   ${baseTextStyles};
   font-family: ${theme.fonts.caption};
   font-weight: 100;
-  font-size: ${theme.fontSizes.caption || '0.6rem'};
+  font-size: ${`var(--fonts-size-caption, ${theme.fontSizes.caption || 14}px)`};
   line-height: 1rem;
   letter-spacing: 0.1px;
 `;
@@ -83,7 +86,7 @@ export const eyebrowStyles = ({ theme }) => css`
   font-family: ${theme.fonts.eyebrow};
   font-weight: bold;
   text-transform: uppercase;
-  font-size: ${theme.fontSizes.eyebrow};
+  font-size: ${`var(--fonts-size-eyebrow, ${theme.fontSizes.eyebrow || 18}px)`};
   letter-spacing: 0.1px;
 `;
 

@@ -23,7 +23,7 @@ const SVG = ({ icon, ...rest }) => {
 
 SVG.defaultProps = {
   color: null,
-  size: fontProps.fontSizes.body || '14px',
+  size: `${fontProps.fontSizes.body || 14}px`,
 };
 
 export default SVG;
