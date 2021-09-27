@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { space as systemSpace } from 'styled-system';
 
 import Box from './Box';
 
@@ -8,7 +7,6 @@ export const StyledStack = styled(Box)`
   display: flex;
   /* @TODO: Review wrapping. */
   flex-wrap: wrap;
-  ${systemSpace};
 `;
 
 const Stack = ({ children, center = false, space, ...rest }) => (
