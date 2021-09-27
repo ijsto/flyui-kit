@@ -3,6 +3,7 @@ import FlyThemeProvider from './components/FlyThemeProvider';
 
 import Avatar from './components/data-display/Avatar';
 import Badge from './components/data-display/Badge';
+import Cardinal from './components/data-display/Cardinal';
 import SVG from './components/data-display/SVG';
 import Text from './components/data-display/Text';
 import Tag from './components/data-display/Tag';
@@ -20,6 +21,7 @@ export {
   Box,
   Button,
   ButtonLink,
+  Cardinal,
   FlyGlobalStyle,
   FlyThemeProvider,
   Input,

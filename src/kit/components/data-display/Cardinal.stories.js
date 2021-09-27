@@ -9,10 +9,15 @@ export default {
       defaultValue: true,
       options: ['left', 'center', 'right'],
     },
-    size: {
-      control: { type: 'select' },
+    bodyVariant: {
+      control: { type: 'inline-radio' },
       defaultValue: true,
-      options: ['sm', 'md', 'lg'],
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'caption', 'eyebrow'],
+    },
+    headVariant: {
+      control: { type: 'inline-radio' },
+      defaultValue: true,
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'caption', 'eyebrow'],
     },
   },
   component: Cardinal,

@@ -11,20 +11,22 @@ const StyledCardinal = styled(Box)`
     `}
 `;
 
-const Cardinal = ({ align = 'left', children, body, head, size }) => (
+const Cardinal = ({
+  align = 'left',
+  children,
+  body,
+  bodyVariant = 'caption',
+  head,
+  headVariant = 'eyebrow',
+}) => (
   <StyledCardinal display="inline-block" textAlign={align}>
-    <Text
-      fontSize={
-        size === 'sm' ? 1 : size === 'md' ? 3 : size === 'lg' ? 5 : size
-      }
-      mb={0}
-      pb={1}
-      variant="eyebrow"
-    >
+    <Text mb={0} pb={1} variant={headVariant}>
       {head}
     </Text>
 
-    <Text variant="caption">{body}</Text>
+    <Text mb={0} pb={1} variant={bodyVariant}>
+      {body}
+    </Text>
     {children}
   </StyledCardinal>
 );
