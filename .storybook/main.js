@@ -1,23 +1,36 @@
+
+const path = require("path");
+const alias = require(`../src/config/aliases`);
+
+const KIT = "../src/kit";
+const aliases = alias(KIT);
+
+const resolvedAliases = Object.fromEntries(
+  Object.entries(aliases).map(([key, value]) => [
+    key,
+    path.resolve(__dirname, value),
+  ])
+);
+console.log('resolvedAliases', resolvedAliases);
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
+    "storybook-preset-craco",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/preset-create-react-app",
+    // "@storybook/preset-create-react-app",
     "storybook-addon-pseudo-states",
-    "storybook-preset-craco",
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        configureJSX: true,
-      },
-    },
   ],
   webpackFinal: async(config) => {
     config.module.rules.forEach((rule) => {
+          
+    config.resolve.modules.push(path.resolve(__dirname, KIT));
+    config.resolve.alias = resolvedAliases;
+    
       if (rule.oneOf) {
         rule.oneOf.forEach((oneOfRule) => {
           if (oneOfRule.loader && oneOfRule.loader.includes('file-loader')) {
@@ -34,6 +47,7 @@ module.exports = {
         })
       }
     });
+
     return config;
   }
 }
