@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@craco/craco": "^6.3.0",
+    "babel-loader": "8.1.0",
     "color": "^4.0.1",
     "styled-components": "^5.3.1",
     "styled-system": "^5.1.5"
