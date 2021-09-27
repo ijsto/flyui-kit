@@ -74,7 +74,7 @@ export const h6Styles = ({ margin, theme }) => css`
 
 export const captionTextStyles = ({ theme }) => css`
   ${baseTextStyles};
-  font-family: ${theme.fonts.caption};
+  font-family: ${`var(--fonts-caption, ${theme.fonts.caption || 'inherit'})`};
   font-weight: 100;
   font-size: ${`var(--fonts-size-caption, ${theme.fontSizes.caption || 14}px)`};
   line-height: 1rem;
@@ -83,7 +83,9 @@ export const captionTextStyles = ({ theme }) => css`
 
 export const eyebrowStyles = ({ theme }) => css`
   ${baseTextStyles};
-  font-family: ${theme.fonts.eyebrow || 'Arial Black, sans-serif'};
+  font-family: ${`var(--fonts-eyebrow, ${
+    theme.fonts.eyebrow || 'Verdana, sans-serif'
+  })`};
   font-weight: bold;
   text-transform: uppercase;
   font-size: ${`var(--fonts-size-eyebrow, ${theme.fontSizes.eyebrow || 18}px)`};
