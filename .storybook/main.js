@@ -7,7 +7,14 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
-    "storybook-addon-pseudo-states"
+    "storybook-addon-pseudo-states",
+    "storybook-preset-craco",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        configureJSX: true,
+      },
+    },
   ],
   webpackFinal: async(config) => {
     config.module.rules.forEach((rule) => {
