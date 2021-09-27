@@ -80,7 +80,7 @@ export const captionTextStyles = ({ theme }) => css`
 
 export const eyebrowStyles = ({ theme }) => css`
   ${baseTextStyles};
-  font-family: ${theme.fonts.eyebrow};
+  font-family: ${theme.fonts.eyebrow || 'Arial Black, sans-serif'};
   font-weight: bold;
   text-transform: uppercase;
   font-size: ${theme.fontSizes.eyebrow};

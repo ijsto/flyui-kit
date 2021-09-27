@@ -18,7 +18,6 @@ const Cardinal = ({
   bodyVariant = 'caption',
   head,
   headVariant = 'eyebrow',
-  // size,
 }) => (
   <StyledCardinal display="inline-block" textAlign={align}>
     <Text mb={0} pb={1} variant={headVariant}>
