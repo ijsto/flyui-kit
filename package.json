@@ -19,6 +19,8 @@
     "url": "https://github.com/ijsto/flyui"
   },
   "scripts": {
+    "build": "craco build",
+    "start": "craco start",
     "build-rollup": "yarn clean && rollup -c",
     "clean": "rimraf dist",
     "storybook": "start-storybook -p 6006",
