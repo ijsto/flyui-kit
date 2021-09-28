@@ -13,7 +13,6 @@ import {
 } from 'styled-system';
 
 import styled, { css } from 'styled-components';
-import Button from '../data-entry/Button';
 
 const StyledTippyContainer = styled(motion.div)(
   ({ theme }) => css`
@@ -33,7 +32,7 @@ const StyledTippyContainer = styled(motion.div)(
   `
 );
 
-const Popover = ({ placement, trigger, ...rest }) => {
+const Popover = ({ children, placement, trigger, triggerOn, ...rest }) => {
   const springConfig = { damping: 15, stiffness: 300 };
   const initialScale = 0.5;
   const opacity = useSpring(0, springConfig);
@@ -59,7 +58,7 @@ const Popover = ({ placement, trigger, ...rest }) => {
   return (
     <Tippy
       placement={placement}
-      trigger={trigger}
+      trigger={triggerOn}
       render={attrs => (
         <StyledTippyContainer
           style={{ opacity, scale }}
@@ -67,16 +66,19 @@ const Popover = ({ placement, trigger, ...rest }) => {
           {...attrs}
           {...rest}
         >
-          Hello
+          {children}
         </StyledTippyContainer>
       )}
       animation
       onMount={onMount}
       onHide={onHide}
     >
-      <Button>framer-motion</Button>
+      {trigger}
     </Tippy>
   );
 };
 
+Popover.defaultProps = {
+  triggerOn: 'mouseenter focus',
+};
 export default Popover;
