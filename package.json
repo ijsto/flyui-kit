@@ -1,6 +1,6 @@
 {
   "name": "flyui-kit",
-  "version": "0.0.930",
+  "version": "0.0.950",
   "private": false,
   "author": {
     "name": "Scott Agirs Neminskis",
@@ -26,6 +26,7 @@
     "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.5",
     "color": "^4.0.1",
     "framer-motion": "^4.1.17",
     "react-use": "^17.3.1",
