@@ -1,0 +1,56 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+import { colors } from '../../lib/colors';
+
+<Meta title="Getting-Started/Quickstart" />
+
+# Quickstart
+
+FlyUI aims to provide you with an easy and quick way to implement modern components to your React or Next.js applications.
+
+Currently, it's built with styled-components in mind, but in future we may expand support to emotion and other styling enginges.
+
+## Installation
+
+To install with [**`yarn`**](https://yarnpkg.com/cli/install):
+```
+yarn add flyui-kit
+```
+or [**`npm`**](https://docs.npmjs.com/cli/v6/commands/npm-install):
+```
+npm i flyui-kit
+``` 
+
+## Using components
+
+Import the components and use them as you normally would.
+
+```js
+import { Avatar, Box, Button } from 'flyui-kit';
+
+const FlyDemo = () => {
+  return (
+    <Box borderRadius={3} border={2} p={4} maxWidth={700} mx="auto">
+      <Avatar
+        src="https://source.unsplash.com/92x92/?portrait"
+        shape="round"
+        outline
+      />
+
+      <Button
+        hoverEffects="shadow-large lift"
+        variant="outline"
+        startIcon="edit"
+      >
+        Fly Button
+      </Button>
+    </Box>
+  );
+}
+```
+
+## Customizing
+
+FlyUI allows you to easily customize the components via CSS Variables, the `theme` object and more granularly - by adding values directly to the component.
+
+To learn more, check out the `Theming` pages.

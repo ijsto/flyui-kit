@@ -128,6 +128,7 @@ const inputProps = {
     },
   },
 };
+
 export const radiusProps = {
   radius: {
     circle: spaceProps.radii.max,
@@ -139,6 +140,13 @@ export const radiusProps = {
   },
 };
 
+const surfaceProps = {
+  surface: {
+    background: colors.background,
+    radius: spaceProps.radii[3],
+  },
+};
+
 const theme = {
   ...borderProps,
   ...effectProps,
@@ -146,6 +154,7 @@ const theme = {
   ...inputProps,
   ...radiusProps,
   ...spaceProps,
+  ...surfaceProps,
   colors,
   name: 'light',
 };
