@@ -73,7 +73,11 @@ const Popover = ({ children, placement, trigger, triggerOn, ...rest }) => {
       onMount={onMount}
       onHide={onHide}
     >
-      {trigger}
+      {typeof trigger === 'string' ? (
+        <div style={{ display: 'inline-block' }}>{trigger}</div>
+      ) : (
+        trigger
+      )}
     </Tippy>
   );
 };

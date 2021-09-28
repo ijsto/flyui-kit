@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Button from '../data-entry/Button';
 import Text from '../data-display/Text';
 
 import Popover from './Popover';
@@ -33,12 +32,11 @@ export default {
   title: 'Navigation/Popover',
 };
 
-const Template = args => <Popover {...args}>{args.label}</Popover>;
+const Template = args => <Popover {...args}>{args.children}</Popover>;
 
 export const Default = Template.bind({});
 Default.args = {
-  children: <Text>Popover a text component</Text>,
-  label: 'Popover Label',
+  children: <Text>{`Text />`} component inside a popover</Text>,
   placement: 'bottom',
-  trigger: <Button>Popover Button</Button>,
+  trigger: 'Plain string with a Popover',
 };
