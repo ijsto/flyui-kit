@@ -9,6 +9,7 @@ import Text from './components/data-display/Text';
 import Tag from './components/data-display/Tag';
 
 import Modal from './components/feedback/Modal';
+import Popover from './components/feedback/Popover';
 
 import Button from './components/data-entry/Button';
 import ButtonLink from './components/data-entry/ButtonLink';
@@ -28,6 +29,7 @@ export {
   FlyThemeProvider,
   Input,
   Modal,
+  Popover,
   SVG,
   Stack,
   Tag,
