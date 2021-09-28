@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "color": "^4.0.1",
+    "framer-motion": "^4.1.17",
+    "react-use": "^17.3.1",
     "styled-components": "^5.3.1",
     "styled-system": "^5.1.5"
   },
