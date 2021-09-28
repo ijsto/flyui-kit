@@ -3,13 +3,23 @@
     "react-app",
     "@ijsto"
   ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/kit"]
+      }
+    }     
+  },
   "overrides": [
     {
       "files": [
         "**/*.stories.*"
       ],
       "rules": {
-        "import/no-anonymous-default-export": "off"
+        "import/no-anonymous-default-export": "off",
+        "import/no-unresolved": 0,
+        "import/extensions": 0
       }
     }
   ]

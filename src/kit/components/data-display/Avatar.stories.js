@@ -2,7 +2,7 @@ import React from 'react';
 
 import Text from './Text';
 import Box from '../layout/Box';
-import Stack from '../layout/Stack';
+import Stack from '@/components/layout/Stack';
 
 import Avatar from './Avatar';
 

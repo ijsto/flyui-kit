@@ -1,9 +1,9 @@
-const path = require(`path`);
+const path = require('path');
 
 module.exports = {
   webpack: {
     alias: {
-      '@/*': path.resolve(__dirname, 'src/kit/*'),
+      '@': path.resolve(__dirname, './src/kit'),
     },
   },
 };
