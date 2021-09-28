@@ -8,6 +8,8 @@ import SVG from './components/data-display/SVG';
 import Text from './components/data-display/Text';
 import Tag from './components/data-display/Tag';
 
+import Modal from './components/feedback/Modal';
+
 import Button from './components/data-entry/Button';
 import ButtonLink from './components/data-entry/ButtonLink';
 import Input from './components/data-entry/Input';
@@ -25,6 +27,7 @@ export {
   FlyGlobalStyle,
   FlyThemeProvider,
   Input,
+  Modal,
   SVG,
   Stack,
   Tag,
