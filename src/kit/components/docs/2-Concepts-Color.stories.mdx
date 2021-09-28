@@ -1,10 +1,18 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
-import { colors } from '../lib/colors';
+import { colors } from '../../lib/colors';
 
-<Meta title="Docs/Theming/Colors" />
+<Meta title="Concepts/Color" />
 
-# Colors
+# Color
+
+Colors are stored and organized in the `theme` object.
+
+Most component will follow this pattern - `CSS Variables > Theme Color > Fallback`
+
+To learn more about this, check out `Themign > Concept` page.
+
+## Color Palette
 
 <ColorPalette>
   <ColorItem
