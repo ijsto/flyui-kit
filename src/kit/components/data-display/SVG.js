@@ -22,7 +22,6 @@ const SVG = ({ icon, ...rest }) => {
 };
 
 SVG.defaultProps = {
-  color: null,
   size: `${fontProps.fontSizes.body || 14}px`,
 };
 

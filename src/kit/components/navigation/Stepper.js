@@ -1,129 +1,206 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
+import SVG from '../data-display/SVG';
 import Text from '../data-display/Text';
+import Dot from '../feedback/Dot';
 import Box from '../layout/Box';
 
-const StyledCircle = styled.div`
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: ${({ color, theme }) =>
-    color ? theme.colors[color] || color : theme.colors.primary};
-`;
-
-const StyledContainer = styled(Box)`
-  position: relative;
-
-  ${({ isCompleted, isCurrent, isStarted, isUntouched, theme }) => {
-    if (isCompleted) {
-      return css`
-        color: ${theme.colors.success};
-
-        ${StyledCircle} {
-          background: ${theme.colors.success};
-          color: black;
-        }
-      `;
-    }
-    if (isCurrent) {
-      return css`
-        color: ${theme.colors.primary};
-
-        ${StyledCircle} {
-          background: ${theme.colors.primary};
-          color: black;
-        }
-      `;
-    }
-    if (isStarted) {
-      return css`
-        color: ${theme.colors.info};
-
-        ${StyledCircle} {
-          background: ${theme.colors.info};
-          color: black;
-        }
-      `;
-    }
-
-    if (isUntouched) {
-      return css`
-        color: gray;
-        opacity: 0.75;
-
-        ${StyledCircle} {
-          background: gray;
-          color: black;
-        }
-      `;
-    }
-
-    return css`
-      color: gray;
-      color: black;
-    `;
-  }}
-`;
-
-const StyledTail = styled(Box)`
+const StyledHorizontalTail = styled(Box)`
   flex: 1 1 auto;
-  height: 2px;
-  left: calc(-50% + 16px);
+  height: 0;
+  left: calc(-50% + ${({ badgeSize }) => badgeSize});
   position: absolute;
-  right: calc(50% + 16px);
-  top: 10px;
+  right: calc(50% + ${({ badgeSize }) => badgeSize});
+  top: calc(${({ badgeSize }) => badgeSize} / 2);
+  border: 1px solid;
+  border-radius: 99px;
 `;
 
-const Step = ({
+const HorizontalStep = ({
+  badgeSize,
+  description,
   hideNumber,
   icon,
-  index,
-  isCompleted,
+  isCompleted: isExplicitlyCompleted,
+  isCompletedInArray,
   isCurrent,
   isStarted,
-  hideTail,
+  hideTail = false,
+  stepNumber,
+  title,
 }) => {
+  const isCompleted = isExplicitlyCompleted || isCompletedInArray;
   const isUntouched = !isCompleted && !isStarted && !isCurrent;
-  const showTail = !hideTail && parseInt(index, 10) !== 0;
+  const showTail = !hideTail && parseInt(stepNumber, 10) !== 1;
+
+  const badgeVariant = isUntouched || isCurrent ? 'outline' : 'filled';
+  const badgeColor = isCompleted
+    ? 'success'
+    : isStarted
+    ? 'info'
+    : isCurrent
+    ? 'info'
+    : isUntouched && 'gray';
+
+  const badgeLabel = isCompleted ? (
+    <SVG
+      icon="check"
+      color={badgeVariant === 'outline' ? badgeColor : 'white'}
+    />
+  ) : (
+    !hideNumber && stepNumber
+  );
 
   return (
-    <StyledContainer
-      flex={1}
-      px={3}
-      isCompleted={isCompleted}
-      isCurrent={isCurrent}
-      isStarted={isStarted}
-      isUntouched={isUntouched}
-    >
+    <Box alignSelf="flex-start" flex={1} position="relative" px={3}>
       <Box display="flex" alignItems="center" flexDirection="column">
-        <Box p={1}>
-          {icon || <StyledCircle>{!hideNumber && index}</StyledCircle>}
-        </Box>
+        {icon || (
+          <Box p={1}>
+            <Dot variant={badgeVariant} size={badgeSize} color={badgeColor}>
+              {badgeLabel}
+            </Dot>
+          </Box>
+        )}
 
         <Box mt={2}>
           <Text p={0} m={0} variant="h5">
-            Title {index}
+            {title || `Step ${stepNumber}`}
           </Text>
-          <Text variant="caption">Des Description</Text>
+          {description && <Text variant="caption">{description}</Text>}
         </Box>
       </Box>
 
       {showTail && (
-        <StyledTail borderTop={2} borderColor={isUntouched && 'gray'} />
+        <StyledHorizontalTail
+          borderColor={isUntouched && 'gray'}
+          badgeSize={badgeSize}
+        />
       )}
-    </StyledContainer>
+    </Box>
   );
 };
 
-const Stepper = ({ hideNumber, hideTail }) => (
-  <Box display="flex" alignItems="flex-start" width="100%" p={5}>
-    <Step hideNumber={hideNumber} hideTail={hideTail} index={0} isStarted />
-    <Step hideNumber={hideNumber} hideTail={hideTail} index={1} isCompleted />
-    <Step hideNumber={hideNumber} hideTail={hideTail} index={2} isCurrent />
-    <Step hideNumber={hideNumber} hideTail={hideTail} index={3} />
-    <Step hideNumber={hideNumber} hideTail={hideTail} index={4} />
-  </Box>
-);
+const VerticalStep = ({
+  badgeSize,
+  body,
+  description,
+  hideNumber,
+  icon,
+  isCompleted: isExplicitlyCompleted,
+  isCompletedInArray,
+  isCurrent,
+  isStarted,
+  hideTail = false,
+  stepNumber,
+  isLast,
+  title,
+}) => {
+  const isCompleted = isExplicitlyCompleted || isCompletedInArray;
+  const isUntouched = !isCompleted && !isStarted && !isCurrent;
+  const showTail = !hideTail && !isLast;
+
+  const badgeVariant = isUntouched || isCurrent ? 'outline' : 'filled';
+  const badgeColor = isCompleted
+    ? 'success'
+    : isStarted
+    ? 'info'
+    : isCurrent
+    ? 'info'
+    : isUntouched && 'gray';
+
+  const badgeLabel = isCompleted ? (
+    <SVG
+      icon="check"
+      color={badgeVariant === 'outline' ? badgeColor : 'white'}
+    />
+  ) : (
+    !hideNumber && stepNumber
+  );
+
+  return (
+    <Box position="relative" px={3}>
+      <Box display="flex" alignItems="center">
+        <Box pl={1} pr={3} py={2}>
+          {icon || (
+            <Dot variant={badgeVariant} size={badgeSize} color={badgeColor}>
+              {badgeLabel}
+            </Dot>
+          )}
+        </Box>
+
+        <Box>
+          <Text p={0} m={0} variant="h5">
+            {title || `Step ${stepNumber}`}
+          </Text>
+          {description && <Text variant="caption">{description}</Text>}
+        </Box>
+      </Box>
+
+      <Box
+        borderLeft={showTail && 1}
+        borderColor={isUntouched && 'gray'}
+        minHeight="12px"
+        ml={badgeSize}
+        pl={3}
+      >
+        {body && (
+          <Box pl={1} pt={2} pb={3}>
+            {body}
+          </Box>
+        )}
+      </Box>
+    </Box>
+  );
+};
+
+export const Step = ({ direction, ...rest }) => {
+  if (direction === 'vertical') return <VerticalStep {...rest} />;
+
+  return <HorizontalStep {...rest} />;
+};
+
+const Stepper = ({
+  children,
+  direction,
+  currentStep,
+  // User provided array of completed steps
+  completedSteps,
+  ...rest
+}) => {
+  const childrenWithProps = React.Children.map(children, (child, index) => {
+    const isCompletedInArray = Array.isArray(completedSteps)
+      ? completedSteps.includes(index + 1)
+      : undefined;
+
+    return React.cloneElement(child, {
+      direction,
+      index,
+      isCompletedInArray,
+      isCurrent: currentStep === index + 1,
+      isLast: index + 1 === children.length,
+      stepNumber: index + 1,
+      ...rest,
+    });
+  });
+
+  if (direction === 'vertical')
+    return (
+      <Box display="flex" flexDirection="column">
+        {childrenWithProps}
+      </Box>
+    );
+
+  return (
+    <Box
+      display="flex"
+      alignItems="center"
+      direction="row"
+      justifyContent="center"
+    >
+      {childrenWithProps}
+    </Box>
+  );
+};
 
 export default Stepper;

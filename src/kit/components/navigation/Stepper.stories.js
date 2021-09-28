@@ -1,35 +1,38 @@
 import React from 'react';
 
-import Box from '../layout/Box';
-
-import Stepper from './Stepper';
+import Stepper, { Step } from './Stepper';
 
 export default {
   argTypes: {
-    hideNumber: {
-      control: { type: 'boolean' },
-    },
-    hideTail: {
-      control: { type: 'boolean' },
+    direction: {
+      control: { type: 'inline-radio' },
+      currentStep: { type: 'number' },
+      options: ['vertical', 'horizontal'],
     },
   },
   component: Stepper,
   title: 'Navigation/Stepper',
 };
 
-const Template = args => <Stepper {...args}>{args.children}</Stepper>;
+const Template = args => (
+  <Stepper {...args} completedSteps={[0, 3]}>
+    <Step description="Has no title" isStarted />
+
+    <Step title="[isCompleted] No description" isCompleted />
+    <Step
+      title="Lol"
+      size="24px"
+      description="[isCurrent] Nothing compares to"
+      isCurrent
+    />
+    <Step title="Lol" description="Nothing compares to" />
+  </Stepper>
+);
 
 export const Default = Template.bind({});
-Default.args = {};
-Default.decorators = [
-  story => (
-    <Box
-      display="flex"
-      alignItems="center"
-      direction="row"
-      justifyContent="center"
-    >
-      {story()}
-    </Box>
-  ),
-];
+Default.args = {
+  badgeSize: '32px',
+  currentStep: 3,
+  hideNumber: false,
+  hideTail: false,
+};
