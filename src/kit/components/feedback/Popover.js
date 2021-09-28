@@ -83,6 +83,7 @@ const Popover = ({ children, placement, trigger, triggerOn, ...rest }) => {
 };
 
 Popover.defaultProps = {
+  placement: 'top',
   triggerOn: 'mouseenter focus',
 };
 export default Popover;
