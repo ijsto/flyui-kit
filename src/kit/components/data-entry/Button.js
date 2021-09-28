@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import SVG from '../data-display/SVG';
@@ -94,38 +94,44 @@ const ButtonChildrenContainer = ({
   </StyledButtonChildrenContainer>
 );
 
-const Button = ({
-  block,
-  children,
-  endIcon,
-  iconsSize,
-  iconVariant,
-  height,
-  labelDisplay,
-  loading,
-  loadingLabel,
-  startIcon,
-  width,
-  ...rest
-}) => (
-  <StyledButton
-    {...rest}
-    type={rest.type || 'submit'}
-    width={block ? '100%' : width}
-    height={height}
-  >
-    <ButtonChildrenContainer
-      endIcon={endIcon}
-      iconsSize={iconsSize}
-      iconVariant={iconVariant}
-      labelDisplay={labelDisplay}
-      loading={loading}
-      loadingLabel={loadingLabel}
-      startIcon={startIcon}
+const Button = forwardRef(
+  (
+    {
+      block,
+      children,
+      endIcon,
+      iconsSize,
+      iconVariant,
+      height,
+      labelDisplay,
+      loading,
+      loadingLabel,
+      startIcon,
+      width,
+      ...rest
+    },
+    ref
+  ) => (
+    <StyledButton
+      {...rest}
+      type={rest.type || 'submit'}
+      width={block ? '100%' : width}
+      height={height}
+      ref={ref}
     >
-      {children}
-    </ButtonChildrenContainer>
-  </StyledButton>
+      <ButtonChildrenContainer
+        endIcon={endIcon}
+        iconsSize={iconsSize}
+        iconVariant={iconVariant}
+        labelDisplay={labelDisplay}
+        loading={loading}
+        loadingLabel={loadingLabel}
+        startIcon={startIcon}
+      >
+        {children}
+      </ButtonChildrenContainer>
+    </StyledButton>
+  )
 );
 
 Button.defaultProps = {
