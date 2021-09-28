@@ -14,8 +14,6 @@ import {
 
 import Box from '../layout/Box';
 
-const MotionBox = motion.div;
-
 const StyledContainer = styled(Box)`
   height: 100%;
   position: fixed;
@@ -25,7 +23,7 @@ const StyledContainer = styled(Box)`
   z-index: 1000;
 `;
 
-const StyledMotionBackdrop = styled(MotionBox)`
+const StyledMotionBackdrop = styled(motion.div)`
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   right: 0;
@@ -34,7 +32,7 @@ const StyledMotionBackdrop = styled(MotionBox)`
   height: 100%;
 `;
 
-const StyledMotionModal = styled(MotionBox)(
+const StyledMotionModal = styled(motion.div)(
   ({ theme }) => css`
     background: ${`var(--surface-color-background, ${
       theme.surface.background || 'white'
