@@ -23,53 +23,47 @@ export const headingStyles = ({ theme }) => css`
   })`};
 `;
 
-export const h1Styles = ({ margin, theme }) => css`
+export const h1Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--fonts-size-h1, ${theme.fontSizes.h1 || 64}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
-  margin-bottom: ${margin || '1.5rem'};
 `;
-export const h2Styles = ({ margin, theme }) => css`
+export const h2Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--fonts-size-h2, ${theme.fontSizes.h2 || 40}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
-  margin-bottom: ${margin || '1.5rem'};
 `;
-export const h3Styles = ({ margin, theme }) => css`
+export const h3Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--fonts-size-h3, ${theme.fontSizes.h3 || 32}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
-  margin-bottom: ${margin || '1.5rem'};
 `;
-export const h4Styles = ({ margin, theme }) => css`
+export const h4Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--fonts-size-h4, ${theme.fontSizes.h4 || 24}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
-  margin-bottom: ${margin || '1.5rem'};
 `;
-export const h5Styles = ({ margin, theme }) => css`
+export const h5Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--fonts-size-h5, ${theme.fontSizes.h5 || 16}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
-  margin-bottom: ${margin || '1.5rem'};
 `;
-export const h6Styles = ({ margin, theme }) => css`
+export const h6Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--fonts-size-h6, ${theme.fontSizes.h6 || 12}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
-  margin-bottom: ${margin || '1.5rem'};
 `;
 
 export const captionTextStyles = ({ theme }) => css`
