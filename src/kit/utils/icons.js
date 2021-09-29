@@ -6,6 +6,7 @@ import NumberHighestFirstIcon from '../icons/arrow-up-9-1.svg';
 import AlphaUpIcon from '../icons/arrow-up-a-z.svg';
 import BookmarkIcon from '../icons/bookmark.svg';
 import ArchiveIcon from '../icons/box-archive.svg';
+import CalendarDaysIcon from '../icons/calendar-days.svg';
 import CheckIcon from '../icons/check.svg';
 import ChevronDownIcon from '../icons/chevron-down.svg';
 import ChevronLeftIcon from '../icons/chevron-left.svg';
@@ -46,9 +47,11 @@ export const renderIcon = icon => {
       return <ArchiveIcon />;
     case 'bookmark':
       return <BookmarkIcon />;
-    case 'close':
-      return <CloseIcon />;
     case 'cancel':
+      return <CloseIcon />;
+    case 'calendar-days':
+      return <CalendarDaysIcon />;
+    case 'close':
       return <CloseIcon />;
     case 'create':
       return <PlusIcon />;
