@@ -1,6 +1,6 @@
 {
   "name": "flyui-kit",
-  "version": "0.0.96",
+  "version": "0.0.962",
   "private": false,
   "author": {
     "name": "Scott Agirs Neminskis",
@@ -57,6 +57,7 @@
     "@storybook/addon-actions": "^6.3.8",
     "@storybook/addon-essentials": "^6.3.8",
     "@storybook/addon-links": "^6.3.8",
+    "@storybook/addon-storysource": "^6.3.8",
     "@storybook/node-logger": "^6.3.8",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.8",
