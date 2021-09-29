@@ -1,3 +1,4 @@
+import { ThemeProvider } from 'styled-components';
 import { FlyGlobalStyle } from "../src/kit";
 import FlyThemeProvider from "../src/kit/components/FlyThemeProvider";
 import Box from "../src/kit/components/layout/Box";
@@ -12,6 +13,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  themePlayground: {
+    theme,
+    provider: ThemeProvider
+  }
 }
 
 export const decorators = [

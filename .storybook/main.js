@@ -19,7 +19,8 @@ module.exports = {
       },
     },
     "@storybook/preset-create-react-app",
-    "storybook-addon-pseudo-states"
+    "storybook-addon-pseudo-states",
+    'storybook-addon-theme-playground'
   ],
   webpackFinal: async(config) => {
     config.module.rules.forEach((rule) => {
