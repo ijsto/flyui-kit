@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import Box from '../layout/Box';
 
 export const StyledCard = styled(Box)`
-  /* @TODO: handle different Card radius sizes */
-  border-radius: var(--card-radius, ${({ theme }) => theme.radius.md});
+  border-radius: ${({ borderRadius, theme }) =>
+    /* 1) if provided on card 2) [fallback] CSS Variable 3) [fallback]  */
+    borderRadius || `var(--card-radius, ${theme.surface.radius}px)`};
 `;
 
 const Card = ({ bg, children, toolbar, ...rest }) => (
