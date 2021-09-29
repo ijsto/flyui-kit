@@ -21,6 +21,10 @@ import Stack from './components/layout/Stack';
 
 import Stepper, { Step } from './components/navigation/Stepper';
 
+import Card from './components/surfaces/Card';
+import CardBody from './components/surfaces/CardBody';
+import CardToolbar from './components/surfaces/CardToolbar';
+
 export {
   Avatar,
   Badge,
@@ -28,6 +32,9 @@ export {
   Button,
   ButtonLink,
   Cardinal,
+  Card,
+  CardToolbar,
+  CardBody,
   Dot,
   FlyGlobalStyle,
   FlyThemeProvider,
