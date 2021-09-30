@@ -14,8 +14,18 @@ export const StyledCardToolbar = styled(Box)`
   height: auto;
 `;
 
-const CardToolbar = ({ bg, icon, iconColor, startIcon, title, ...rest }) => (
-  <StyledCardToolbar bg={bg || 'surface'} px={2} {...rest}>
+const CardToolbar = ({
+  bg,
+  icon,
+  iconColor,
+  px,
+  py,
+  startIcon,
+  title,
+  titleVariant,
+  ...rest
+}) => (
+  <StyledCardToolbar bg={bg || 'surface'} px={px || 2} py={py || 1} {...rest}>
     {(icon || startIcon) && (
       <SVG
         fill={iconColor}
@@ -25,7 +35,7 @@ const CardToolbar = ({ bg, icon, iconColor, startIcon, title, ...rest }) => (
       />
     )}
 
-    <Text variant="h4" m={0} p={0}>
+    <Text variant={titleVariant || 'h5'} m={0} p={0}>
       {title}
     </Text>
   </StyledCardToolbar>
