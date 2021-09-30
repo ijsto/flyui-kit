@@ -15,17 +15,18 @@ export default {
 };
 
 const Template = args => (
-  <Stepper {...args} completedSteps={[0, 3]}>
-    <Step description="Has no title" isStarted />
+  <Stepper {...args} completedStepIds={[0, 3]}>
+    <Step stepId={0} description="Has no title" isStarted />
 
-    <Step title="[isCompleted] No description" isCompleted />
+    <Step stepId={1} title="[isCompleted] No description" isCompleted />
     <Step
+      stepId={2}
       title="Lol"
       size="24px"
       description="[isCurrent] Nothing compares to"
       isCurrent
     />
-    <Step title="Lol" description="Nothing compares to" />
+    <Step stepId={3} title="Lol" description="Nothing compares to" />
   </Stepper>
 );
 
