@@ -163,31 +163,33 @@ export const Step = ({ direction, ...rest }) => {
 const Stepper = ({
   children,
   direction,
-  currentStep,
+  currentStep: propsCurrentStep,
   // User provided array of completed steps
   completedStepIds,
   ...rest
 }) => {
+  const currentStep = parseInt(propsCurrentStep, 10);
   const childrenWithProps = React.Children.map(children, (child, index) => {
-    if (
-      (typeof child.props.stepId === 'number' &&
-        typeof child.props.stepId === 'string') ||
-      child.props.stepId === null ||
-      child.props.stepId === undefined
-    )
+    const stepId = parseInt(child.props.stepId, 10);
+    const isStepIdValid =
+      (typeof stepId === 'number' && typeof stepId === 'string') ||
+      stepId === null ||
+      stepId === undefined;
+
+    if (!isStepIdValid)
       throw new Error('Each child must have a `stepId` prop.');
     if (!Array.isArray(completedStepIds))
       throw new Error(
         '`completedStepIds` must be an array of `stepId` values.'
       );
 
-    const isCompletedInArray = completedStepIds.includes(child.props.stepId);
+    const isCompletedInArray = completedStepIds.includes(stepId);
 
     return React.cloneElement(child, {
       direction,
       index,
       isCompletedInArray,
-      isCurrent: currentStep === child.props.stepId,
+      isCurrent: currentStep === stepId,
       isLast: index + 1 === children.length,
       stepNumber: index + 1,
       ...rest,
