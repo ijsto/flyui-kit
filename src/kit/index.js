@@ -8,6 +8,7 @@ import SVG from './components/data-display/SVG';
 import Text from './components/data-display/Text';
 import Tag from './components/data-display/Tag';
 
+import Dot from './components/feedback/Dot';
 import Modal from './components/feedback/Modal';
 import Popover from './components/feedback/Popover';
 
@@ -18,6 +19,12 @@ import Input from './components/data-entry/Input';
 import Box from './components/layout/Box';
 import Stack from './components/layout/Stack';
 
+import Stepper, { Step } from './components/navigation/Stepper';
+
+import Card from './components/surfaces/Card';
+import CardBody from './components/surfaces/CardBody';
+import CardToolbar from './components/surfaces/CardToolbar';
+
 export {
   Avatar,
   Badge,
@@ -25,6 +32,10 @@ export {
   Button,
   ButtonLink,
   Cardinal,
+  Card,
+  CardToolbar,
+  CardBody,
+  Dot,
   FlyGlobalStyle,
   FlyThemeProvider,
   Input,
@@ -32,6 +43,8 @@ export {
   Popover,
   SVG,
   Stack,
+  Stepper,
+  Step,
   Tag,
   Text,
 };

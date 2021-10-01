@@ -1,13 +1,26 @@
+const path = require('path');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
+    '@storybook/addon-a11y',
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    '@storybook/addon-storysource',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        sourceLoaderOptions: {
+          injectStoryParameters: false,
+        },
+      },
+    },
     "@storybook/preset-create-react-app",
-    "storybook-addon-pseudo-states"
+    "storybook-addon-pseudo-states",
+    'storybook-addon-theme-playground'
   ],
   webpackFinal: async(config) => {
     config.module.rules.forEach((rule) => {

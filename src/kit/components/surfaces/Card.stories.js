@@ -5,7 +5,12 @@ import CardBody from './CardBody';
 import CardToolbar from './CardToolbar';
 
 export default {
-  argTypes: {},
+  argTypes: {
+    borderRadius: {
+      control: { type: 'text' },
+      defaultValue: '16px',
+    },
+  },
   component: Card,
   title: 'Surfaces/Card',
 };
