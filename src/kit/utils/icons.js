@@ -22,6 +22,7 @@ import GitHubIcon from '../icons/github.svg';
 import HeartIcon from '../icons/heart.svg';
 import InstagramIcon from '../icons/instagram.svg';
 import LinkedInIcon from '../icons/linkedin-in.svg';
+import MessagesIcon from '../icons/messages.svg';
 import PlusIcon from '../icons/plus.svg';
 import ReplyIcon from '../icons/reply.svg';
 import SaveIcon from '../icons/save.svg';
@@ -85,6 +86,8 @@ export const renderIcon = icon => {
       return <LinkedInIcon />;
     case 'loading':
       return <CircleNotchIcon className="spin" />;
+    case 'messages':
+      return <MessagesIcon />;
     case 'new-window':
       return <ExternalIcon />;
     case 'numberAsc':
