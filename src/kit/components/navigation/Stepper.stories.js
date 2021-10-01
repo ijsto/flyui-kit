@@ -15,10 +15,10 @@ export default {
 };
 
 const Template = args => (
-  <Stepper {...args} completedStepIds={[0, 3]}>
+  <Stepper {...args} completedStepIds={['1', 2]}>
     <Step stepId={0} description="Has no title" isStarted />
 
-    <Step stepId={1} title="[isCompleted] No description" isCompleted />
+    <Step stepId={1} title="[isCompleted] No description" />
     <Step
       stepId={2}
       title="Lol"

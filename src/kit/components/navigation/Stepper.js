@@ -163,21 +163,23 @@ export const Step = ({ direction, ...rest }) => {
 const Stepper = ({
   children,
   direction,
-  currentStep: propsCurrentStep,
+  // currentStep currently relies on it being a value of `id` or a `slug`.
+  // In future we may add more intelligent handling of accepting an object that
+  // first checks for `slug`, then `id` and then fallbacks to the currentStep itself (if it's not an object).
+  currentStep,
   // User provided array of completed steps
-  completedStepIds,
+  completedStepIds = [],
   ...rest
 }) => {
-  const currentStep = parseInt(propsCurrentStep, 10);
   const childrenWithProps = React.Children.map(children, (child, index) => {
-    const stepId = parseInt(child.props.stepId, 10);
+    const { stepId } = child.props;
     const isStepIdValid =
-      (typeof stepId === 'number' && typeof stepId === 'string') ||
-      stepId === null ||
-      stepId === undefined;
+      typeof stepId === 'number' || typeof stepId === 'string';
 
     if (!isStepIdValid)
-      throw new Error('Each child must have a `stepId` prop.');
+      throw new Error(
+        'The `stepId` prop is either missing or is not a number or a string.'
+      );
     if (!Array.isArray(completedStepIds))
       throw new Error(
         '`completedStepIds` must be an array of `stepId` values.'
