@@ -22,7 +22,7 @@ const CardToolbar = ({
   py,
   startIcon,
   title,
-  titleVariant,
+  titleVariant = 'h5',
   ...rest
 }) => (
   <StyledCardToolbar bg={bg || 'surface'} px={px || 2} py={py || 1} {...rest}>
@@ -35,7 +35,7 @@ const CardToolbar = ({
       />
     )}
 
-    <Text variant={titleVariant || 'h5'} m={0} p={0}>
+    <Text variant={titleVariant} m={0} p={0}>
       {title}
     </Text>
   </StyledCardToolbar>
