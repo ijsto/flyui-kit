@@ -19,12 +19,10 @@ const StyledText = styled(Box)`
     `}
 `;
 
-const Text = ({ children, inline, onClick, ...rest }) => (
+const Text = ({ center, children, inline, textCenter, ...rest }) => (
   <StyledText
-    tabIndex={onClick || rest.variant === 'link' ? 0 : null}
-    onClick={onClick}
     display={inline ? 'inline' : rest.display}
-    clickable={Boolean(onClick)}
+    alignText={textCenter || center ? 'center' : rest.alignText}
     {...rest}
   >
     {children}
