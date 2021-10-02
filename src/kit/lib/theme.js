@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { colors } from './colors';
 import {
   breakpointsPxArray,
@@ -90,28 +91,17 @@ export const spaceProps = {
   width: [16, 32, 64, 128, 256],
 };
 
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.body = fontProps.fontSizes[4];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.button = fontProps.fontSizes[4];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h1 = fontProps.fontSizes[9];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h2 = fontProps.fontSizes[8];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h3 = fontProps.fontSizes[7];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h4 = fontProps.fontSizes[5];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h5 = fontProps.fontSizes[4];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.h6 = fontProps.fontSizes[3];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.caption = fontProps.fontSizes[2];
-// eslint-disable-next-line prefer-destructuring
 fontProps.fontSizes.eyebrow = fontProps.fontSizes[3];
 
-// eslint-disable-next-line prefer-destructuring
 spaceProps.radii.max = spaceProps.radii[7];
 
 const inputProps = {
