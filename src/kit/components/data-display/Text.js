@@ -22,7 +22,7 @@ const StyledText = styled(Box)`
 const Text = ({ center, children, inline, textCenter, ...rest }) => (
   <StyledText
     display={inline ? 'inline' : rest.display}
-    textAlign={textCenter || center ? 'center' : rest.alignText}
+    textAlign={textCenter || center ? 'center' : rest.textAlign}
     {...rest}
   >
     {children}
