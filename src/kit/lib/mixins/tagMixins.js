@@ -5,15 +5,15 @@ import { css } from 'styled-components';
 export const getTagVariantBgColor = ({ theme, variant }) =>
   variant === 'error'
     ? css`
-        background: var(--colors-primary, ${theme.colors.primary});
+        background: var(--color-primary, ${theme.colors.primary});
       `
     : variant === 'primary'
     ? css`
-        background: var(--colors-primary, ${theme.colors.primary});
+        background: var(--color-primary, ${theme.colors.primary});
       `
     : variant === 'secondary'
     ? css`
-        background: var(--colors-secondary, ${theme.colors.secondary});
+        background: var(--color-secondary, ${theme.colors.secondary});
       `
     : variant === 'outline'
     ? css`
@@ -21,7 +21,7 @@ export const getTagVariantBgColor = ({ theme, variant }) =>
       `
     : // Default
       css`
-        background: var(--colors-primary, ${theme.colors.primary});
+        background: var(--color-primary, ${theme.colors.primary});
       `;
 
 export const getTagVariantTextColor = ({ theme, variant }) =>
@@ -48,7 +48,7 @@ export const getTagVariantTextColor = ({ theme, variant }) =>
       `
     : variant === 'outline'
     ? css`
-        color: var(--colors-text-on-outline, ${theme.colors.text || '#333644'});
+        color: var(--color-text-on-outline, ${theme.colors.text || '#333644'});
       `
     : css`
         color: var(
@@ -60,41 +60,41 @@ export const getTagVariantTextColor = ({ theme, variant }) =>
 export const getTagVariantSVGColor = ({ theme, variant }) =>
   variant === 'error'
     ? css`
-        fill: var(--colors-svg-on-error, ${theme.colors.textOnError});
+        fill: var(--color-svg-on-error, ${theme.colors.textOnError});
       `
     : variant === 'primary'
     ? css`
-        fill: var(--colors-svg-on-primary, ${theme.colors.textOnPrimary});
+        fill: var(--color-svg-on-primary, ${theme.colors.textOnPrimary});
       `
     : variant === 'secondary'
     ? css`
-        fill: var(--colors-svg-on-secondary, ${theme.colors.textOnSecondary});
+        fill: var(--color-svg-on-secondary, ${theme.colors.textOnSecondary});
       `
     : variant === 'outline'
     ? css`
-        fill: var(--colors-svg-on-outline, ${theme.colors.text});
+        fill: var(--color-svg-on-outline, ${theme.colors.text});
       `
     : // Default
       css`
-        fill: var(--colors-svg-on-primary, ${theme.colors.textOnPrimary});
+        fill: var(--color-svg-on-primary, ${theme.colors.textOnPrimary});
       `;
 
 // @TODO: Implement Hover styles
 // export const getTagVariantTextColorHover = ({ theme, variant }) =>
 //   variant === 'error'
 //     ? css`
-//         color: var(--colors-text-on-error, ${theme.colors.textOnError});
+//         color: var(--color-text-on-error, ${theme.colors.textOnError});
 //       `
 //     : variant === 'primary'
 //     ? css`
-//         color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+//         color: var(--color-text-on-primary, ${theme.colors.textOnPrimary});
 //       `
 //     : variant === 'secondary'
 //     ? css`
-//         color: var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
+//         color: var(--color-text-on-secondary, ${theme.colors.textOnSecondary});
 //       `
 //     : css`
-//         color: var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+//         color: var(--color-text-on-primary, ${theme.colors.textOnPrimary});
 //       `;
 
 export const primaryTagStyles = ({ isHoverable, theme }) => css`
@@ -109,16 +109,16 @@ export const primaryTagStyles = ({ isHoverable, theme }) => css`
   ${isHoverable &&
   css`
     &:hover {
-      background: var(--colors-primary-dark, ${theme.colors.primaryDark});
+      background: var(--color-primary-dark, ${theme.colors.primaryDark});
       svg {
-        fill: var(--colors-text-on-primary, ${theme.colors.textOnPrimaryDark});
+        fill: var(--color-text-on-primary, ${theme.colors.textOnPrimaryDark});
       }
     }
   `}
 
   &:focus {
     box-shadow: 0 0 0 2px white,
-      0 0 0 4px var(--colors-text-on-primary, ${theme.colors.textOnPrimary});
+      0 0 0 4px var(--color-text-on-primary, ${theme.colors.textOnPrimary});
     outline: none;
   }
 `;
@@ -142,7 +142,7 @@ export const secondaryTagStyles = ({ theme }) => css`
 
   &:focus {
     box-shadow: 0 0 0 2px white,
-      0 0 0 4px var(--colors-text-on-secondary, ${theme.colors.textOnSecondary});
+      0 0 0 4px var(--color-text-on-secondary, ${theme.colors.textOnSecondary});
     outline: none;
   }
 `;
@@ -150,7 +150,7 @@ export const secondaryTagStyles = ({ theme }) => css`
 export const outlineTagStyles = ({ theme }) => css`
   ${getTagVariantBgColor};
   ${getTagVariantTextColor};
-  border: 2px solid var(--colors-primary, ${theme.colors.primary});
+  border: 2px solid var(--color-primary, ${theme.colors.primary});
 
   svg {
     ${getTagVariantSVGColor};
@@ -158,10 +158,10 @@ export const outlineTagStyles = ({ theme }) => css`
 
   &:focus,
   &:hover {
-    background: var(--colors-primary, ${theme.colors.primaryDark});
+    background: var(--color-primary, ${theme.colors.primaryDark});
     color: white;
     svg {
-      fill: var(--colors-primary, ${theme.colors.textOnPrimary});
+      fill: var(--color-primary, ${theme.colors.textOnPrimary});
     }
   }
 `;

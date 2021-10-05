@@ -26,42 +26,42 @@ export const headingStyles = ({ theme }) => css`
 export const h1Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${`var(--fonts-size-h1, ${theme.fontSizes.h1 || 64}px)`};
+  font-size: ${`var(--font-size-h1, ${theme.fontSizes.h1 || 64}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
 `;
 export const h2Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${`var(--fonts-size-h2, ${theme.fontSizes.h2 || 40}px)`};
+  font-size: ${`var(--font-size-h2, ${theme.fontSizes.h2 || 40}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
 `;
 export const h3Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${`var(--fonts-size-h3, ${theme.fontSizes.h3 || 32}px)`};
+  font-size: ${`var(--font-size-h3, ${theme.fontSizes.h3 || 32}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
 `;
 export const h4Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${`var(--fonts-size-h4, ${theme.fontSizes.h4 || 24}px)`};
+  font-size: ${`var(--font-size-h4, ${theme.fontSizes.h4 || 24}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
 `;
 export const h5Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${`var(--fonts-size-h5, ${theme.fontSizes.h5 || 16}px)`};
+  font-size: ${`var(--font-size-h5, ${theme.fontSizes.h5 || 16}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
 `;
 export const h6Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
-  font-size: ${`var(--fonts-size-h6, ${theme.fontSizes.h6 || 12}px)`};
+  font-size: ${`var(--font-size-h6, ${theme.fontSizes.h6 || 12}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
   line-height: 1.25;
 `;
@@ -70,7 +70,7 @@ export const captionTextStyles = ({ theme }) => css`
   ${baseTextStyles};
   font-family: ${`var(--fonts-caption, ${theme.fonts.caption || 'inherit'})`};
   font-weight: 100;
-  font-size: ${`var(--fonts-size-caption, ${theme.fontSizes.caption || 14}px)`};
+  font-size: ${`var(--font-size-caption, ${theme.fontSizes.caption || 14}px)`};
   line-height: 1rem;
   letter-spacing: 0.1px;
 `;
@@ -82,7 +82,7 @@ export const eyebrowStyles = ({ theme }) => css`
   })`};
   font-weight: bold;
   text-transform: uppercase;
-  font-size: ${`var(--fonts-size-eyebrow, ${theme.fontSizes.eyebrow || 18}px)`};
+  font-size: ${`var(--font-size-eyebrow, ${theme.fontSizes.eyebrow || 18}px)`};
   letter-spacing: 0.1px;
 `;
 

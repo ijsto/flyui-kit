@@ -34,10 +34,10 @@ const StyledMotionBackdrop = styled(motion.div)`
 
 const StyledMotionModal = styled(motion.div)(
   ({ theme }) => css`
-    background: ${`var(--surface-color-background, ${
+    background: ${`var(--color-surface, ${
       theme.surface.background || 'white'
     })`};
-    border-radius: ${`var(--surface-radius, ${theme.radius.md || 8}px)`};
+    border-radius: ${`var(--radius-surface, ${theme.radius.md || 8}px)`};
     max-width: 50%;
     max-height: 80vh;
     min-height: 24px;

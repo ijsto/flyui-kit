@@ -16,10 +16,10 @@ import styled, { css } from 'styled-components';
 
 const StyledTippyContainer = styled(motion.div)(
   ({ theme }) => css`
-    background-color: ${`var(--popover-color-background, ${
+    background-color: ${`var(--color-popover, ${
       theme.popover?.background || 'white'
     })`};
-    border-radius: ${`var(--popover-radius, ${theme.radius.sm || 4}px)`};
+    border-radius: ${`var(--radius-popover, ${theme.radius.sm || 4}px)`};
     padding: 4px 8px;
     ${border};
     ${borderRadius};

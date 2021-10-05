@@ -61,32 +61,32 @@ export const inputShapeStyles = ({ shape, theme }) => {
   switch (shape) {
     case 'square': {
       return css`
-        border-radius: ${`var(--input-radius-square, ${theme.input.radius.square}px)`};
+        border-radius: ${`var(--radius-input-square, ${theme.input.radius.square}px)`};
       `;
     }
     case 'squared': {
       return css`
-        border-radius: ${`var(--input-radius-sm, ${theme.input.radius.sm}px)`};
+        border-radius: ${`var(--radius-input-squared, ${theme.input.radius.sm}px)`};
       `;
     }
     case 'regular': {
       return css`
-        border-radius: ${`var(--input-radius, ${theme.input.radius.md}px)`};
+        border-radius: ${`var(--radius-input, ${theme.input.radius.md}px)`};
       `;
     }
     case 'rounded': {
       return css`
-        border-radius: ${`var(--input-radius-lg, ${theme.input.radius.lg}px)`};
+        border-radius: ${`var(--radius-input-rounded, ${theme.input.radius.lg}px)`};
       `;
     }
     case 'round': {
       return css`
-        border-radius: ${`var(--input-radius-round, ${theme.input.radius.round}px)`};
+        border-radius: ${`var(--radius-input-round, ${theme.input.radius.round}px)`};
       `;
     }
     default: {
       return css`
-        border-radius: ${`var(--input-radius, ${theme.input.radius.md}px)`};
+        border-radius: ${`var(--radius-input, ${theme.input.radius.md}px)`};
       `;
     }
   }
@@ -101,19 +101,19 @@ const inputSizeStyles = ({ size, theme }) => {
   switch (size) {
     case 'sm':
       return css`
-        height: ${`var(--input-height-sm, ${
+        height: ${`var(--height-input-sm, ${
           theme.input?.heights?.sm || 24
         }px)`};
         padding: 2px 4px;
       `;
     case 'md':
       return css`
-        height: ${`var(--input-height, ${theme.input?.heights?.md || 32}px)`};
+        height: ${`var(--height-input, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px 6px;
       `;
     case 'lg':
       return css`
-        height: ${`var(--input-height-lg, ${
+        height: ${`var(--height-input-lg, ${
           theme.input?.heights?.lg || 42
         }px)`};
         padding: 4px 8px;
@@ -121,7 +121,7 @@ const inputSizeStyles = ({ size, theme }) => {
 
     default:
       return css`
-        height: ${`var(--input-height, ${theme.input?.heights?.md || 32}px)`};
+        height: ${`var(--height-input, ${theme.input?.heights?.md || 32}px)`};
         padding: 4px 6px;
       `;
   }

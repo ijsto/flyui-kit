@@ -10,7 +10,9 @@ const StyledSVGContainer = styled(Box)`
   display: inline-flex;
 
   svg {
-    fill: ${({ color, theme }) => theme.colors[color] || color};
+    fill: ${({ color, theme }) =>
+      // @TODO: Handle variants
+      color || `var(--color-svg-primary, ${theme.colors.svg})`};
     height: ${({ size }) => size};
     width: ${({ size }) => size};
   }

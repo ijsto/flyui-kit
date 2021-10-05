@@ -6,7 +6,7 @@ import Box from '../layout/Box';
 export const StyledCard = styled(Box)`
   border-radius: ${({ borderRadius, theme }) =>
     /* 1) if provided on card 2) [fallback] CSS Variable 3) [fallback]  */
-    borderRadius || `var(--card-radius, ${theme.surface.radius}px)`};
+    borderRadius || `var(--radius-surface, ${theme.surface.radius}px)`};
 `;
 
 const Card = ({ bg, children, toolbar, ...rest }) => (
