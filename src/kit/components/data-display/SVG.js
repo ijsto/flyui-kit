@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Box from '../layout/Box';
 import { renderIcon } from '../../utils/icons';
@@ -9,13 +9,17 @@ const StyledSVGContainer = styled(Box)`
   align-items: center;
   display: inline-flex;
 
-  svg {
-    fill: ${({ color, theme }) =>
-      // @TODO: Handle variants
-      color || `var(--color-svg-primary, ${theme.colors.svg})`};
-    height: ${({ size }) => size};
-    width: ${({ size }) => size};
-  }
+  ${({ unstyled }) =>
+    !unstyled &&
+    css`
+      svg {
+        fill: ${({ color, theme }) =>
+          // @TODO: Handle variants
+          color || `var(--color-svg-primary, ${theme.colors.svg})`};
+        height: ${({ size }) => size};
+        width: ${({ size }) => size};
+      }
+    `}
 `;
 
 const SVG = ({ icon, ...rest }) => {
