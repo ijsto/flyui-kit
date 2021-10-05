@@ -28,42 +28,54 @@ export const h1Styles = ({ theme }) => css`
   font-weight: 600;
   font-size: ${`var(--font-size-h1, ${theme.fontSizes.h1 || 64}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: 1.25;
+  line-height: calc(
+    ${`var(--font-size-h1, ${theme.fontSizes.h1 || 64}px)`} + 4px
+  );
 `;
 export const h2Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--font-size-h2, ${theme.fontSizes.h2 || 40}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: 1.25;
+  line-height: calc(
+    ${`var(--font-size-h2, ${theme.fontSizes.h2 || 40}px)`} + 4px
+  );
 `;
 export const h3Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--font-size-h3, ${theme.fontSizes.h3 || 32}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: 1.25;
+  line-height: calc(
+    ${`var(--font-size-h3, ${theme.fontSizes.h3 || 32}px)`} + 4px
+  );
 `;
 export const h4Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--font-size-h4, ${theme.fontSizes.h4 || 24}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: 1.25;
+  line-height: calc(
+    ${`var(--font-size-h4, ${theme.fontSizes.h4 || 24}px)`} + 4px
+  );
 `;
 export const h5Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--font-size-h5, ${theme.fontSizes.h5 || 16}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: 1.25;
+  line-height: calc(
+    ${`var(--font-size-h5, ${theme.fontSizes.h5 || 16}px)`} + 4px
+  );
 `;
 export const h6Styles = ({ theme }) => css`
   ${headingStyles};
   font-weight: 600;
   font-size: ${`var(--font-size-h6, ${theme.fontSizes.h6 || 12}px)`};
   letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: 1.25;
+  line-height: calc(
+    ${`var(--font-size-h6, ${theme.fontSizes.h6 || 12}px)`} + 4px
+  );
 `;
 
 export const captionTextStyles = ({ theme }) => css`
@@ -71,7 +83,9 @@ export const captionTextStyles = ({ theme }) => css`
   font-family: ${`var(--fonts-caption, ${theme.fonts.caption || 'inherit'})`};
   font-weight: 100;
   font-size: ${`var(--font-size-caption, ${theme.fontSizes.caption || 14}px)`};
-  line-height: 1rem;
+  line-height: calc(
+    ${`var(--font-size-caption, ${theme.fontSizes.caption || 14}px)`} + 4px
+  );
   letter-spacing: 0.1px;
 `;
 
