@@ -1,0 +1,99 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+import { colors } from '../../lib/colors';
+
+<Meta title="Concepts/Theme" />
+
+# Theme
+
+This document describes the available CSS variables and theme object format.
+
+## `theme {}`
+
+By default FlyUI ships with a Styled Components theme object.
+You can import it in your app by wrapping the parts (or the whole app) with `<FlyThemeProvider />`.
+
+### Format
+
+The theme object is organized based on the [Styled System specification](https://styled-system.com/theme-specification/).
+
+## CSS variables
+
+The CSS variables enable you to override the default theme.
+The CSS variable specification is organized in two major groups:
+1. Base values (for easy and quick overrides)
+2. Use-case specific values (for fine-grained customization).
+
+Base Values will override the core values and apply styles based on subjectively reasonable defaults.
+
+Examples:
+```css
+.scope {
+  /* Base */
+
+  --border-style: "solid";
+  --border-style-fancy: "dashed";
+  --border-color: "lightgrey";
+  --border-color-fancy: "#bd93f9";
+  --border-width: "2px";
+  --border-input-style: "solid";
+  --border-input-color: "lightgrey";
+  --border-input-width: "2px";
+
+  --color-background: "#f7f7f7";
+  --color-background-dark: "#F0F0F0";
+  --color-background-light: "#FBFBFB";
+  --color-error: "#F21368";
+  --color-input-background: "#fff";
+  --color-primary: "#B838F0";
+  --color-primary-hover: "#bd93f9";
+  --color-secondary: "#38B8F0";
+  --color-surface: "#f7f7f7";
+  --color-surface-dark: "#F0F0F0";
+  --color-surface-light: "#FBFBFB";
+  --color-svg-primary: "#B838F0";
+  --color-svg-secondary: "#38B8F0";
+  --color-svg-on-primary: "#fff";
+  --color-svg-on-error: "#fff";
+  --color-text: "#333644",
+  --color-text-on-error: "#fff",
+  /* ... */
+  
+  --font-size-body: "16px";
+  --font-size-h1: "64px";
+  --font-size-h2: "42px";
+  --font-size-eyebrow: "14px";
+  --font-size-button: "12px";
+  --font-size-button-sm: "12px";
+  /* ... */
+  --font-size-button-xl: "20px";
+  /* ... */
+  
+  --height-input-sm: "18px";
+  /* ... */
+  --height-input-xl: "24px";
+  /* ... */
+
+  --radius-input-square: "0";
+  --radius-input-squared: "4px";
+  --radius-input: "8px";
+  --radius-surface: "8px";
+  --radius-surface-lg: "16px";
+  --radius-surface-sm: "4px";
+  --radius-popover: "4px";
+  --radius-max: "99999rem";
+  /* ... */
+  
+  /* Use-case specific */
+  --color-error-hover: "#d264a3";
+  --color-svg-primary-hover: "#bd93f9";
+  /* ... */
+
+  --radius-button: "8px"; /* overrides `--radius-input-square` */
+  --radius-button-sqaure: "2px"; /* overrides `--radius-input-square` */
+  --radius-surface: "8px";
+  /* ... */
+}
+```
+
+### Colors:

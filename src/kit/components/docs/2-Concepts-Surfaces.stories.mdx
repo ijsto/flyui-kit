@@ -12,24 +12,11 @@ Surfaces are containers that are placed on top of the background or other canvas
 - Card
 - Modal
 
-
-## Surface CSS Variables
-
-Surface CSS variable prefix is `--surface-*`.
-To control surface props via CSS Variables, add the variable to your `:root` selector or within the scope of the component you are using FlyUI component.
-
-Below snippet will set the radius of the Surface Components to `16px`.
-```css
-  :root {
-    --surface-radius: 16px;
-}
-```
-
 ## Customizing
 
 The above example will change the surface property via CSS variables.
 
-If you prefer customizing via the `theme`, add `theme.surface.radius` (keep in mind the CSS variable (in this case `--surface-radius`) will always take precedence).
+If you prefer customizing via the `theme`, add `theme.surface.radius` (remember - CSS variable (in this case `--radius-surface`) will take precedence).
 
 You can further control the radius (or many others properties) by directly passing a prop to the component instance where you use it.
 
