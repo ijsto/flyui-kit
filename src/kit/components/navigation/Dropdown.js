@@ -1,8 +1,7 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 import styled from 'styled-components';
 
-// import Button from '../common/Button';
 import Box from '../layout/Box';
 
 const StyledDropdownContent = styled(Box)`
