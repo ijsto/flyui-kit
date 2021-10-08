@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 import styled from 'styled-components';
 
-import Button from '../data-entry/Button';
 import Box from '../layout/Box';
 
 const StyledDropdownContent = styled(Box)`
@@ -11,10 +10,9 @@ const StyledDropdownContent = styled(Box)`
   color: ${({ theme }) => theme?.colors.text};
   margin-top: 2.5rem;
   max-height: calc(90vh);
-  min-width: 280px;
+  min-width: ${({ minWidth }) => minWidth || '200px'};
   overflow-y: auto;
   position: absolute;
-  left: 0;
   z-index: 1;
 `;
 
@@ -22,7 +20,14 @@ const StyledDropdown = styled(Box)`
   position: relative;
 `;
 
-const Dropdown = ({ body, buttonSize, footer, label, onCancel, onSubmit }) => {
+const Dropdown = ({
+  children,
+  minWidth = '200px',
+  footer,
+  trigger,
+  onCancel,
+  onSubmit,
+}) => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -30,18 +35,39 @@ const Dropdown = ({ body, buttonSize, footer, label, onCancel, onSubmit }) => {
     setOpen(false);
   });
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleToggle = () => {
+    setOpen(!isOpen);
+  };
+
   const showFooter = onCancel || footer || onSubmit;
 
   return (
     <StyledDropdown isOpen={isOpen}>
-      <Button onClick={() => setOpen(!isOpen)} type="button" size={buttonSize}>
-        {label}
-      </Button>
+      {typeof trigger === 'function' &&
+        trigger({
+          onClose: handleClose,
+          onOpen: handleOpen,
+          onToggle: handleToggle,
+        })}
+
+      {typeof trigger !== 'function' && trigger}
 
       {isOpen && (
         <Box ref={ref}>
-          <StyledDropdownContent border={1} borderColor="fadedPrimary" top={0}>
-            {body}
+          <StyledDropdownContent
+            border={1}
+            borderColor="fadedPrimary"
+            minWidth={minWidth}
+            top={0}
+            right={0}
+          >
+            {children}
 
             {showFooter && (
               <Box
@@ -51,17 +77,17 @@ const Dropdown = ({ body, buttonSize, footer, label, onCancel, onSubmit }) => {
                 mt={2}
                 p={3}
               >
-                <Button
+                <button
                   onClick={() => setOpen(false)}
                   type="button"
                   size="tag"
                   variant="outline"
                 >
                   Close
-                </Button>
-                <Button onClick={() => setOpen(false)} type="button" size="tag">
+                </button>
+                <button onClick={() => setOpen(false)} type="button" size="tag">
                   Save
-                </Button>
+                </button>
               </Box>
             )}
           </StyledDropdownContent>
@@ -74,7 +100,7 @@ const Dropdown = ({ body, buttonSize, footer, label, onCancel, onSubmit }) => {
 Dropdown.defaultProps = {
   body: <></>,
   buttonSize: 'sm',
-  label: '',
+  trigger: '',
 };
 
 export default Dropdown;
