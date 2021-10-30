@@ -25,7 +25,12 @@ import Card from './components/surfaces/Card';
 import CardBody from './components/surfaces/CardBody';
 import CardToolbar from './components/surfaces/CardToolbar';
 
+import { focusRing } from './lib/mixins/focus-ring';
+
 export {
+  // Mixins
+  focusRing,
+  // Components
   Avatar,
   Badge,
   Box,
