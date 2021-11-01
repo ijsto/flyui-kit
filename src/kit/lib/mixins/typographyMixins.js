@@ -3,17 +3,73 @@ import { headingFontStack } from '../constants';
 
 import { primaryGradientText } from './gradientMixins';
 
-const headingSpacingFactor = 0.5;
+const fontSizeStyles = ({ fontSize }) => {
+  switch (fontSize) {
+    case 'xs':
+      return css`
+        font-size: var(--fly-fontSizes-xs, 0.75rem);
+      `;
+    case 'sm':
+      return css`
+        font-size: var(--fly-fontSizes-sm, 0.875rem);
+      `;
+    case 'md':
+      return css`
+        font-size: var(--fly-fontSizes-md, 1rem);
+      `;
+    case 'lg':
+      return css`
+        font-size: var(--fly-fontSizes-lg, 1.125rem);
+      `;
+    case 'xl':
+      return css`
+        font-size: var(--fly-fontSizes-xl, 1.25rem);
+      `;
+    case '2xl':
+      return css`
+        font-size: var(--fly-fontSizes-2xl, 1.5rem);
+      `;
+    case '3xl':
+      return css`
+        font-size: var(--fly-fontSizes-3xl, 1.8rem);
+      `;
+    case '4xl':
+      return css`
+        font-size: var(--fly-fontSizes-4xl, 2.25rem);
+      `;
+    case '5xl':
+      return css`
+        font-size: var(--fly-fontSizes-5xl, 3rem);
+      `;
+    case '6xl':
+      return css`
+        font-size: var(--fly-fontSizes-6xl, 3.5rem);
+      `;
+    case '7xl':
+      return css`
+        font-size: var(--fly-fontSizes-7xl, 4.5rem);
+      `;
+    case '8xl':
+      return css`
+        font-size: var(--fly-fontSizes-8xl, 6rem);
+      `;
+    case '9xl':
+      return css`
+        font-size: var(--fly-fontSizes-9xl, 8rem);
+      `;
 
-export const baseTextStyles = ({ gradient }) => {
-  if (gradient) {
-    return css`
-      /* @TODO: Add gradient variants */
-      ${primaryGradientText}
-    `;
+    default:
+      return css`
+        font-size: var(--fly-fontSizes-md, 1rem);
+      `;
   }
-  return css``;
 };
+
+export const baseTextStyles = ({ gradient }) => css`
+  //  @TODO: Add gradient variants;
+  ${gradient && primaryGradientText};
+  ${fontSizeStyles};
+`;
 
 export const headingStyles = ({ theme }) => css`
   ${baseTextStyles};
@@ -21,61 +77,6 @@ export const headingStyles = ({ theme }) => css`
   font-family: ${`var(--fonts-heading, ${
     theme.fonts.heading || headingFontStack
   })`};
-`;
-
-export const h1Styles = ({ theme }) => css`
-  ${headingStyles};
-  font-weight: 600;
-  font-size: ${`var(--font-size-h1, ${theme.fontSizes.h1 || 64}px)`};
-  letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: calc(
-    ${`var(--font-size-h1, ${theme.fontSizes.h1 || 64}px)`} + 4px
-  );
-`;
-export const h2Styles = ({ theme }) => css`
-  ${headingStyles};
-  font-weight: 600;
-  font-size: ${`var(--font-size-h2, ${theme.fontSizes.h2 || 40}px)`};
-  letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: calc(
-    ${`var(--font-size-h2, ${theme.fontSizes.h2 || 40}px)`} + 4px
-  );
-`;
-export const h3Styles = ({ theme }) => css`
-  ${headingStyles};
-  font-weight: 600;
-  font-size: ${`var(--font-size-h3, ${theme.fontSizes.h3 || 32}px)`};
-  letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: calc(
-    ${`var(--font-size-h3, ${theme.fontSizes.h3 || 32}px)`} + 4px
-  );
-`;
-export const h4Styles = ({ theme }) => css`
-  ${headingStyles};
-  font-weight: 600;
-  font-size: ${`var(--font-size-h4, ${theme.fontSizes.h4 || 24}px)`};
-  letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: calc(
-    ${`var(--font-size-h4, ${theme.fontSizes.h4 || 24}px)`} + 4px
-  );
-`;
-export const h5Styles = ({ theme }) => css`
-  ${headingStyles};
-  font-weight: 600;
-  font-size: ${`var(--font-size-h5, ${theme.fontSizes.h5 || 16}px)`};
-  letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: calc(
-    ${`var(--font-size-h5, ${theme.fontSizes.h5 || 16}px)`} + 4px
-  );
-`;
-export const h6Styles = ({ theme }) => css`
-  ${headingStyles};
-  font-weight: 600;
-  font-size: ${`var(--font-size-h6, ${theme.fontSizes.h6 || 12}px)`};
-  letter-spacing: ${`-${headingSpacingFactor * 1}px`};
-  line-height: calc(
-    ${`var(--font-size-h6, ${theme.fontSizes.h6 || 12}px)`} + 4px
-  );
 `;
 
 export const captionTextStyles = ({ theme }) => css`
@@ -110,17 +111,5 @@ export const textVariantStyles = ({ variant }) => css`
     ? captionTextStyles
     : variant === 'eyebrow'
     ? eyebrowStyles
-    : variant === 'h1'
-    ? h1Styles
-    : variant === 'h2'
-    ? h2Styles
-    : variant === 'h3'
-    ? h3Styles
-    : variant === 'h4'
-    ? h4Styles
-    : variant === 'h5'
-    ? h5Styles
-    : variant === 'h6'
-    ? h6Styles
     : defaultTextStyles}
 `;
