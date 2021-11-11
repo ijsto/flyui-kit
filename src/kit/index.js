@@ -17,6 +17,7 @@ import ButtonLink from './components/data-entry/ButtonLink';
 import Input from './components/data-entry/Input';
 
 import Box from './components/layout/Box';
+import Divider from './components/layout/Divider';
 import Stack from './components/layout/Stack';
 
 import Stepper, { Step } from './components/navigation/Stepper';
@@ -40,6 +41,7 @@ export {
   Card,
   CardToolbar,
   CardBody,
+  Divider,
   Dot,
   FlyGlobalStyle,
   FlyThemeProvider,
