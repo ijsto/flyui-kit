@@ -338,50 +338,59 @@ export const buttonShapeStyles = ({ shape, theme }) => {
  *
  */
 
-export const buttonSizeStyles = ({ size, theme }) => {
+export const buttonSizeStyles = ({
+  height = '48px',
+  padding,
+  p,
+  size,
+  theme,
+}) => {
+  const normalizedPadding = padding || p;
+
   switch (size) {
     case 'sm':
       return css`
         * {
           font-size: ${`var(--font-size-button-sm, ${theme.fontSizes.caption}px)`};
         }
-        height: ${`var(--height-button-sm, ${
-          theme.input?.heights?.sm || 24
-        }px)`};
-        padding: 2px;
+        height: ${height ||
+        `var(--height-button-sm, ${theme.input?.heights?.sm || 24}px)`};
+        padding: ${normalizedPadding ?? '2px'};
       `;
     case 'md':
       return css`
         * {
           font-size: ${`var(--font-size-button-md, ${theme.fontSizes.button}px)`};
         }
-        height: ${`var(--height-button, ${theme.input?.heights?.md || 32}px)`};
-        padding: 4px;
+        height: ${height ||
+        `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
+        padding: ${normalizedPadding ?? '4px'};
       `;
     case 'lg':
       return css`
         * {
           font-size: ${`var(--font-size-button-lg, ${theme.fontSizes.button}px)`};
         }
-        height: ${`var(--height-button-lg, ${
-          theme.input?.heights?.lg || 42
-        }px)`};
-        padding: 8px;
+        height: ${height ||
+        `var(--height-button-lg, ${theme.input?.heights?.lg || 42}px)`};
+        padding: ${normalizedPadding ?? '8px'};
       `;
     case 'xl':
       return css`
         * {
           font-size: ${`var(--font-size-button-xl, ${theme.fontSizes.h3}px)`};
         }
-        height: 48px;
-        padding: 12px;
+        height: ${height ||
+        `var(--height-button-xl, ${theme.input?.heights?.xl || 48}px)`};
+        padding: ${normalizedPadding ?? '12px'};
       `;
 
     default:
       return css`
         font-size: ${`var(--font-size-button, ${theme.fontSizes.button}px)`};
-        height: ${`var(--height-button, ${theme.input?.heights?.md || 32}px)`};
-        padding: 2px;
+        height: ${height ||
+        `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
+        padding: ${normalizedPadding ?? '2px'};
       `;
   }
 };

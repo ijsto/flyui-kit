@@ -59,20 +59,21 @@ const ButtonIcon = ({ icon, fill, size, variant, ...rest }) =>
 
 const ButtonChildrenContainer = ({
   children,
+  childrenPadding,
   endIcon,
   iconVariant,
-  iconsSize,
+  iconSize,
   labelDisplay,
   loading,
   loadingLabel,
   startIcon,
 }) => (
-  <StyledButtonChildrenContainer px={3} width="100%">
+  <StyledButtonChildrenContainer px={childrenPadding ?? 3} width="100%">
     {!loading && (
       <ButtonIcon
         variant={iconVariant}
         icon={startIcon}
-        size={iconsSize}
+        size={iconSize}
         // We have `mr` here to improve layout appearance when there's only icon and no label.
         mr={children && 1}
       />
@@ -81,7 +82,7 @@ const ButtonChildrenContainer = ({
     {loading ? (
       // We have `mr` here to improve layout appearance when there's only icon and no label.
       <Box display="flex" alignItems="center" mr={children && 1}>
-        <ButtonIcon icon={<LoadingIcon className="spin" />} size={iconsSize} />
+        <ButtonIcon icon={<LoadingIcon className="spin" />} size={iconSize} />
         {loadingLabel && <Text pl={2}>{loadingLabel}</Text>}
       </Box>
     ) : (
@@ -92,16 +93,17 @@ const ButtonChildrenContainer = ({
       )
     )}
 
-    {!loading && <ButtonIcon icon={endIcon} size={iconsSize} />}
+    {!loading && <ButtonIcon icon={endIcon} size={iconSize} />}
   </StyledButtonChildrenContainer>
 );
 
 const ButtonLink = ({
   block,
   children,
+  childrenPadding,
   endIcon,
   fill,
-  iconsSize,
+  iconSize,
   labelDisplay,
   loading,
   loadingLabel,
@@ -115,8 +117,9 @@ const ButtonLink = ({
     width={block ? '100%' : rest.width}
   >
     <ButtonChildrenContainer
+      childrenPadding={childrenPadding}
       endIcon={endIcon}
-      iconsSize={iconsSize}
+      iconSize={iconSize}
       fill={fill}
       labelDisplay={labelDisplay}
       loading={loading}

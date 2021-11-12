@@ -57,20 +57,21 @@ const ButtonIcon = ({ icon, fill, size, variant, ...rest }) =>
 
 const ButtonChildrenContainer = ({
   children,
+  childrenPadding,
   endIcon,
   iconVariant,
-  iconsSize,
+  iconSize,
   labelDisplay,
   loading,
   loadingLabel,
   startIcon,
 }) => (
-  <StyledButtonChildrenContainer px={3}>
+  <StyledButtonChildrenContainer px={childrenPadding ?? 3}>
     {!loading && (
       <ButtonIcon
         variant={iconVariant}
         icon={startIcon}
-        size={iconsSize}
+        size={iconSize}
         // We have `mr` here to improve layout appearance when there's only icon and no label.
         mr={children && 1}
       />
@@ -79,7 +80,7 @@ const ButtonChildrenContainer = ({
     {loading ? (
       // We have `mr` here to improve layout appearance when there's only icon and no label.
       <Box display="flex" alignItems="center" mr={children && 1}>
-        <ButtonIcon icon={<LoadingIcon className="spin" />} size={iconsSize} />
+        <ButtonIcon icon={<LoadingIcon className="spin" />} size={iconSize} />
         {loadingLabel && <Text pl={2}>{loadingLabel}</Text>}
       </Box>
     ) : (
@@ -90,7 +91,7 @@ const ButtonChildrenContainer = ({
       )
     )}
 
-    {!loading && <ButtonIcon icon={endIcon} size={iconsSize} />}
+    {!loading && <ButtonIcon icon={endIcon} size={iconSize} />}
   </StyledButtonChildrenContainer>
 );
 
@@ -99,8 +100,9 @@ const Button = forwardRef(
     {
       block,
       children,
+      childrenPadding,
       endIcon,
-      iconsSize,
+      iconSize,
       iconVariant,
       height,
       labelDisplay,
@@ -120,8 +122,9 @@ const Button = forwardRef(
       ref={ref}
     >
       <ButtonChildrenContainer
+        childrenPadding={childrenPadding}
         endIcon={endIcon}
-        iconsSize={iconsSize}
+        iconSize={iconSize}
         iconVariant={iconVariant}
         labelDisplay={labelDisplay}
         loading={loading}
@@ -136,8 +139,8 @@ const Button = forwardRef(
 
 Button.defaultProps = {
   endIcon: null,
+  iconSize: null,
   iconVariant: null,
-  iconsSize: '14px',
   // Control label display ("block", "none"), useful, for example, if want to hide on mobile: "".
   labelDisplay: null,
   loading: null,

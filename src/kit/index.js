@@ -14,6 +14,8 @@ import Popover from './components/feedback/Popover';
 
 import Button from './components/data-entry/Button';
 import ButtonLink from './components/data-entry/ButtonLink';
+import IconButton from './components/data-entry/IconButton';
+import IconButtonLink from './components/data-entry/IconButtonLink';
 import Input from './components/data-entry/Input';
 
 import Box from './components/layout/Box';
@@ -37,6 +39,8 @@ export {
   Box,
   Button,
   ButtonLink,
+  IconButton,
+  IconButtonLink,
   Cardinal,
   Card,
   CardToolbar,
