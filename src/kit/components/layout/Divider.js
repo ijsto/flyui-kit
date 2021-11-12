@@ -37,10 +37,10 @@ const Divider = ({ ...rest }) => (
 );
 
 Divider.defaultProps = {
-  color: 'var(--color-primary, #f02ff0)',
+  color: 'var(--color-divider, #f02ff0)',
   orientation: 'horizontal',
-  size: '1px',
-  variant: 'solid',
+  size: 'var(--divider-width, 1px)',
+  variant: 'var(--divider-style, solid)',
 };
 
 export default Divider;

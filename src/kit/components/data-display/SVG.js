@@ -3,23 +3,40 @@ import styled, { css } from 'styled-components';
 
 import Box from '../layout/Box';
 import { renderIcon } from '../../utils/icons';
-import { fontProps } from '../../lib/theme';
 
 const StyledSVGContainer = styled(Box)`
   align-items: center;
   display: inline-flex;
 
-  ${({ unstyled }) =>
-    !unstyled &&
-    css`
-      svg {
-        fill: ${({ color, theme }) =>
-          // @TODO: Handle variants
-          color || `var(--color-svg-primary, ${theme.colors.svg})`};
-        height: ${({ size }) => size};
-        width: ${({ size }) => size};
+  svg {
+    fill: ${({ color, theme }) =>
+      color || `var(--color-svg-primary, ${theme.colors.svg})`};
+    /* Sizes */
+    ${({ width, height, size, theme }) => {
+      if (size) {
+        return css`
+          height: ${size};
+          width: ${size};
+        `;
       }
-    `}
+      if (width) {
+        return css`
+          height: auto;
+          width: ${width};
+        `;
+      }
+      if (height) {
+        return css`
+          height: ${height};
+          width: auto;
+        `;
+      }
+      return css`
+        height: ${theme.fontSizes.body || 14}px;
+        width: ${theme.fontSizes.body || 14}px;
+      `;
+    }}
+  }
 `;
 
 const SVG = ({ icon, ...rest }) => {
@@ -28,7 +45,9 @@ const SVG = ({ icon, ...rest }) => {
 };
 
 SVG.defaultProps = {
-  size: `${fontProps.fontSizes.body || 14}px`,
+  height: null,
+  size: null,
+  width: null,
 };
 
 export default SVG;
