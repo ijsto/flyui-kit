@@ -20,7 +20,6 @@ export const inputErrorStyles = ({ theme }) => css`
 `;
 
 export const inputFocusStyles = ({ theme }) => css`
-  transition: box—shadow 0.2s ease !important;
   box-shadow: 0 0 0 2px ${theme.colors.background},
     0 0 0 4px ${theme.colors.text};
   outline: none;
