@@ -104,6 +104,7 @@ export const buttonTransitionStyles = ({ theme }) =>
 export const buttonBaseStyles = ({ typography, theme }) => css`
   ${layout};
   ${space};
+  appearance: none;
   box-sizing: border-box;
   cursor: pointer;
   font-weight: var(--button-text-weight, bold);
@@ -142,6 +143,10 @@ export const getButtonVariantBgColor = ({ theme, variant }) =>
     ? css`
         background: transparent;
       `
+    : variant === 'ghost'
+    ? css`
+        background: transparent;
+      `
     : // Default
       css`
         background: var(--color-primary, ${theme.colors.primary});
@@ -171,7 +176,11 @@ export const getButtonVariantTextColor = ({ theme, variant }) =>
       `
     : variant === 'outline'
     ? css`
-        color: var(--color-text-on-outline, ${theme.colors.text || '#333666'});
+        color: var(--color-text-on-outline, ${theme.colors.text || '#333644'});
+      `
+    : variant === 'ghost'
+    ? css`
+        color: var(--color-text-on-ghost, ${theme.colors.text || '#333644'});
       `
     : css`
         color: var(
@@ -201,7 +210,11 @@ export const getButtonVariantSVGColor = ({ theme, variant }) =>
       `
     : variant === 'outline'
     ? css`
-        fill: var(--color-svg-on-outline, ${theme.colors.text || '#333666'});
+        fill: var(--color-svg-on-outline, ${theme.colors.text || '#333644'});
+      `
+    : variant === 'ghost'
+    ? css`
+        fill: var(--color-svg-on-ghost, ${theme.colors.text || '#333644'});
       `
     : // Default
       css`
@@ -258,10 +271,38 @@ export const outlineButtonStyles = ({ noHover, theme }) => css`
   css`
     &:focus,
     &:hover {
-      background: var(--color-primary, ${theme.colors.primary});
-      color: white;
+      background: var(--color-outline-hover, ${
+        theme.colors.outlineHover || `rgba(0, 0, 0, 0.25)`
+      });
+     
+      color: fill: var(--color-text-on-outline-hover, #333644);
       svg {
-        fill: var(--color-primary, ${theme.colors.textOnPrimary});
+        fill: var(--color-svg-on-outline-hover, #333644);
+      }
+    }
+  `}
+`;
+export const ghostButtonStyles = ({ noHover, theme }) => css`
+  ${getButtonVariantBgColor};
+  ${getButtonVariantTextColor};
+  border: 0;
+
+  svg {
+    ${getButtonVariantSVGColor};
+  }
+
+  ${!noHover &&
+  css`
+    &:focus,
+    &:hover {
+      background: var(
+        --color-ghost-hover,
+        ${theme.colors.ghostHover || `rgba(184,56,240, 0.125)`}
+      );
+
+      color: var(--color-text-on-ghost-hover);
+      svg {
+        fill: var(--color-svg-on-ghost-hover);
       }
     }
   `}
@@ -277,6 +318,9 @@ export const buttonVariantStyles = ({ variant }) => {
     }
     case 'outline': {
       return outlineButtonStyles;
+    }
+    case 'ghost': {
+      return ghostButtonStyles;
     }
     default: {
       return primaryButtonStyles;
