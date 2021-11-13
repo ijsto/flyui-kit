@@ -75,12 +75,12 @@ Themed.args = {
 export const Inline = Template.bind({});
 Inline.argTypes = {
   children: { control: { disable: true } },
+  fontSize: { control: { type: 'text' } },
   gradient: { control: { disable: true } },
   inline: {
     control: { type: 'boolean' },
     defaultValue: true,
   },
-  variant: { control: { disable: true } },
 };
 
 Inline.decorators = [

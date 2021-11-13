@@ -8,10 +8,11 @@ import Box from '../layout/Box';
 
 const StyledText = styled(Box)`
   ${textVariantStyles};
+  //  We destructure fontSize to avoid conflicts, since we handle it on our end in textVariantStyles mixins;
+  ${({ fontSize, ...rest }) => typography(rest)};
   ${color};
   ${layout};
   ${space};
-  ${typography};
 
   ${({ transform, wrap }) =>
     css`
