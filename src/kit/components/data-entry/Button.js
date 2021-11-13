@@ -53,7 +53,6 @@ const ButtonIcon = ({ icon, fill, size, variant, ...rest }) =>
 
 const ButtonChildrenContainer = ({
   children,
-  childrenPadding,
   endIcon,
   iconVariant,
   iconSize,
@@ -62,7 +61,7 @@ const ButtonChildrenContainer = ({
   loadingLabel,
   startIcon,
 }) => (
-  <StyledButtonChildrenContainer px={childrenPadding ?? 3}>
+  <StyledButtonChildrenContainer>
     {!loading && (
       <ButtonIcon
         variant={iconVariant}

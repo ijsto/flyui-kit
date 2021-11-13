@@ -32,12 +32,12 @@ const IconButton = forwardRef(
         childrenPadding={0}
         height={size}
         iconSize={iconSize}
-        m={0}
         p={0}
         ref={ref}
         startIcon={startIcon || icon || children}
         type={rest.type || 'submit'}
         width={size}
+        {...rest}
       />
     );
   }

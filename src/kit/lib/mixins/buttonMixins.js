@@ -391,59 +391,58 @@ export const buttonSizeStyles = ({
   theme,
   width,
 }) => {
-  const normalizedPadding = padding || p;
+  let normalizedPadding;
+  let normalizedFontSize;
+  let normalizedHeight;
+  const normalizedWidth = width ?? 'auto';
 
   switch (size) {
     case 'sm':
-      return css`
-        * {
-          font-size: ${`var(--font-size-button-sm, ${theme.fontSizes.caption}px)`};
-        }
-        height: ${height ||
-        `var(--height-button-sm, ${theme.input?.heights?.sm || 24}px)`};
-        padding: ${normalizedPadding ?? '2px'};
-        width: ${width ?? 'auto'};
-      `;
+      normalizedFontSize = `var(--font-size-button-sm, ${theme.fontSizes.caption}px)`;
+      normalizedHeight =
+        height ||
+        `var(--height-button-sm, ${theme.input?.heights?.sm || 24}px)`;
+      normalizedPadding = (padding || p) ?? '4px';
+      break;
+
     case 'md':
-      return css`
-        * {
-          font-size: ${`var(--font-size-button-md, ${theme.fontSizes.button}px)`};
-        }
-        height: ${height ||
-        `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
-        padding: ${normalizedPadding ?? '4px'};
-        width: ${width ?? 'auto'};
-      `;
+      normalizedFontSize = `var(--font-size-button, ${theme.fontSizes.button}px)`;
+      normalizedHeight =
+        height || `var(--height-button, ${theme.input?.heights?.md || 32}px)`;
+      normalizedPadding = (padding || p) ?? '4px';
+      break;
+
     case 'lg':
-      return css`
-        * {
-          font-size: ${`var(--font-size-button-lg, ${theme.fontSizes.button}px)`};
-        }
-        height: ${height ||
-        `var(--height-button-lg, ${theme.input?.heights?.lg || 42}px)`};
-        padding: ${normalizedPadding ?? '8px'};
-        width: ${width ?? 'auto'};
-      `;
+      normalizedFontSize = `var(--font-size-button-lg, ${theme.fontSizes.button}px)`;
+      normalizedHeight =
+        height || `var(--height-button, ${theme.input?.heights?.lg || 42}px)`;
+      normalizedPadding = (padding || p) ?? '8px';
+      break;
+
     case 'xl':
-      return css`
-        * {
-          font-size: ${`var(--font-size-button-xl, ${theme.fontSizes.h3}px)`};
-        }
-        height: ${height ||
-        `var(--height-button-xl, ${theme.input?.heights?.xl || 48}px)`};
-        padding: ${normalizedPadding ?? '12px'};
-        width: ${width ?? 'auto'};
-      `;
+      normalizedFontSize = `var(--font-size-button-lg, ${theme.fontSizes.lg}px)`;
+      normalizedHeight =
+        height || `var(--height-button, ${theme.input?.heights?.xl || 48}px)`;
+      normalizedPadding = (padding || p) ?? '12px';
+      break;
 
     default:
-      return css`
-        font-size: ${`var(--font-size-button, ${theme.fontSizes.button}px)`};
-        height: ${height ||
-        `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
-        padding: ${normalizedPadding ?? '2px'};
-        width: ${width ?? 'auto'};
-      `;
+      normalizedFontSize = `var(--font-size-button, ${theme.fontSizes.button}px)`;
+      normalizedHeight =
+        height || `var(--height-button, ${theme.input?.heights?.md || 32}px)`;
+      normalizedPadding = (padding || p) ?? '4px';
+      break;
   }
+
+  return css`
+    * {
+      font-size: ${normalizedFontSize};
+    }
+    height: ${normalizedHeight};
+    min-height: ${normalizedHeight};
+    padding: ${normalizedPadding};
+    min-width: ${normalizedWidth};
+  `;
 };
 
 /**
