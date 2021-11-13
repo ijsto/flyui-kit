@@ -1,6 +1,8 @@
 import FlyGlobalStyle from './components/FlyGlobalStyle';
 import FlyThemeProvider from './components/FlyThemeProvider';
 
+import theme from './lib/theme';
+
 import Avatar from './components/data-display/Avatar';
 import Badge from './components/data-display/Badge';
 import Cardinal from './components/data-display/Cardinal';
@@ -31,6 +33,8 @@ import CardToolbar from './components/surfaces/CardToolbar';
 import { focusRing } from './lib/mixins/focus-ring';
 
 export {
+  // Lib
+  theme,
   // Mixins
   focusRing,
   // Components
