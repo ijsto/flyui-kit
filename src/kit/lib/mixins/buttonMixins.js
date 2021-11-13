@@ -339,7 +339,14 @@ export const buttonShapeStyles = ({ shape, theme }) => {
  *
  */
 
-export const buttonSizeStyles = ({ height, padding, p, size, theme }) => {
+export const buttonSizeStyles = ({
+  height,
+  padding,
+  p,
+  size,
+  theme,
+  width,
+}) => {
   const normalizedPadding = padding || p;
 
   switch (size) {
@@ -351,6 +358,7 @@ export const buttonSizeStyles = ({ height, padding, p, size, theme }) => {
         height: ${height ||
         `var(--height-button-sm, ${theme.input?.heights?.sm || 24}px)`};
         padding: ${normalizedPadding ?? '2px'};
+        width: ${width ?? '24px'};
       `;
     case 'md':
       return css`
@@ -360,6 +368,7 @@ export const buttonSizeStyles = ({ height, padding, p, size, theme }) => {
         height: ${height ||
         `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
         padding: ${normalizedPadding ?? '4px'};
+        width: ${width ?? '32px'};
       `;
     case 'lg':
       return css`
@@ -369,6 +378,7 @@ export const buttonSizeStyles = ({ height, padding, p, size, theme }) => {
         height: ${height ||
         `var(--height-button-lg, ${theme.input?.heights?.lg || 42}px)`};
         padding: ${normalizedPadding ?? '8px'};
+        width: ${width ?? '42px'};
       `;
     case 'xl':
       return css`
@@ -378,6 +388,7 @@ export const buttonSizeStyles = ({ height, padding, p, size, theme }) => {
         height: ${height ||
         `var(--height-button-xl, ${theme.input?.heights?.xl || 48}px)`};
         padding: ${normalizedPadding ?? '12px'};
+        width: ${width ?? '48px'};
       `;
 
     default:
@@ -386,6 +397,7 @@ export const buttonSizeStyles = ({ height, padding, p, size, theme }) => {
         height: ${height ||
         `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
         padding: ${normalizedPadding ?? '2px'};
+        width: ${width ?? '32px'};
       `;
   }
 };
