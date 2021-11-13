@@ -47,7 +47,7 @@ IconButton.defaultProps = {
   iconVariant: null,
   iconsSize: null,
   loading: null,
-  size: null,
+  size: '32px',
   startIcon: null,
 };
 
