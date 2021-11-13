@@ -24,7 +24,6 @@ export default {
     },
     size: {
       control: { type: 'text' },
-      defaultValue: '24px',
     },
     variant: {
       control: { type: 'inline-radio' },
