@@ -20,10 +20,19 @@ const StyledText = styled(Box)`
     `}
 `;
 
-const Text = ({ center, children, inline, textCenter, ...rest }) => (
+const Text = ({
+  center,
+  children,
+  inline,
+  textCenter,
+  fontSize,
+  size,
+  ...rest
+}) => (
   <StyledText
     display={inline ? 'inline' : rest.display}
     textAlign={textCenter || center ? 'center' : rest.align}
+    fontSize={fontSize || size}
     {...rest}
   >
     {children}
