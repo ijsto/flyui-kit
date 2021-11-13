@@ -101,6 +101,19 @@ fontProps.fontSizes.h5 = fontProps.fontSizes[4];
 fontProps.fontSizes.h6 = fontProps.fontSizes[3];
 fontProps.fontSizes.caption = fontProps.fontSizes[2];
 fontProps.fontSizes.eyebrow = fontProps.fontSizes[3];
+fontProps.fontSizes.xs = '0.75rem';
+fontProps.fontSizes.sm = '0.875rem';
+fontProps.fontSizes.md = '1rem';
+fontProps.fontSizes.lg = '1.125rem';
+fontProps.fontSizes.xl = '1.25rem';
+fontProps.fontSizes['2xl'] = '1.5rem';
+fontProps.fontSizes['3xl'] = '1.8rem';
+fontProps.fontSizes['4xl'] = '2.25rem';
+fontProps.fontSizes['5xl'] = '3rem';
+fontProps.fontSizes['6xl'] = '3.5rem';
+fontProps.fontSizes['7xl'] = '4.5rem';
+fontProps.fontSizes['8xl'] = '6rem';
+fontProps.fontSizes['9xl'] = '8rem';
 
 spaceProps.radii.max = spaceProps.radii[7];
 
