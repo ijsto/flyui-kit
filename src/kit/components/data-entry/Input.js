@@ -43,7 +43,7 @@ const InputWithIcon = ({ startIcon, size, ...rest }) => (
 
 const Input = ({ block, description, error, label, labelVariant, ...rest }) => (
   <Box
-    alignSelf={rest.alignSelf || 'flex-start'}
+    alignSelf={rest.alignSelf || (block ? 'stretch' : 'flex-start')}
     flex={block ? 1 : rest.flex}
     flexBasis={rest.flexBasis}
   >

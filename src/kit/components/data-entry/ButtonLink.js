@@ -108,12 +108,14 @@ const ButtonLink = ({
   loading,
   loadingLabel,
   startIcon,
+  size,
   tabIndex = 0,
   ...rest
 }) => (
   <StyledButtonLink
     {...rest}
     tabIndex={tabIndex}
+    size={size}
     width={block ? '100%' : rest.width}
   >
     <ButtonChildrenContainer

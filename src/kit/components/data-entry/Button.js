@@ -109,6 +109,7 @@ const Button = forwardRef(
       loading,
       loadingLabel,
       startIcon,
+      size,
       width,
       ...rest
     },
@@ -120,6 +121,7 @@ const Button = forwardRef(
       width={block ? '100%' : width}
       height={height}
       ref={ref}
+      size={size}
     >
       <ButtonChildrenContainer
         childrenPadding={childrenPadding}

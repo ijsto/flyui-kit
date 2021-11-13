@@ -4,14 +4,15 @@ import styled from 'styled-components';
 import Box from '../layout/Box';
 
 export const StyledCardBody = styled(Box)`
-  height: auto;
+  height: ${({ height }) => height};
 `;
 StyledCardBody.defaultProps = {
+  height: '100%',
   overflow: 'auto',
 };
 
-const CardBody = ({ bg, children, ...rest }) => (
-  <StyledCardBody bg={bg || 'surface'}>
+const CardBody = ({ bg, children, height, ...rest }) => (
+  <StyledCardBody bg={bg} height={height}>
     <Box {...rest}>{children}</Box>
   </StyledCardBody>
 );

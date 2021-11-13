@@ -13,9 +13,10 @@ const StyledText = styled(Box)`
   ${space};
   ${typography};
 
-  ${({ transform }) =>
+  ${({ transform, wrap }) =>
     css`
       text-transform: ${transform};
+      white-space: ${wrap};
     `}
 `;
 
@@ -28,5 +29,9 @@ const Text = ({ center, children, inline, textCenter, ...rest }) => (
     {children}
   </StyledText>
 );
+
+Text.defaultProps = {
+  wrap: 'normal',
+};
 
 export default Text;

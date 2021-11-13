@@ -247,7 +247,8 @@ export const secondaryButtonStyles = ({ theme }) => css`
 export const outlineButtonStyles = ({ noHover, theme }) => css`
   ${getButtonVariantBgColor};
   ${getButtonVariantTextColor};
-  border: 2px solid var(--color-primary, ${theme.colors.primary});
+  border: var(--border-button-width, 2px) solid
+    var(--color-primary, ${theme.colors.primary});
 
   svg {
     ${getButtonVariantSVGColor};
@@ -338,13 +339,7 @@ export const buttonShapeStyles = ({ shape, theme }) => {
  *
  */
 
-export const buttonSizeStyles = ({
-  height = '48px',
-  padding,
-  p,
-  size,
-  theme,
-}) => {
+export const buttonSizeStyles = ({ height, padding, p, size, theme }) => {
   const normalizedPadding = padding || p;
 
   switch (size) {
