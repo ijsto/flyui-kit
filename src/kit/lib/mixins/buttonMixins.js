@@ -358,7 +358,7 @@ export const buttonSizeStyles = ({
         height: ${height ||
         `var(--height-button-sm, ${theme.input?.heights?.sm || 24}px)`};
         padding: ${normalizedPadding ?? '2px'};
-        width: ${width ?? '24px'};
+        width: ${width ?? 'auto'};
       `;
     case 'md':
       return css`
@@ -368,7 +368,7 @@ export const buttonSizeStyles = ({
         height: ${height ||
         `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
         padding: ${normalizedPadding ?? '4px'};
-        width: ${width ?? '32px'};
+        width: ${width ?? 'auto'};
       `;
     case 'lg':
       return css`
@@ -378,7 +378,7 @@ export const buttonSizeStyles = ({
         height: ${height ||
         `var(--height-button-lg, ${theme.input?.heights?.lg || 42}px)`};
         padding: ${normalizedPadding ?? '8px'};
-        width: ${width ?? '42px'};
+        width: ${width ?? 'auto'};
       `;
     case 'xl':
       return css`
@@ -388,7 +388,7 @@ export const buttonSizeStyles = ({
         height: ${height ||
         `var(--height-button-xl, ${theme.input?.heights?.xl || 48}px)`};
         padding: ${normalizedPadding ?? '12px'};
-        width: ${width ?? '48px'};
+        width: ${width ?? 'auto'};
       `;
 
     default:
@@ -397,7 +397,7 @@ export const buttonSizeStyles = ({
         height: ${height ||
         `var(--height-button, ${theme.input?.heights?.md || 32}px)`};
         padding: ${normalizedPadding ?? '2px'};
-        width: ${width ?? '32px'};
+        width: ${width ?? 'auto'};
       `;
   }
 };
