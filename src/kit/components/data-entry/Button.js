@@ -21,10 +21,6 @@ const StyledButton = styled.button`
   ${buttonSizeStyles};
   ${buttonShapeStyles};
 
-  &:focus {
-    /* @TODO: */
-  }
-
   &:hover {
     ${buttonHoverEffectsStyles};
     ${buttonHoverColorStyles};

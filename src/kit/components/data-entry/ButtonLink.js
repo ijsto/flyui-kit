@@ -23,10 +23,6 @@ const StyledButtonLink = styled.a`
   ${buttonSizeStyles};
   ${buttonShapeStyles};
 
-  &:focus {
-    /* @TODO: */
-  }
-
   &:hover {
     ${buttonHoverEffectsStyles};
     ${buttonHoverColorStyles};
