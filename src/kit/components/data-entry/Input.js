@@ -41,13 +41,26 @@ const InputWithIcon = ({ startIcon, size, ...rest }) => (
   </StyledInputWithIcon>
 );
 
-const Input = ({ block, description, error, label, labelVariant, ...rest }) => (
+const Input = ({
+  block,
+  description,
+  error,
+  label,
+  labelVariant,
+  labelWrap,
+  ...rest
+}) => (
   <Box
     alignSelf={rest.alignSelf || (block ? 'stretch' : 'flex-start')}
     flex={block ? 1 : rest.flex}
     flexBasis={rest.flexBasis}
   >
-    <Text as="label" htmlFor={rest.name} variant={labelVariant || 'caption'}>
+    <Text
+      as="label"
+      htmlFor={rest.name}
+      variant={labelVariant || 'caption'}
+      wrap={labelWrap}
+    >
       {label}
       <InputWithIcon invalid={Boolean(error)} {...rest} />
     </Text>
