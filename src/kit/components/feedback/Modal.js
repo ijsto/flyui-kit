@@ -1,4 +1,5 @@
 import React from 'react';
+import FocusTrap from 'focus-trap-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled, { css } from 'styled-components';
 import {
@@ -12,6 +13,7 @@ import {
   position,
 } from 'styled-system';
 
+import IconButton from '../data-entry/IconButton';
 import Box from '../layout/Box';
 
 const StyledContainer = styled(Box)`
@@ -33,11 +35,12 @@ const StyledMotionBackdrop = styled(motion.div)`
 `;
 
 const StyledMotionModal = styled(motion.div)(
-  ({ theme }) => css`
+  ({ theme, radius }) => css`
     background: ${`var(--color-surface, ${
       theme.surface.background || 'white'
     })`};
-    border-radius: ${`var(--radius-surface, ${theme.radius.md || 8}px)`};
+    border-radius: ${radius ??
+    `var(--radius-surface, ${`${theme.radii[radius] || 8}`}px)`};
     max-width: 50%;
     max-height: 80vh;
     min-height: 24px;
@@ -64,34 +67,57 @@ const modal = {
   visible: { opacity: 1, transition: { delay: 0.125 }, y: 0.5 },
 };
 
-const Modal = ({ children, isOpen, onClose, ...rest }) => (
+const Modal = ({ children, isOpen, onClose, radius, ...rest }) => (
   <AnimatePresence exitBeforeEnter>
     {isOpen && (
       <StyledContainer>
-        <StyledMotionBackdrop
-          animate="visible"
-          transition={{ duration: 0.125 }}
-          exit="hidden"
-          initial="hidden"
-          onClick={onClose && (() => onClose())}
-          variants={backdrop}
-        />
+        <FocusTrap
+          active={isOpen}
+          focusTrapOptions={{
+            clickOutsideDeactivates: true,
+            returnFocusOnDeactivate: true,
+          }}
+        >
+          <div>
+            <StyledMotionBackdrop
+              animate="visible"
+              transition={{ duration: 0.125 }}
+              exit="hidden"
+              initial="hidden"
+              onClick={onClose && (() => onClose())}
+              variants={backdrop}
+              tabIndex={0}
+            />
 
-        <Box>
-          <StyledMotionModal
-            animate="visible"
-            transition={{ duration: 0.125 }}
-            exit="hidden"
-            initial="hidden"
-            variants={modal}
-            {...rest}
-          >
-            <>{children}</>
-          </StyledMotionModal>
-        </Box>
+            <Box position="absolute" top="0" right="0" p={3}>
+              <IconButton
+                icon="cancel"
+                onClick={onClose && (() => onClose())}
+                variant="ghost"
+              />
+            </Box>
+
+            <Box>
+              <StyledMotionModal
+                animate="visible"
+                transition={{ duration: 0.125 }}
+                exit="hidden"
+                initial="hidden"
+                radius={radius}
+                variants={modal}
+                {...rest}
+              >
+                <>{children}</>
+              </StyledMotionModal>
+            </Box>
+          </div>
+        </FocusTrap>
       </StyledContainer>
     )}
   </AnimatePresence>
 );
 
+Modal.defaultProps = {
+  radius: 'md',
+};
 export default Modal;
