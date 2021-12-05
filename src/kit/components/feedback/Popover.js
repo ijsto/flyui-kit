@@ -1,89 +1,66 @@
-import React from 'react';
-import Tippy from '@tippyjs/react/headless';
-import { useSpring, motion } from 'framer-motion';
-import {
-  border,
-  borderRadius,
-  color,
-  flexbox,
-  layout,
-  grid,
-  space,
-  position,
-} from 'styled-system';
+import React, { useState } from 'react';
+import FocusTrap from 'focus-trap-react';
+import { Popover as ReactTinyPopover } from 'react-tiny-popover';
+import Box from '../layout/Box';
 
-import styled, { css } from 'styled-components';
+const Popover = ({
+  Component,
+  children,
+  id,
+  isOpen: isOpenProp,
+  onClose,
+  onOpen,
+  positions,
+  trigger,
+  ...rest
+}) => {
+  const [isInternalOpen, setInternalOpen] = useState(false);
 
-const StyledTippyContainer = styled(motion.div)(
-  ({ theme }) => css`
-    background-color: ${`var(--color-popover, ${
-      theme.popover?.background || 'white'
-    })`};
-    border-radius: ${`var(--radius-popover, ${theme.radius.sm || 4}px)`};
-    padding: 4px 8px;
-    ${border};
-    ${borderRadius};
-    ${color};
-    ${flexbox};
-    ${grid};
-    ${space};
-    ${layout};
-    ${position};
-  `
-);
+  const isOpen = isOpenProp || isInternalOpen;
 
-const Popover = ({ children, placement, trigger, triggerOn, ...rest }) => {
-  const springConfig = { damping: 15, stiffness: 300 };
-  const initialScale = 0.5;
-  const opacity = useSpring(0, springConfig);
-  const scale = useSpring(initialScale, springConfig);
+  const popoverId = isOpen ? id : undefined;
 
-  const onMount = () => {
-    scale.set(1);
-    opacity.set(1);
+  const handleClose = () => {
+    if (onClose) return onClose();
+    return setInternalOpen(false);
   };
-
-  const onHide = ({ unmount }) => {
-    const cleanup = scale.onChange(value => {
-      if (value <= initialScale) {
-        cleanup();
-        unmount();
-      }
-    });
-
-    scale.set(initialScale);
-    opacity.set(0);
+  const handleOpen = () => {
+    if (onOpen) return onOpen();
+    return setInternalOpen(true);
   };
 
   return (
-    <Tippy
-      placement={placement}
-      trigger={triggerOn}
-      render={attrs => (
-        <StyledTippyContainer
-          style={{ opacity, scale }}
-          border={1}
-          {...attrs}
-          {...rest}
+    <ReactTinyPopover
+      isOpen={isOpen}
+      positions={positions} // preferred positions by priority
+      onClickOutside={handleClose} // handle click events outside of the popover/target here!
+      content={
+        // @TODO: Add ESC key handler to close the popover
+        <FocusTrap
+          active={isOpen}
+          focusTrapOptions={{
+            clickOutsideDeactivates: true,
+            returnFocusOnDeactivate: true,
+          }}
         >
-          {children}
-        </StyledTippyContainer>
-      )}
-      animation
-      onMount={onMount}
-      onHide={onHide}
+          <Box {...rest} id={popoverId}>
+            {children}
+          </Box>
+        </FocusTrap>
+      }
     >
-      {typeof trigger === 'string' ? (
-        <div style={{ display: 'inline-block' }}>{trigger}</div>
-      ) : (
-        trigger
-      )}
-    </Tippy>
+      <Component aria-describedby={popoverId} onClick={handleOpen}>
+        {trigger}
+      </Component>
+    </ReactTinyPopover>
   );
 };
 
 Popover.defaultProps = {
-  placement: 'top',
-  triggerOn: 'mouseenter focus',
+  Component: 'div',
+  id: 'fly-popover',
+  isOpen: false,
+  positions: ['bottom', 'top', 'left', 'right'],
 };
+
 export default Popover;
