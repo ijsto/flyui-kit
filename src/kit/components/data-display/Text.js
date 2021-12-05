@@ -8,8 +8,7 @@ import Box from '../layout/Box';
 
 const StyledText = styled(Box)`
   ${textVariantStyles};
-  //  We destructure fontSize to avoid conflicts, since we handle it on our end in textVariantStyles mixins;
-  ${({ fontSize, ...rest }) => typography(rest)};
+  ${typography};
   ${color};
   ${layout};
   ${space};
@@ -24,16 +23,22 @@ const StyledText = styled(Box)`
 const Text = ({
   center,
   children,
+  family,
   inline,
   textCenter,
+  fontFamily,
   fontSize,
+  fontWeight,
   size,
+  weight,
   ...rest
 }) => (
   <StyledText
     display={inline ? 'inline' : rest.display}
     textAlign={textCenter || center ? 'center' : rest.align}
+    fontFamily={fontFamily || family}
     fontSize={fontSize || size}
+    fontWeight={fontWeight || weight}
     {...rest}
   >
     {children}
