@@ -91,6 +91,28 @@ export const spaceProps = {
   width: [16, 32, 64, 128, 256],
 };
 
+spaceProps.space.xs = spaceProps.space[2];
+spaceProps.space.sm = spaceProps.space[3];
+spaceProps.space.md = spaceProps.space[4];
+spaceProps.space.lg = spaceProps.space[5];
+spaceProps.space.xl = spaceProps.space[6];
+spaceProps.space['2xl'] = spaceProps.space[7];
+spaceProps.space['3xl'] = spaceProps.space[8];
+
+spaceProps.radii.full = '99999rem';
+spaceProps.radii.round = '99999rem';
+spaceProps.radii.rounded = spaceProps.radii[4];
+spaceProps.radii.base = spaceProps.radii[3];
+spaceProps.radii.squared = spaceProps.radii[1];
+spaceProps.radii.square = spaceProps.radii[0];
+
+spaceProps.radii.sm = spaceProps.radii[1];
+spaceProps.radii.md = spaceProps.radii[3];
+spaceProps.radii.lg = spaceProps.radii[4];
+spaceProps.radii.xl = spaceProps.radii[5];
+spaceProps.radii['2xl'] = spaceProps.radii[6];
+spaceProps.radii['3xl'] = spaceProps.radii[7];
+
 fontProps.fontSizes.body = fontProps.fontSizes[4];
 fontProps.fontSizes.button = fontProps.fontSizes[4];
 fontProps.fontSizes.h1 = fontProps.fontSizes[9];
@@ -115,7 +137,25 @@ fontProps.fontSizes['7xl'] = '4.5rem';
 fontProps.fontSizes['8xl'] = '6rem';
 fontProps.fontSizes['9xl'] = '8rem';
 
-spaceProps.radii.max = spaceProps.radii[7];
+// Inspired by Chakra UI
+// eslint-disable-next-line no-unused-vars
+const zIndeces = {
+  /* eslint-disable sort-keys */
+  hide: -1,
+  auto: 'auto',
+  base: 0,
+  docked: 10,
+  dropdown: 1000,
+  sticky: 1100,
+  banner: 1200,
+  overlay: 1300,
+  modal: 1400,
+  popover: 1500,
+  skipLink: 1600,
+  toast: 1700,
+  tooltip: 1800,
+  /* eslint-enable sort-keys */
+};
 
 const inputProps = {
   input: {
@@ -132,17 +172,6 @@ const inputProps = {
   },
 };
 
-export const radiusProps = {
-  radius: {
-    circle: spaceProps.radii.max,
-    lg: spaceProps.radii[4],
-    max: spaceProps.radii.max,
-    md: spaceProps.radii[3],
-    sm: spaceProps.radii[1],
-    square: spaceProps.radii[0],
-  },
-};
-
 const surfaceProps = {
   surface: {
     background: colors.background,
@@ -155,7 +184,6 @@ const theme = {
   ...effectProps,
   ...fontProps,
   ...inputProps,
-  ...radiusProps,
   ...spaceProps,
   ...surfaceProps,
   colors,
