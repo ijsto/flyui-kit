@@ -112,11 +112,13 @@ const Button = forwardRef(
   ) => (
     <StyledButton
       {...rest}
-      type={rest.type || 'submit'}
-      width={block ? '100%' : width}
       height={height}
+      onClick={!loading ? rest.onClick : undefined}
+      onKeyDown={!loading ? rest.onKeyDown : undefined}
       ref={ref}
       size={size}
+      type={rest.type || 'submit'}
+      width={block ? '100%' : width}
     >
       <ButtonChildrenContainer
         childrenPadding={childrenPadding}
