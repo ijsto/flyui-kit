@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { hideScrollbar as hideScrollbarMixin } from '../../lib/mixins/overflow';
+import { getRadius } from '../../utils/sizing';
+
 import Box from '../layout/Box';
 
 export const StyledCard = styled(Box)`
-  border-radius: ${({ borderRadius, theme }) =>
-    /* 1) if provided on card 2) [fallback] CSS Variable 3) [fallback]  */
-    borderRadius || `var(--radius-surface, ${theme.surface.radius}px)`};
+  border-radius: ${({ radius, theme }) => getRadius({ radius, theme })};
+
+  ${({ hideScrollbar }) => hideScrollbar && hideScrollbarMixin};
 `;
 
 const Card = ({ bg, children, toolbar, ...rest }) => (
@@ -15,6 +18,8 @@ const Card = ({ bg, children, toolbar, ...rest }) => (
   </StyledCard>
 );
 
-Card.defaultProps = {};
+Card.defaultProps = {
+  radius: 'base',
+};
 
 export default Card;
