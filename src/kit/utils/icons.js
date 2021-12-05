@@ -16,6 +16,7 @@ import CircleNotchIcon from '../icons/circle-notch.svg';
 import RestoreIcon from '../icons/clock-rotate-left.svg';
 import EditIcon from '../icons/edit.svg';
 import EmailIcon from '../icons/envelope.svg';
+import EllipsisStrokeIcon from '../icons/ellipsis-stroke.svg';
 import EyeIcon from '../icons/eye.svg';
 import FacebookIcon from '../icons/facebook-f.svg';
 import GitHubIcon from '../icons/github.svg';
@@ -68,6 +69,8 @@ export const renderIcon = icon => {
       return <EmailIcon />;
     case 'external':
       return <ExternalIcon />;
+    case 'ellipsis-stroke':
+      return <EllipsisStrokeIcon />;
     case 'fb':
       return <FacebookIcon />;
     case 'facebook':
