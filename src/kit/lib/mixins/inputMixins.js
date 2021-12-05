@@ -165,7 +165,7 @@ export const inputContainerStyles = ({ invalid, disabled, theme }) => css`
 export const inputTextInputStyles = ({ theme }) => css`
   ${inputContainerStyles};
   font-family: ${theme.fonts.input};
-  font-size: ${theme.fontSizes.caption};
+  font-size: var(--fly-font-size-input, ${theme.fontSizes.caption || 14}px);
   line-height: 1.3;
   &:disabled {
     color: grey;
