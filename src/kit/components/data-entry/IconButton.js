@@ -32,9 +32,11 @@ const IconButton = forwardRef(
         childrenPadding={0}
         height={size}
         iconSize={iconSize}
+        loading={loading}
         p={0}
         ref={ref}
-        startIcon={startIcon || icon || children}
+        // @TODO: The loading needs to be improved
+        startIcon={loading ? 'loading' : startIcon || icon || children}
         type={rest.type || 'submit'}
         width={size}
         {...rest}
