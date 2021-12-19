@@ -21,10 +21,12 @@ const StyledText = styled(Box)`
 `;
 
 const Text = ({
+  align,
   center,
   children,
   family,
   inline,
+  textAlign,
   textCenter,
   fontFamily,
   fontSize,
@@ -35,7 +37,7 @@ const Text = ({
 }) => (
   <StyledText
     display={inline ? 'inline' : rest.display}
-    textAlign={textCenter || center ? 'center' : rest.align}
+    textAlign={textCenter || center ? 'center' : textAlign || align}
     fontFamily={fontFamily || family}
     fontSize={fontSize || size}
     fontWeight={fontWeight || weight}
