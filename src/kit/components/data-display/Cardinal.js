@@ -53,7 +53,7 @@ const Cardinal = ({
     fontWeight: headWeight,
     m: 0,
     p: 0,
-    pb: 1,
+    pb: orientation === 'vertical' ? 1 : 0,
     ...headStyles,
   };
   const bodyBaseProps = {
