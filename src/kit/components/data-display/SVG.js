@@ -6,6 +6,7 @@ import { renderIcon } from '../../utils/icons';
 
 const StyledSVGContainer = styled(Box)`
   align-items: center;
+  justify-content: center;
   display: inline-flex;
 
   svg {
