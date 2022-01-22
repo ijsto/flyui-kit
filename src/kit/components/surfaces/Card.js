@@ -12,8 +12,14 @@ export const StyledCard = styled(Box)`
   ${({ hideScrollbar }) => hideScrollbar && hideScrollbarMixin};
 `;
 
-const Card = ({ bg, children, toolbar, ...rest }) => (
-  <StyledCard overflow="hidden" bg={bg || 'surface'} {...rest}>
+const Card = ({ bg, children, ...rest }) => (
+  <StyledCard
+    display="flex"
+    flexDirection="column"
+    overflow="hidden"
+    bg={bg || 'surface'}
+    {...rest}
+  >
     {children}
   </StyledCard>
 );
