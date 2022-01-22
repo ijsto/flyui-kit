@@ -37,38 +37,75 @@ const InputWithIcon = ({ startIcon, size, ...rest }) => (
       <SVG icon={startIcon} />
     </StyledInputWithIcon>
 
-    <StyledInput size={size} icon={Boolean(startIcon)} {...rest} mt={1} />
+    <StyledInput size={size} icon={Boolean(startIcon)} {...rest} />
   </StyledInputWithIcon>
 );
 
 const Input = ({
+  alignItems,
   block,
   description,
   error,
+  inputStyles,
+  gap,
   label,
-  labelVariant,
+  labelFont,
+  labelSize = 'sm',
+  labelWeight = 'bold',
   labelWrap,
+  orientation,
   ...rest
-}) => (
-  <Box
-    alignSelf={rest.alignSelf || (block ? 'stretch' : 'flex-start')}
-    flex={block ? 1 : rest.flex}
-    flexBasis={rest.flexBasis}
-  >
-    <Text
-      as="label"
-      htmlFor={rest.name}
-      variant={labelVariant || 'caption'}
-      wrap={labelWrap}
-    >
-      {label}
-      <InputWithIcon invalid={Boolean(error)} {...rest} />
-    </Text>
+}) => {
+  const horizontalWrapperLayoutProps = {
+    alignItems: alignItems || 'center',
+    display: 'flex',
+    gap: gap || '12px',
+  };
 
-    {(error || description) && (
-      <InputFeedback error={error} description={description} />
-    )}
-  </Box>
-);
+  const horizontalInputLayoutProps = {
+    inputStyles,
+    width: '55px',
+  };
+  const verticalInputLayoutProps = {
+    mt: 1,
+  };
+
+  const inputWrapperLayoutProps =
+    orientation === 'horizontal' ? horizontalWrapperLayoutProps : {};
+
+  const inputLayoutInputProps =
+    orientation === 'horizontal'
+      ? horizontalInputLayoutProps
+      : verticalInputLayoutProps;
+
+  return (
+    <Box
+      alignSelf={rest.alignSelf || (block ? 'stretch' : 'flex-start')}
+      flex={block ? 1 : rest.flex}
+      flexBasis={rest.flexBasis}
+    >
+      <Text
+        as="label"
+        htmlFor={rest.name}
+        font={labelFont}
+        size={labelSize}
+        weight={labelWeight}
+        wrap={labelWrap}
+        {...inputWrapperLayoutProps}
+      >
+        {label}
+        <InputWithIcon
+          invalid={Boolean(error)}
+          {...inputLayoutInputProps}
+          {...rest}
+        />
+      </Text>
+
+      {(error || description) && (
+        <InputFeedback error={error} description={description} />
+      )}
+    </Box>
+  );
+};
 
 export default Input;
