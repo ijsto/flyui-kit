@@ -1,17 +1,18 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { color, space, typography, layout } from 'styled-system';
+import { color, flexbox, grid, space, typography, layout } from 'styled-system';
 
 import { textVariantStyles } from '../../lib/mixins/typographyMixins';
 
-import Box from '../layout/Box';
-
-const StyledText = styled(Box)`
+const StyledText = styled.div`
   ${textVariantStyles};
   ${typography};
+  ${flexbox};
   ${color};
+  ${grid};
   ${layout};
   ${space};
+  gap: ${({ gap }) => gap || '12px'};
 
   ${({ transform, wrap }) =>
     css`
