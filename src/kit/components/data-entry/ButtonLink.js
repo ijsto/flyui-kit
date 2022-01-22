@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SVG from '../data-display/SVG';
-import LoadingIcon from '../../icons/circle-notch.svg';
-import Box from '../layout/Box';
 import Text from '../data-display/Text';
+
+import LoadingIcon from '../../icons/circle-notch.svg';
+
+import Box from '../layout/Box';
 
 import {
   buttonBaseStyles,
