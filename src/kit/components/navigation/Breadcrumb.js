@@ -20,10 +20,11 @@ const StyledSeparator = styled.div`
   margin: 0 0.5rem;
 `;
 
-export const BreadcrumbItem = ({ children, isLastChild }) => (
+export const BreadcrumbItem = ({ children, isLastChild, separator }) => (
   <StyledBreadcrumbItem>
     {children}
-    {!isLastChild && <StyledSeparator>/</StyledSeparator>}
+
+    {!isLastChild && <StyledSeparator>{separator}</StyledSeparator>}
   </StyledBreadcrumbItem>
 );
 
