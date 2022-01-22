@@ -129,7 +129,14 @@ export const buttonBaseStyles = ({ typography, theme }) => css`
 export const getButtonVariantBgColor = ({ theme, variant }) =>
   variant === 'error'
     ? css`
-        background: var(--color-primary, ${theme.colors.primary});
+        background: var(
+          --color-error,
+          ${theme.colors.alert || theme.colors.error || 'red'}
+        );
+      `
+    : variant === 'inactive'
+    ? css`
+        background: var(--color-inactive, ${theme.colors.inactive});
       `
     : variant === 'primary'
     ? css`
@@ -158,6 +165,13 @@ export const getButtonVariantTextColor = ({ theme, variant }) =>
         color: var(
           --color-text-on-error,
           ${theme.colors.textOnError || '#FFF'}
+        );
+      `
+    : variant === 'inactive'
+    ? css`
+        color: var(
+          --color-text-on-inactive,
+          ${theme.colors.textOnInactive || '#44475a'}
         );
       `
     : variant === 'primary'
@@ -362,7 +376,7 @@ export const buttonShapeStyles = ({ shape, theme }) => {
     }
     case 'round': {
       return css`
-        border-radius: ${`var(--radius-button-round, ${theme.input.radius.round}px)`};
+        border-radius: ${`var(--radius-button-round, ${theme.radii.full})`};
       `;
     }
     default: {
@@ -398,7 +412,9 @@ export const buttonSizeStyles = ({
 
   switch (size) {
     case 'sm':
-      normalizedFontSize = `var(--font-size-button-sm, ${theme.fontSizes.caption}px)`;
+      normalizedFontSize = `var(--font-size-button-sm, ${
+        theme.fontSizes.caption || 14
+      }px)`;
       normalizedHeight =
         height ||
         `var(--height-button-sm, ${theme.input?.heights?.sm || 24}px)`;
@@ -406,28 +422,36 @@ export const buttonSizeStyles = ({
       break;
 
     case 'md':
-      normalizedFontSize = `var(--font-size-button, ${theme.fontSizes.button}px)`;
+      normalizedFontSize = `var(--font-size-button, ${
+        theme.fontSizes.button || 16
+      }px)`;
       normalizedHeight =
         height || `var(--height-button, ${theme.input?.heights?.md || 32}px)`;
       normalizedPadding = (padding || p) ?? '4px';
       break;
 
     case 'lg':
-      normalizedFontSize = `var(--font-size-button-lg, ${theme.fontSizes.button}px)`;
+      normalizedFontSize = `var(--font-size-button-lg, ${
+        theme.fontSizes.button || 16
+      }px)`;
       normalizedHeight =
         height || `var(--height-button, ${theme.input?.heights?.lg || 42}px)`;
       normalizedPadding = (padding || p) ?? '8px';
       break;
 
     case 'xl':
-      normalizedFontSize = `var(--font-size-button-lg, ${theme.fontSizes.lg}px)`;
+      normalizedFontSize = `var(--font-size-button-lg, ${
+        theme.fontSizes.lg || 16
+      }px)`;
       normalizedHeight =
         height || `var(--height-button, ${theme.input?.heights?.xl || 48}px)`;
       normalizedPadding = (padding || p) ?? '12px';
       break;
 
     default:
-      normalizedFontSize = `var(--font-size-button, ${theme.fontSizes.button}px)`;
+      normalizedFontSize = `var(--font-size-button, ${
+        theme.fontSizes.button || 16
+      }px)`;
       normalizedHeight =
         height || `var(--height-button, ${theme.input?.heights?.md || 32}px)`;
       normalizedPadding = (padding || p) ?? '4px';
