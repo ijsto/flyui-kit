@@ -10,20 +10,28 @@ import SVG from './components/data-display/SVG';
 import Text from './components/data-display/Text';
 import Tag from './components/data-display/Tag';
 
+import Alert from './components/feedback/Alert';
+import Dialog from './components/feedback/Dialog';
 import Dot from './components/feedback/Dot';
 import Modal from './components/feedback/Modal';
 import Popover from './components/feedback/Popover';
 
 import Button from './components/data-entry/Button';
 import ButtonLink from './components/data-entry/ButtonLink';
+import DatePicker from './components/data-entry/DatePicker';
+import DateRangePicker from './components/data-entry/DateRangePicker';
 import IconButton from './components/data-entry/IconButton';
 import IconButtonLink from './components/data-entry/IconButtonLink';
 import Input from './components/data-entry/Input';
+import { TextareaAutosize } from './components/data-entry/TextareaAutosize';
+// Data Entry Mixins
+import { calendarStyles } from './components/data-entry/mixins/calendar';
 
 import Box from './components/layout/Box';
 import Divider from './components/layout/Divider';
 import Stack from './components/layout/Stack';
 
+import Breadcrumb, { BreadcrumbItem } from './components/navigation/Breadcrumb';
 import Stepper, { Step } from './components/navigation/Stepper';
 
 import Card from './components/surfaces/Card';
@@ -49,7 +57,16 @@ export {
   Card,
   CardToolbar,
   CardBody,
+  // Data Entry
+  DatePicker,
+  DateRangePicker,
+  TextareaAutosize,
+  // Data Entry Mixins
+  calendarStyles,
   Divider,
+  // Feedback
+  Alert,
+  Dialog,
   Dot,
   FlyGlobalStyle,
   FlyThemeProvider,
@@ -58,6 +75,9 @@ export {
   Popover,
   SVG,
   Stack,
+  // Navigation
+  Breadcrumb,
+  BreadcrumbItem,
   Stepper,
   Step,
   Tag,
