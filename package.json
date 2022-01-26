@@ -1,6 +1,6 @@
 {
   "name": "flyui-kit",
-  "version": "0.0.9997",
+  "version": "0.0.9998",
   "private": false,
   "author": {
     "name": "Scott Agirs Neminskis",
@@ -31,6 +31,8 @@
     "focus-trap-react": "^8.8.2",
     "framer-motion": "^4.1.17",
     "react-dates": "^21.8.0",
+    "react-number-format": "^4.9.1",
+    "react-select": "^5.2.2",
     "react-textarea-autosize": "^8.3.3",
     "react-tiny-popover": "^7.0.1",
     "react-use": "^17.3.1",

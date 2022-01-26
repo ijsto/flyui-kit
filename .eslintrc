@@ -13,4 +13,16 @@
       }
     }
   ]
+  // ,
+  // "settings": {
+  //   "import/resolver": {
+  //     "alias": {
+  //       "map": [["@", "./src/kit"]],
+  //       "extensions": [".js", ".jsx", ".ts",".tsx", ".json"]
+  //     },
+  //     "node": {
+  //       "extensions": [".js", ".jsx", ".ts", ".tsx"]
+  //     }
+  //   }
+  // }
 }

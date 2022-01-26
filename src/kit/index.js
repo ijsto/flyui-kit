@@ -23,6 +23,8 @@ import DateRangePicker from './components/data-entry/DateRangePicker';
 import IconButton from './components/data-entry/IconButton';
 import IconButtonLink from './components/data-entry/IconButtonLink';
 import Input from './components/data-entry/Input';
+import { InputDate } from './components/data-entry/InputDate';
+import { InputPhoneNumber } from './components/data-entry/InputPhoneNumber';
 import { TextareaAutosize } from './components/data-entry/TextareaAutosize';
 // Data Entry Mixins
 import { calendarStyles } from './components/data-entry/mixins/calendar';
@@ -30,6 +32,7 @@ import { calendarStyles } from './components/data-entry/mixins/calendar';
 import Box from './components/layout/Box';
 import Divider from './components/layout/Divider';
 import Stack from './components/layout/Stack';
+import { ScrollbarControlBox } from './components/layout/ScrollbarControlBox';
 
 import Breadcrumb, { BreadcrumbItem } from './components/navigation/Breadcrumb';
 import Stepper, { Step } from './components/navigation/Stepper';
@@ -71,6 +74,8 @@ export {
   FlyGlobalStyle,
   FlyThemeProvider,
   Input,
+  InputDate,
+  InputPhoneNumber,
   Modal,
   Popover,
   SVG,
@@ -78,6 +83,7 @@ export {
   // Navigation
   Breadcrumb,
   BreadcrumbItem,
+  ScrollbarControlBox,
   Stepper,
   Step,
   Tag,

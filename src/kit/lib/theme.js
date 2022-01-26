@@ -1,4 +1,5 @@
 /* eslint-disable prefer-destructuring */
+import React, { ReactNode, createContext, useContext } from 'react';
 import { colors } from './colors';
 import {
   breakpointsPxArray,
@@ -191,3 +192,19 @@ const theme = {
 };
 
 export default theme;
+
+// The below theme was added when we started using the keystone-ui parts. - TODO: Review
+export const ThemeContext = createContext({
+  theme,
+});
+
+export const ThemeProvider = ({ theme: providedTheme, children }) => (
+  <ThemeContext.Provider value={{ theme: providedTheme }}>
+    {children}
+  </ThemeContext.Provider>
+);
+
+export const useTheme = () => {
+  const { theme: themeFromContext } = useContext(ThemeContext);
+  return themeFromContext;
+};

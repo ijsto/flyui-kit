@@ -3,13 +3,7 @@ import React from 'react';
 import Text from '../data-display/Text';
 
 const InputFeedback = ({ description, error, required, ...props }) => (
-  <Text
-    color={error && 'error'}
-    pt={1}
-    variant="caption"
-    {...props}
-    error={error}
-  >
+  <Text color={error && 'error'} pt={1} size="sm" {...props} error={error}>
     {error || description || (required && 'required')}
   </Text>
 );

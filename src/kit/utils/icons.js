@@ -54,6 +54,7 @@ import TwitterIcon from '../icons/twitter.svg';
 import VideoCameraIcon from '../icons/video.svg';
 import VideoCameraOffIcon from '../icons/video-slash.svg';
 import UnderlineIcon from '../icons/underline.svg';
+import UnLinkIcon from '../icons/link-slash.svg';
 import UnorderedListIcon from '../icons/list-ul.svg';
 import UserIcon from '../icons/user.svg';
 import YoutubeIcon from '../icons/youtube.svg';
@@ -178,6 +179,8 @@ export const renderIcon = icon => {
       return <TwitterIcon />;
     case 'underline':
       return <UnderlineIcon />;
+    case 'unlink':
+      return <UnLinkIcon />;
     case 'up':
       return <ChevronUpIcon />;
     case 'user':

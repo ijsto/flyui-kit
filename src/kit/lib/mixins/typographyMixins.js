@@ -96,6 +96,58 @@ const fontSizeStyles = ({ fontSize, theme }) => {
         );
       `;
 
+    // # Variants
+
+    // ## Headings
+    case 'h1':
+      return css`
+        font-size: var(
+          --fly-fontSizes-h1,
+          ${theme.fontSizes[fontSize || 'h1'] || '2.5rem'}
+        );
+        line-height: var(--fly-lineHeights-h1, 1.25);
+      `;
+    case 'h2':
+      return css`
+        font-size: var(
+          --fly-fontSizes-h2,
+          ${theme.fontSizes[fontSize || 'h2'] || '2rem'}
+        );
+        line-height: var(--fly-lineHeights-h2, 1.25);
+      `;
+    case 'h3':
+      return css`
+        font-size: var(
+          --fly-fontSizes-h3,
+          ${theme.fontSizes[fontSize || 'h3'] || '1.5rem'}
+        );
+        line-height: var(--fly-lineHeights-h3, 1.25);
+      `;
+    case 'h4':
+      return css`
+        font-size: var(
+          --fly-fontSizes-h4,
+          ${theme.fontSizes[fontSize || 'h4'] || '1.25rem'}
+        );
+        line-height: var(--fly-lineHeights-h4, 1.25);
+      `;
+    case 'h5':
+      return css`
+        font-size: var(
+          --fly-fontSizes-h5,
+          ${theme.fontSizes[fontSize || 'h5'] || '1rem'}
+        );
+        line-height: var(--fly-lineHeights-h5, 1.25);
+      `;
+    case 'h6':
+      return css`
+        font-size: var(
+          --fly-fontSizes-h6,
+          ${theme.fontSizes[fontSize || 'h6'] || '0.875rem'}
+        );
+        line-height: var(--fly-lineHeights-h6, 1.25);
+      `;
+
     default:
       return css`
         font-size: var(
